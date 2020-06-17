@@ -1,0 +1,13 @@
+
+{% for action in site.data.actions %}
+    {% if action.category == include.category %}
+        <div class="action">
+            <h4>{{ action.name }}</h4>
+            <div>
+<pre>{{action.usage|xml_escape}}</pre>
+{{action.description|markdownify}}
+{{action.help|markdownify}}
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}

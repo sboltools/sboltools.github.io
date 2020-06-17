@@ -1,0 +1,85 @@
+[
+  {
+    "name": "components",
+    "category": "other",
+    "usage": "components\n",
+    "options": []
+  },
+  {
+    "name": "convert",
+    "category": "local-conversion",
+    "usage": "convert\n    --target <sbol-version>\n",
+    "options": [
+      {
+        "name": "target",
+        "type": "OptSBOLVersion"
+      }
+    ]
+  },
+  {
+    "name": "create-component",
+    "description": "Creates a component",
+    "category": "object-cd",
+    "usage": "create-component\n    [--within-component <identity>]\n         <identity>\n",
+    "options": [
+      {
+        "name": "",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "within-component",
+        "type": "OptIdentity",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "create-sequence",
+    "description": "Creates a sequence",
+    "category": "object-cd",
+    "help": "\nIf the sequence identity is not specified, a default identity will be created from the component identity with `_seq` appended to its displayId.\n\nIf the encoding is not specified, it will be inferred from the component in the case that `--for-component` is specified (e.g. a DNA component will result in a nucleic acid sequence being created).\n\nIf such inference is not possible (e.g. no component is specified, or the specified component is of a type other than DNA, RNA, or Protein), an error will be thrown.\n",
+    "usage": "create-sequence\n    --for-component <identity>\n         <identity>\n            --source <url>\n                --encoding <string>\n",
+    "options": [
+      {
+        "name": "",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "for-component",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "source",
+        "type": "OptURL"
+      },
+      {
+        "name": "encoding",
+        "type": "OptString"
+      }
+    ]
+  },
+  {
+    "name": "synbiocad-render",
+    "category": "other",
+    "usage": "synbiocad-render\n",
+    "options": []
+  },
+  {
+    "name": "vc-convert",
+    "category": "vc",
+    "usage": "vc-convert\n",
+    "options": []
+  },
+  {
+    "name": "vc-diff",
+    "category": "vc",
+    "usage": "vc-diff\n",
+    "options": []
+  },
+  {
+    "name": "vc-validate",
+    "category": "vc",
+    "usage": "vc-validate\n",
+    "options": []
+  }
+]

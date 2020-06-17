@@ -1,0 +1,323 @@
+---
+layout: default
+title: "Happy Jekylling!"
+---
+<div class="sec-container">
+
+
+    <div class="docs">
+    <p>sboltools allows the manipulation of files describing biological systems using
+    the Synthetic Biology Open Language (SBOL) and other related standards such as
+    FASTA and GenBank.</p>
+
+
+    <div class="toc">
+        <ul>
+            <li><a href="#installation">1. Installation</a>
+            </li>
+            <li><a href="#usage">2. Usage</a>
+                <ul>
+                    <li><a href="#conversion">2.1. Conversion</a>
+                        <ul>
+                            <li> <a>2.1.1. Non-SBOL input conversion</a> </li>
+                            <li> <a>2.1.2. SBOL-SBOL conversion with actions</a> </li>
+                            <li> <a>2.1.3. Output conversion</a> </li>
+                        </ul>
+                    </li>
+                    <li><a href="#identities">2.2. Identities</a>
+                    </li>
+                    <li><a href="#sbolversions">2.3. SBOL Versions</a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#actions">3. Actions</a>
+                <ul>
+                    <li><a>3.1. Local SBOL-SBOL conversion</a>
+                        {% include docs-action-toc-section.html category="local-conversion" %}
+                    </li>
+                    <li><a>3.2. Online converter/validator</a>
+                        {% include docs-action-toc-section.html category="vc" %}
+                    </li>
+                    <li><a>3.3. Object creation and deletion</a>
+                        {% include docs-action-toc-section.html category="object-cd" %}
+                    </li>
+                    <li><a>3.4. Relationship creation and deletion</a>
+                        {% include docs-action-toc-section.html category="rel-cd" %}
+                    </li>
+                    <li><a>3.5. Sequence annotation</a>
+                        {% include docs-action-toc-section.html category="seq-anno" %}
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+
+    <h1 id="installation">1. Installation</h1>
+
+
+    <h2>1.1. Mac, Linux</h2>
+
+    <p>sboltools requires node.js to be pre-installed on Unix(-like) systems such as macOS and Linux.  If you have installed or used node.js before, you can check the available version using:</p>
+
+    <pre>node --version</pre>
+
+    <p>sboltools has been tested with node version 12, and so should work with version 12 or above.  If such a version of node is not installed, it is recommended to obtain node.js via your package manager, or on Mac to install the latest LTS edition for your system from <a href="https://nodejs.org/en/">nodejs.org</a>.</p>
+
+    <p>After node.js is installed, simply download sboltools and add the sbol script to an appropriate location.  A two-liner:</p>
+
+<pre>
+curl -L https://github.com/sboltools/sboltools/releases/latest/download/sboltools-unix.zip | tar xz
+sudo cp -f sbol /usr/local/bin/
+</pre>
+
+    <p>Or, manually: download <code>sboltools-unix.zip</code> from the <a href="https://github.com/sboltools/sboltools/releases">Releases</a> page.  Unzip and copy the <code>sbol</code> file to <code>/usr/local/bin</code> or another directory on your <code>PATH</code>.</p>
+
+    <p>You can also omit the second step and run the <code>sbol</code> script <i>in situ</i> by specifying the path with each command.
+
+<h2>1.2. Windows</h2>
+
+    <p>Download <code>sboltools-win32-x86.zip</code> or  <code>sboltools-win32-x64.zip</code> from the <a href="https://github.com/sboltools/sboltools/releases">Releases</a> page, and extract to a convenient location.</p>
+
+    <p>In order to use the <code>sbol</code> command from the command line, it is necessary to add the location to which sboltools was extracted to the system <code>PATH</code>.  See <a href="https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/">this article</a> for instructions on Windows 10.</p>
+
+
+    <h1 id="usage">2. Usage</h1>
+
+
+    sboltools provides the <code>sbol(1)</code> command, which is invoked as follows:
+
+<pre>
+sbol [--input &lt;format&gt;] [--output &lt;format&gt;]
+        [--nonsbol-conversion-target &lt;format&gt;]
+            [url|filename] [url2|filename2] ...
+                [action1] [action1args]
+                [action2] [action2args]
+                ...
+</pre>
+    
+    <p>The most simple use case is to specify a filename or URL without any actions,
+    in which case a summary of the resource (a list of its components, etc.) will
+    be displayed.  For example:</p>
+
+<pre>
+sbol toggleswitch.xml
+</pre>
+    
+    <p>or</p>
+
+<pre>
+sbol https://synbiohub.org/public/Togglecomponents/part_pIKE_Toggle_1/1
+</pre>
+    
+    <p>Any number of actions, with their parameter(s), may be specified following a
+    filename or URL.  For example:</p>
+    
+<pre>
+sbol toggle.fasta
+    annotate-range --start 1 --end 50 --role promoter --name pTet
+</pre>
+    
+    <p>Multiple filenames or URLs may also be specified.  Each is imported into
+    the same RDF knowledge graph, and can be followed by actions with
+    arguments.  For example:</p>
+
+<pre>
+sbol lacI_inverter.xml tetR_inverter_genbank.gbf
+            add-interaction
+                --participant lacI
+                --participant pLac 
+                --type repression
+</pre>
+
+<h2 id="conversion">2.1. Formats and Conversion</h2>
+
+<div class="indent">
+
+    <div class="image">
+    <img src="img/conversionstages.png" />
+    </div>
+
+    <p>Conversion between formats is supported on multiple levels:</p>
+        
+    <ul>
+            <li><b>Input conversion</b>, where non-SBOL formats (FASTA/GenBank) are converted to
+            SBOL1/SBOL2/SBOL3 before being added to the knowledge graph</li>
+        
+            <li><b>SBOL-SBOL conversion actions</b>, where SBOL of one version in a knowledge graph is
+            converted to SBOL of another version</li>
+        
+            <li><b>Output conversion</b>, where the knowledge graph is converted to
+            FASTA/GenBank/SBOL1/SBOL2/SBOL3 before output</li>
+    </ul>
+
+    <h3>1.1.2. Non-SBOL input conversion</h3>
+
+    defaults to converting to the latest version of SBOL3.
+        This conversion may be configured to target another SBOL version using the
+        --nonsbol-conversion-target option.  For example,</p>
+
+<pre>
+sbol --nonsbol-conversion-target sbol2 toggle.genbank
+</pre>
+        
+    <p>would load toggle.genbank into the knowledge graph as SBOL2.</p>
+
+    <h3>1.1.3. SBOL-SBOL conversion with actions</h3>
+
+    <p>is implemented via the convert and vc-convert actions.  For example,</p>
+        
+<pre>
+sbol toggle_sbol2.xml
+    convert --target sbol3
+</pre>
+        
+        <p>would load the file toggle_sbol2.xml into the knowledge graph, convert it to
+        SBOL3, and print a summary.</p>
+        
+        <h3>1.1.4. Output conversion</h4>
+        
+        <p>The supported output formats are:  fasta, genbank, sbol1, sbol2, sbol3</p>
+        
+        <p>For SBOL formats, an RDF serialization may also be specified.  For example,</p>
+
+<pre>
+--output sbol2 --serialization xml
+</pre>
+        
+        <p>would output SBOL2 RDF serialized as XML, while</p>
+        
+<pre>
+--output sbol2 --serialization turtle
+</pre>
+        
+        <p>would output SBOL3 RDF serialized as Turtle.</p>
+        
+        <p>The supported RDF encodings are:  <code>xml</code>, <code>turtle</code>, <code>n3</code></p>
+    
+   <h2 id="identities">2.2. Identities</h2>
+
+   <p>As SBOL is an RDF data model, URIs are used for the identity of objects.  Such URIs are impractical to use on the command line.  Therefore, sboltools supports two different notations for the identity of objects:</p>
+
+   <ol>
+       <li>Explicit URIs, e.g. <code>"http://example.com/toggleSwitch/lacI_inverter/pLac"</code></li>
+       <li>Identity chains: a chain of displayIds prefixed with and delimited by a <code>:</code> character. For example, <code>:toggleSwitch:lacI_inverter:pLac</code></li>
+   </ol>
+    
+   <p>Where <code>&lt;identity&gt;</code> is specified as an action parameter, the following combinations of options are accepted for identifying <b><i>top-level objects</i></b> (e.g. an SBOL1 DnaComponent, an SBOL2 ComponentDefinition, or an SBOL3 Component):</p>
+
+   <ul>
+       <li><code>--identity &lt;uri|identity-chain&gt;</code></li>
+       <li><code>--namespace &lt;uri&gt;, --identity &lt;uri|identity-chain&gt;</code></li>
+       <li><code>--namespace &lt;uri&gt;, --displayId &lt;string&gt;</code></li>
+       <li><code>--displayId &lt;string&gt;</code></li>
+   </ul>
+
+   <p>Additionally, the following combinations of options are accepted for identifying <b><i>child objects</i></b> (e.g. an SBOL1/2 SequenceAnnotation, or an SBOL3 SubComponent):
+
+   <ul>
+       <li><code>--identity &lt;identity-chain&gt;</code></li>
+       <li><code>--namespace &lt;uri&gt;, --identity &lt;identity-chain&gt;</code></li>
+       <li><code>--context &lt;uri|identity-chain&gt;, --displayId &lt;string&gt;</code></li>
+       <li><code>--namespace &lt;uri&gt;, --context &lt;uri|identity-chain&gt;, --displayId &lt;string&gt;</code></li>
+   </ul>
+
+   <p>These options are used as follows:</p>
+
+   <ul>
+       <li><code>--namespace</code> The namespace for the object as a URI prefix.  For example, <code>--namespace "http://example.com/mydesign/"</code></li>
+       <li><code>--identity</code> The identity of the object as a URI or an identity chain.  For example, <code>--identity "http://example.com/toggleSwitch/lacI_inverter/pLac"</code> or <code>--identity :toggleSwitch:lacI_inverter:pLac</code></li>
+       <li><code>--context</code> The parent object in which to identify a child object as a URI or identity chain.  For example, pLac might be created with <code>--context :toggleSwitch:lacI_inverter</code> or <code>--context http://example.com/toggleSwitch/lacI_inverter</code>.</li>
+       <li><code>--displayId</code> The displayId of the object</li>
+       <li><code>--version</code><b>SBOL2.x only</b>: The version of the object.  (Not present in SBOL1, and removed in SBOL3.)</li>
+   </ul>
+
+   <p>For example, consider an SBOL3 Collection in the "http://example.com/" namespace with the displayId toggleswitch, which contains a Component with the displayId lacI_inverter.
+        The <code>add-component &lt;identity&gt;</code> action could be called in several different ways to create a pLac sub-component:
+   </p>
+
+   <ul>
+       <li><code>add-component --namespace "http://example.com/" --identity :toggleSwitch:lacI_inverter:pLac</code></li>
+       <li><code>add-component --context "http://example.com/toggleswitch/lacI_inverter" --displayId "pLac"</code></li>
+       <li><code>add-component --namespace "http://example.com/" --context :toggleSwitch:lacI_inverter --displayId "pLac"</code></li>
+
+   </ul>
+
+    <p>
+    The namespace parameter is optional only in the case that:
+    </p>
+    
+    <ul>
+        <li>The context parameter is specified, in which case the namespace is inferred from the parent object.</li>
+
+        <li>The object being created references another object upon creation, and
+          therefore can default to the namespace of the other object.  For example,
+          a component (a) created as a sub-component of another component (b) will
+          use the namespace of (a) unless a namespace is specified explicitly.</li>
+    
+        <li>All of the objects in the currently loaded knowledge graph only use a
+          single namespace.  This namespace will be used as the default.</li>
+    </ul>
+
+    <p>Sometimes, an identity is the value of a parameter.  For example, <code>create-sequence --for-component &lt;identity&gt;</code>.  In this case, the specification of identity follows the same convention as above, but prefixed with the parameter name, e.g. <code>--namespace</code> becomes <code>--for-component-namespace</code>.  For example:</p>
+
+    <pre>create-sequence --for-component-namespace &quot;http://example.com&quot; --for-component-identity :foo</pre>
+
+
+    <h2 id="sbolversions">2.3. SBOL versions</h2>
+    
+    <p>Where an <code>--sbol-version</code> parameter is specified in an action, the value can be 1, 2, or 3.
+    Similar to the namespace option, the parameter is optional only in the case that:</p>
+    
+    <ul>
+        <li>The object being created references another object upon creation, and
+          therefore can default to the SBOL version of the other object.  For example,
+          a component created as a sub-component of an SBOL3 component will be an
+          SBOL3 component.</li>
+    
+        <li>All of the objects in the currently loaded knowledge graph are of the same
+          SBOL version.  The newly created object will also use this SBOL version
+          unless a different version is specified.</li>
+    </ul>
+
+</div>
+    
+    <h1 id="actions">3. Actions</h1>
+
+        <p>For detailed help for a specific action, use</p>
+
+<pre>
+sbol &lt;action&gt; --help
+</pre>
+    
+        For example,
+    
+<pre>
+sbol convert --help
+</pre>
+
+    <h2 id="actions-convert">3.1. Local SBOL-SBOL conversion</h2>
+    {% include docs-action-section.html category="local-conversion" %}
+
+
+    <h2 id="actions-vc">3.2. Online converter/validator</h2>
+    <p>These actions call out to the <a href="https://validator.sbolstandard.org">SBOL Converter/Validator</a>, and therefore require an Internet connection.</p>
+    {% include docs-action-section.html category="vc" %}
+
+    <h2 id="actions-ocd">3.3. Object creation and deletion</h2>
+    {% include docs-action-section.html category="object-cd" %}
+
+    <h2 id="actions-rcd">3.4. Relationship creation and deletion</h2>
+    {% include docs-action-section.html category="rel-cd" %}
+
+    <h2 id="actions-sa">3.5. Sequence annotation</h2>
+    {% include docs-action-section.html category="seq-anno" %}
+
+    <h2 id="actions-other">3.6. Other</h2>
+    {% include docs-action-section.html category="other" %}
+
+        </div>
+</div>
+
+<script type="text/javascript" src="js/docs.js"></script>
+

@@ -1,0 +1,217 @@
+$backgroundColor: #ffffff;
+$bodyColor: #000000;
+$linkColor: #6EA948;
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 16px;
+    font-size: 1.5em;
+}
+
+.spacer {
+    width: 32px;
+}
+
+body {
+  background: $backgroundColor;
+  color: $bodyColor;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  justify-content: center;
+
+}
+
+a {
+    color: $linkColor !important;
+    text-decoration: none;
+}
+a:hover {
+    border-bottom: 1px dotted $linkColor;
+}
+
+nav a.active {
+    border-bottom: 1px dotted $linkColor;
+}
+
+img.synbiocad {
+    width: 90%;
+    max-width: 400px;
+}
+
+div.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+}
+
+div.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+div.main {
+    display: inline-block;
+}
+
+
+
+div.use {
+    background-color: #f5f5f5;
+    padding: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+@media screen and (min-width: 1000px){
+    div.use {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+div.use-pic {
+}
+div.use-pic img {
+    width: 15em;
+}
+div.use-desc {
+    padding: 1em;
+    padding-top: 0;
+    text-align: left;
+}
+
+
+
+
+
+
+img.synbiocad-sec {
+    width: 100%;
+}
+div.sec-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+}
+
+div.sec-top-left {
+    flex: 1 1;
+}
+div.sec-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+div.sec-top-right {
+    flex: 1 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+}
+
+pre {
+    background-color: #222;
+    color: white;
+    border-radius: 8px;
+    font-size: large;
+    padding: 8px;
+    width: 100%;
+    overflow: auto;
+}
+
+code:not(.toccode) {
+    background-color: #eef7e8;
+    border-radius: 4px;
+    color: black;
+    padding: 1px;
+    padding-left: 4px;
+    padding-bottom: 1px;
+    padding-right: 4px;
+}
+
+
+
+
+.docs .image {
+}
+
+.docs .image img {
+    width: 600px;
+    max-width: 100%;
+    display: inline-block;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.docs h1 {
+    background-color: #6EA948;
+    padding: 8px;
+    color: white;
+    margin-top: 72px;
+}
+.docs h2 {
+    border-bottom: 3px solid #6EA948;
+    font-weight: bold;
+    color: #6ea948;
+    padding: 4px;
+    padding-left: 0px;
+    margin-top: 32px;
+}
+.docs h3 {
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 32px;
+    border-bottom: 1px dotted black;
+}
+
+.docs h4 {
+}
+
+li:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+.toc {
+    // text-align: center;
+    font-size: large
+}
+
+.toc > ul {
+    display: inline-block;
+    text-align: left;
+}
+
+.toc li {
+    margin-top: 8px;
+    list-style-type: none;
+    margin-bottom: 0px !important;
+    cursor: pointer;
+}
+
+
+.hoverable {
+    cursor: pointer;
+}
+.hoverable:hover {
+    text-decoration: underline;
+}
+
+
+
+.action h4 {
+    font-family: monospace;
+    font-size: large;
+}
+
+pre a {
+    color: white !important;
+    text-decoration:  underline;
+}

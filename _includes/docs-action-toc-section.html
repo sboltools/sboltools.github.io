@@ -1,0 +1,8 @@
+
+<ul>
+{% for action in site.data.actions %}
+    {% if action.category == include.category %}
+        <li><a><code class="toccode">{{ action.name }}</code></a></li>
+    {% endif %}
+{% endfor %}
+</ul>
