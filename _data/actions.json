@@ -59,6 +59,24 @@
     ]
   },
   {
+    "name": "import",
+    "description": "Import RDF, FASTA, or GenBank into the current graph",
+    "category": "graph",
+    "help": "\nThe source may be either the filename or URL of a serialized RDF resource, such as an SBOL1, 2, or 3 file; or the filename or URL of a FASTA or GenBank file.\n\nIn the case of a FASTA or GenBank target, the --as parameter specifies the RDF conversion target sbol1/sbol/sbol3.  For example,\n\n    import foo.fasta --as sbol1\n\nwould result in a graph containing foo.fasta converted to SBOL1 RDF.\n",
+    "usage": "import\n    --as <string>\n        [source]\n",
+    "options": [
+      {
+        "name": "as",
+        "type": "OptString"
+      },
+      {
+        "name": "source",
+        "type": "OptURL",
+        "optional": true
+      }
+    ]
+  },
+  {
     "name": "synbiocad-render",
     "category": "other",
     "usage": "synbiocad-render\n",
@@ -66,6 +84,7 @@
   },
   {
     "name": "vc-convert",
+    "description": "Converts SBOL using the online SBOL converter/validator",
     "category": "vc",
     "usage": "vc-convert\n",
     "options": []

@@ -142,37 +142,45 @@ sbol lacI_inverter.xml tetR_inverter_genbank.gbf
         
     <ul>
             <li><b>Input conversion</b>, where non-SBOL formats (FASTA/GenBank) are converted to
-            SBOL1/SBOL2/SBOL3 before being added to the knowledge graph</li>
+            SBOL1/SBOL2/SBOL3 before being added to the graph using the <code>import</code> action</li>
         
             <li><b>SBOL-SBOL conversion actions</b>, where SBOL of one version in a knowledge graph is
-            converted to SBOL of another version</li>
+            converted to SBOL of another version, using the <code>convert</code> or <code>vc-convert</code> actions</li>
         
             <li><b>Output conversion</b>, where the knowledge graph is converted to
-            FASTA/GenBank/SBOL1/SBOL2/SBOL3 before output</li>
+            FASTA/GenBank/SBOL1/SBOL2/SBOL3 before output, using the <code>--output</code> global option to sboltools</li>
     </ul>
 
-    <h3>1.1.2. Non-SBOL input conversion</h3>
+    <h3>1.1.2. Input conversion</h3>
 
-    defaults to converting to the latest version of SBOL3.
-        This conversion may be configured to target another SBOL version using the
-        --nonsbol-conversion-target option.  For example,</p>
+    <p>
+    Data are loaded into the graph using the <code>import</code> action.
+    </p>
+
+    <p>
+    If the filename or URL passed to the <code>import</code> action is RDF (e.g. an SBOL file), it is imported as-is and no conversion takes place.
+    </p>
+    <p>
+    If the filename or URL passed to the <code>import</code> action is FASTA or GenBank, it is converted to the version of SBOL specified by the <code>--as</code> parameter before being added to the graph.  For example:
+    </p>
+
 
 <pre>
-sbol --nonsbol-conversion-target sbol2 toggle.genbank
+sbol import --as sbol2 toggle.genbank
 </pre>
         
     <p>would load toggle.genbank into the knowledge graph as SBOL2.</p>
 
     <h3>1.1.3. SBOL-SBOL conversion with actions</h3>
 
-    <p>is implemented via the convert and vc-convert actions.  For example,</p>
+    <p>SBOL-SBOL conversion is implemented via the convert and vc-convert actions.  For example,</p>
         
 <pre>
-sbol toggle_sbol2.xml
+sbol import toggle.xml
     convert --target sbol3
 </pre>
         
-        <p>would load the file toggle_sbol2.xml into the knowledge graph, convert it to
+        <p>would load the file toggle.xml into the knowledge graph, convert it to
         SBOL3, and print a summary.</p>
         
         <h3>1.1.4. Output conversion</h4>
@@ -296,9 +304,11 @@ sbol &lt;action&gt; --help
 sbol convert --help
 </pre>
 
+    <h2 id="actions-convert">3.1. Graph operations</h2>
+    {% include docs-action-section.html category="graph" %}
+
     <h2 id="actions-convert">3.1. Local SBOL-SBOL conversion</h2>
     {% include docs-action-section.html category="local-conversion" %}
-
 
     <h2 id="actions-vc">3.2. Online converter/validator</h2>
     <p>These actions call out to the <a href="https://validator.sbolstandard.org">SBOL Converter/Validator</a>, and therefore require an Internet connection.</p>
