@@ -1,5 +1,46 @@
 [
   {
+    "name": "annotate-range",
+    "description": "Annotates a range in a sequence",
+    "category": "seq-anno",
+    "help": "\n",
+    "usage": "annotate-range\n     <identity>\n        --in-component <identity>\n            --start <arg>\n                --end <arg>\n                    --role <arg>\n",
+    "options": [
+      {
+        "name": "",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "in-component",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "start",
+        "type": "Opt1BasedInt"
+      },
+      {
+        "name": "end",
+        "type": "Opt1BasedInt"
+      },
+      {
+        "name": "role",
+        "type": "Opt1BasedInt"
+      }
+    ]
+  },
+  {
+    "name": "compare",
+    "category": "graphops",
+    "usage": "compare\n    --to <arg>\n",
+    "options": [
+      {
+        "name": "to",
+        "type": "OptGraphName",
+        "optional": false
+      }
+    ]
+  },
+  {
     "name": "components",
     "category": "other",
     "usage": "components\n",
@@ -8,11 +49,33 @@
   {
     "name": "convert",
     "category": "local-conversion",
-    "usage": "convert\n    --target <sbol-version>\n",
+    "usage": "convert\n    --target <sbol-version>\n        [--online <arg>]\n",
     "options": [
       {
         "name": "target",
         "type": "OptSBOLVersion"
+      },
+      {
+        "name": "online",
+        "type": "OptFlag",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "create-component",
+    "description": "Creates a component",
+    "category": "object-cd",
+    "usage": "create-component\n    [--within-component <identity>]\n         <identity>\n",
+    "options": [
+      {
+        "name": "",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "within-component",
+        "type": "OptIdentity",
+        "optional": true
       }
     ]
   },
@@ -59,10 +122,34 @@
     ]
   },
   {
+    "name": "graph",
+    "category": "graphops",
+    "usage": "graph\n    [graph_name]\n",
+    "options": [
+      {
+        "name": "graph_name",
+        "type": "OptString",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "graph-dump",
+    "category": "graphops",
+    "usage": "graph-dump\n    [--title <string>]\n",
+    "options": [
+      {
+        "name": "title",
+        "type": "OptString",
+        "optional": true
+      }
+    ]
+  },
+  {
     "name": "import",
     "description": "Import RDF, FASTA, or GenBank into the current graph",
     "category": "graph",
-    "help": "\nThe source may be either the filename or URL of a serialized RDF resource, such as an SBOL1, 2, or 3 file; or the filename or URL of a FASTA or GenBank file.\n\nIn the case of a FASTA or GenBank target, the --as parameter specifies the RDF conversion target sbol1/sbol/sbol3.  For example,\n\n    import foo.fasta --as sbol1\n\nwould result in a graph containing foo.fasta converted to SBOL1 RDF.\n",
+    "help": "\nThe source may be either the filename or URL of a serialized RDF resource, such as an SBOL1, 2, or 3 file; or the filename or URL of a FASTA or GenBank file.\n\nThe --as parameter specifies the RDF conversion target sbol1/sbol/sbol3.  For example,\n\n    import foo.fasta --as sbol1\n\nwould result in a graph containing foo.fasta converted to SBOL1 RDF. Without an --as parameter, the SBOL will be imported as-is.  The --as parameter\nfor FASTA/GenBank imports defaults to SBOL3.\n",
     "usage": "import\n    --as <string>\n        [source]\n",
     "options": [
       {
@@ -77,28 +164,49 @@
     ]
   },
   {
+    "name": "insert",
+    "category": "graphops",
+    "usage": "insert\n    --subject <string>\n        --predicate <string>\n            --object <string>\n",
+    "options": [
+      {
+        "name": "subject",
+        "type": "OptString",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "OptString",
+        "optional": false
+      },
+      {
+        "name": "object",
+        "type": "OptString",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "name": "merge",
+    "category": "graphops",
+    "usage": "merge\n    --from <arg>\n",
+    "options": [
+      {
+        "name": "from",
+        "type": "OptGraphName",
+        "optional": false
+      }
+    ]
+  },
+  {
     "name": "synbiocad-render",
     "category": "other",
     "usage": "synbiocad-render\n",
     "options": []
   },
   {
-    "name": "vc-convert",
-    "description": "Converts SBOL using the online SBOL converter/validator",
+    "name": "validate",
     "category": "vc",
-    "usage": "vc-convert\n",
-    "options": []
-  },
-  {
-    "name": "vc-diff",
-    "category": "vc",
-    "usage": "vc-diff\n",
-    "options": []
-  },
-  {
-    "name": "vc-validate",
-    "category": "vc",
-    "usage": "vc-validate\n",
+    "usage": "validate\n",
     "options": []
   }
 ]
