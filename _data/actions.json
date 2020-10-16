@@ -97,6 +97,57 @@
     ]
   },
   {
+    "name": "create-interaction",
+    "description": "Creates an interaction",
+    "category": "object-cd",
+    "usage": "create-interaction\n    [--within-component <identity>]\n         <identity>\n",
+    "options": [
+      {
+        "name": "",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "within-component",
+        "type": "OptIdentity",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "create-module",
+    "description": "Creates a module (SBOL2 only)",
+    "category": "object-cd",
+    "usage": "create-module\n    [--within-module <identity>]\n         <identity>\n",
+    "options": [
+      {
+        "name": "",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "within-module",
+        "type": "OptIdentity",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "create-participation",
+    "description": "Creates a participation",
+    "category": "object-cd",
+    "usage": "create-participation\n    [--within-interaction <identity>]\n         <identity>\n",
+    "options": [
+      {
+        "name": "",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "within-interaction",
+        "type": "OptIdentity",
+        "optional": true
+      }
+    ]
+  },
+  {
     "name": "create-sequence",
     "description": "Creates a sequence",
     "category": "object-cd",
@@ -193,6 +244,32 @@
       {
         "name": "from",
         "type": "OptGraphName",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "name": "namespace",
+    "category": "graphops",
+    "help": "\nSets the default namespace for actions which accept an identity parameter. This namespace can be overridden per-action with --identity.\n",
+    "usage": "namespace\n    <uri>\n",
+    "options": [
+      {
+        "name": "uri",
+        "type": "OptString",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "name": "sbol-version",
+    "category": "graphops",
+    "help": "\nSets the default SBOL version 1/2/3 for actions which create SBOL objects. This namespace can be overridden per-action with --sbol-version.\n",
+    "usage": "sbol-version\n    <sbol-version>\n",
+    "options": [
+      {
+        "name": "sbol-version",
+        "type": "OptString",
         "optional": false
       }
     ]
