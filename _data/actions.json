@@ -100,7 +100,7 @@
     "name": "create-interaction",
     "description": "Creates an interaction",
     "category": "object-cd",
-    "usage": "create-interaction\n    [--within-component <identity>]\n         <identity>\n",
+    "usage": "create-interaction\n    [--within-component <identity>]\n         <identity>\n            --role <arg>\n",
     "options": [
       {
         "name": "",
@@ -110,6 +110,11 @@
         "name": "within-component",
         "type": "OptIdentity",
         "optional": true
+      },
+      {
+        "name": "role",
+        "type": "OptTerm",
+        "optional": false
       }
     ]
   },
@@ -134,7 +139,7 @@
     "name": "create-participation",
     "description": "Creates a participation",
     "category": "object-cd",
-    "usage": "create-participation\n    [--within-interaction <identity>]\n         <identity>\n",
+    "usage": "create-participation\n    [--within-interaction <identity>]\n         <identity>\n            --role <arg>\n                [--participant <identity>]\n",
     "options": [
       {
         "name": "",
@@ -144,6 +149,16 @@
         "name": "within-interaction",
         "type": "OptIdentity",
         "optional": true
+      },
+      {
+        "name": "participant",
+        "type": "OptIdentity",
+        "optional": true
+      },
+      {
+        "name": "role",
+        "type": "OptTerm",
+        "optional": false
       }
     ]
   },
