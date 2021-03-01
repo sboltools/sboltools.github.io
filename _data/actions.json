@@ -41,10 +41,57 @@
     ]
   },
   {
+    "name": "component",
+    "description": "Creates a component",
+    "category": "object-cd",
+    "usage": "component\n     <identity>\n        --type <arg>\n            --role <arg>\n",
+    "options": [
+      {
+        "name": "",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "type",
+        "type": "OptTerm"
+      },
+      {
+        "name": "role",
+        "type": "OptTerm"
+      }
+    ]
+  },
+  {
     "name": "components",
     "category": "other",
     "usage": "components\n",
     "options": []
+  },
+  {
+    "name": "constraint",
+    "description": "Creates a constraint",
+    "category": "object-cd",
+    "usage": "constraint\n     <identity>\n        --subject <identity>\n            --restriction <arg>\n                --object <identity>\n",
+    "options": [
+      {
+        "name": "",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "subject",
+        "type": "OptIdentity",
+        "optional": false
+      },
+      {
+        "name": "restriction",
+        "type": "OptTerm",
+        "optional": false
+      },
+      {
+        "name": "object",
+        "type": "OptIdentity",
+        "optional": false
+      }
+    ]
   },
   {
     "name": "convert",
@@ -76,114 +123,6 @@
         "name": "within-component",
         "type": "OptIdentity",
         "optional": true
-      }
-    ]
-  },
-  {
-    "name": "create-component",
-    "description": "Creates a component",
-    "category": "object-cd",
-    "usage": "create-component\n    [--within-component <identity>]\n         <identity>\n",
-    "options": [
-      {
-        "name": "",
-        "type": "OptIdentity"
-      },
-      {
-        "name": "within-component",
-        "type": "OptIdentity",
-        "optional": true
-      }
-    ]
-  },
-  {
-    "name": "create-interaction",
-    "description": "Creates an interaction",
-    "category": "object-cd",
-    "usage": "create-interaction\n    [--within-component <identity>]\n         <identity>\n            --role <arg>\n",
-    "options": [
-      {
-        "name": "",
-        "type": "OptIdentity"
-      },
-      {
-        "name": "within-component",
-        "type": "OptIdentity",
-        "optional": true
-      },
-      {
-        "name": "role",
-        "type": "OptTerm",
-        "optional": false
-      }
-    ]
-  },
-  {
-    "name": "create-module",
-    "description": "Creates a module (SBOL2 only)",
-    "category": "object-cd",
-    "usage": "create-module\n    [--within-module <identity>]\n         <identity>\n",
-    "options": [
-      {
-        "name": "",
-        "type": "OptIdentity"
-      },
-      {
-        "name": "within-module",
-        "type": "OptIdentity",
-        "optional": true
-      }
-    ]
-  },
-  {
-    "name": "create-participation",
-    "description": "Creates a participation",
-    "category": "object-cd",
-    "usage": "create-participation\n    [--within-interaction <identity>]\n         <identity>\n            --role <arg>\n                [--participant <identity>]\n",
-    "options": [
-      {
-        "name": "",
-        "type": "OptIdentity"
-      },
-      {
-        "name": "within-interaction",
-        "type": "OptIdentity",
-        "optional": true
-      },
-      {
-        "name": "participant",
-        "type": "OptIdentity",
-        "optional": true
-      },
-      {
-        "name": "role",
-        "type": "OptTerm",
-        "optional": false
-      }
-    ]
-  },
-  {
-    "name": "create-sequence",
-    "description": "Creates a sequence",
-    "category": "object-cd",
-    "help": "\nIf the sequence identity is not specified, a default identity will be created from the component identity with `_seq` appended to its displayId.\n\nIf the encoding is not specified, it will be inferred from the component in the case that `--for-component` is specified (e.g. a DNA component will result in a nucleic acid sequence being created).\n\nIf such inference is not possible (e.g. no component is specified, or the specified component is of a type other than DNA, RNA, or Protein), an error will be thrown.\n",
-    "usage": "create-sequence\n    --for-component <identity>\n         <identity>\n            --source <url>\n                --encoding <string>\n",
-    "options": [
-      {
-        "name": "",
-        "type": "OptIdentity"
-      },
-      {
-        "name": "for-component",
-        "type": "OptIdentity"
-      },
-      {
-        "name": "source",
-        "type": "OptURL"
-      },
-      {
-        "name": "encoding",
-        "type": "OptString"
       }
     ]
   },
@@ -252,6 +191,28 @@
     ]
   },
   {
+    "name": "interaction",
+    "description": "Creates an interaction",
+    "category": "object-cd",
+    "usage": "interaction\n    [--within-component <identity>]\n         <identity>\n            --type <arg>\n",
+    "options": [
+      {
+        "name": "",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "within-component",
+        "type": "OptIdentity",
+        "optional": true
+      },
+      {
+        "name": "type",
+        "type": "OptTerm",
+        "optional": false
+      }
+    ]
+  },
+  {
     "name": "merge",
     "category": "graphops",
     "usage": "merge\n    --from <arg>\n",
@@ -264,14 +225,58 @@
     ]
   },
   {
+    "name": "module",
+    "description": "Creates a module (SBOL2 only)",
+    "category": "object-cd",
+    "usage": "module\n    [--within-module <identity>]\n         <identity>\n",
+    "options": [
+      {
+        "name": "",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "within-module",
+        "type": "OptIdentity",
+        "optional": true
+      }
+    ]
+  },
+  {
     "name": "namespace",
     "category": "graphops",
     "help": "\nSets the default namespace for actions which accept an identity parameter. This namespace can be overridden per-action with --identity.\n",
-    "usage": "namespace\n    <uri>\n",
+    "usage": "namespace\n    <>\n",
     "options": [
       {
-        "name": "uri",
+        "name": "",
         "type": "OptString",
+        "optional": false
+      }
+    ]
+  },
+  {
+    "name": "participation",
+    "description": "Creates a participation",
+    "category": "object-cd",
+    "usage": "participation\n    [--within-interaction <identity>]\n         <identity>\n            --role <arg>\n                [--participant <identity>]\n",
+    "options": [
+      {
+        "name": "",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "within-interaction",
+        "type": "OptIdentity",
+        "optional": true
+      },
+      {
+        "name": "participant",
+        "type": "OptIdentity",
+        "optional": true
+      },
+      {
+        "name": "role",
+        "type": "OptTerm",
         "optional": false
       }
     ]
@@ -280,12 +285,37 @@
     "name": "sbol-version",
     "category": "graphops",
     "help": "\nSets the default SBOL version 1/2/3 for actions which create SBOL objects. This namespace can be overridden per-action with --sbol-version.\n",
-    "usage": "sbol-version\n    <sbol-version>\n",
+    "usage": "sbol-version\n    <>\n",
     "options": [
       {
-        "name": "sbol-version",
+        "name": "",
         "type": "OptString",
         "optional": false
+      }
+    ]
+  },
+  {
+    "name": "sequence",
+    "description": "Creates a sequence",
+    "category": "object-cd",
+    "help": "\nIf the sequence identity is not specified, a default identity will be created from the component identity with `_seq` appended to its displayId.\n\nIf the encoding is not specified, it will be inferred from the component in the case that `--for-component` is specified (e.g. a DNA component will result in a nucleic acid sequence being created).\n\nIf such inference is not possible (e.g. no component is specified, or the specified component is of a type other than DNA, RNA, or Protein), an error will be thrown.\n",
+    "usage": "sequence\n    --for-component <identity>\n         <identity>\n            --source <url>\n                --encoding <arg>\n",
+    "options": [
+      {
+        "name": "",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "for-component",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "source",
+        "type": "OptURL"
+      },
+      {
+        "name": "encoding",
+        "type": "OptTerm"
       }
     ]
   },
