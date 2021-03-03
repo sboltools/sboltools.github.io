@@ -31,12 +31,17 @@
   {
     "name": "compare",
     "category": "graphops",
-    "usage": "compare\n    --to <arg>\n",
+    "usage": "compare\n    --to <arg>\n        [--ignore <arg>]\n",
     "options": [
       {
         "name": "to",
         "type": "OptGraphName",
         "optional": false
+      },
+      {
+        "name": "ignore",
+        "type": "OptTriplePattern",
+        "optional": true
       }
     ]
   },
