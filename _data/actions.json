@@ -260,6 +260,28 @@
     ]
   },
   {
+    "name": "participant",
+    "description": "Shorthand for creating a participation with a participant",
+    "category": "object-cd",
+    "usage": "participant\n    [--within-interaction <identity>]\n         <identity>\n            --role <arg>\n",
+    "options": [
+      {
+        "name": "",
+        "type": "OptIdentity"
+      },
+      {
+        "name": "within-interaction",
+        "type": "OptIdentity",
+        "optional": true
+      },
+      {
+        "name": "role",
+        "type": "OptTerm",
+        "optional": false
+      }
+    ]
+  },
+  {
     "name": "participation",
     "description": "Creates a participation",
     "category": "object-cd",
