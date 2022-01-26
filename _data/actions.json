@@ -347,6 +347,12 @@
     ]
   },
   {
+    "name": "show-graphs",
+    "category": "graphops",
+    "usage": "show-graphs\n",
+    "options": []
+  },
+  {
     "name": "synbiocad-render",
     "category": "other",
     "usage": "synbiocad-render\n",
