@@ -209,7 +209,7 @@ sbol import toggle.xml
 
    <ol>
        <li>Explicit URIs, e.g. <code>"http://example.com/toggleSwitch/lacI_inverter/pLac"</code></li>
-       <li>Identity chains: a chain of displayIds prefixed with and delimited by a <code>:</code> character. For example, <code>:toggleSwitch:lacI_inverter:pLac</code></li>
+       <li>Identity chains: a chain of displayIds prefixed with and delimited by a <code>.</code> character. For example, <code>.toggleSwitch.lacI_inverter:pLac</code></li>
    </ol>
     
    <p>Where <code>&lt;identity&gt;</code> is specified as an action parameter, the following combinations of options are accepted for identifying <b><i>top-level objects</i></b> (e.g. an SBOL1 DnaComponent, an SBOL2 ComponentDefinition, or an SBOL3 Component):</p>
@@ -234,8 +234,8 @@ sbol import toggle.xml
 
    <ul>
        <li><code>--namespace</code> The namespace for the object as a URI prefix.  For example, <code>--namespace "http://example.com/mydesign/"</code></li>
-       <li><code>--identity</code> The identity of the object as a URI or an identity chain.  For example, <code>--identity "http://example.com/toggleSwitch/lacI_inverter/pLac"</code> or <code>--identity :toggleSwitch:lacI_inverter:pLac</code></li>
-       <li><code>--context</code> The parent object in which to identify a child object as a URI or identity chain.  For example, pLac might be created with <code>--context :toggleSwitch:lacI_inverter</code> or <code>--context http://example.com/toggleSwitch/lacI_inverter</code>.</li>
+       <li><code>--identity</code> The identity of the object as a URI or an identity chain.  For example, <code>--identity "http://example.com/toggleSwitch/lacI_inverter/pLac"</code> or <code>--identity .toggleSwitch.lacI_inverter.pLac</code></li>
+       <li><code>--context</code> The parent object in which to identify a child object as a URI or identity chain.  For example, pLac might be created with <code>--context .toggleSwitch.lacI_inverter</code> or <code>--context http://example.com/toggleSwitch/lacI_inverter</code>.</li>
        <li><code>--displayId</code> The displayId of the object</li>
        <li><code>--version</code><b>SBOL2.x only</b>: The version of the object.  (Not present in SBOL1, and removed in SBOL3.)</li>
    </ul>
@@ -245,9 +245,9 @@ sbol import toggle.xml
    </p>
 
    <ul>
-       <li><code>add-component --namespace "http://example.com/" --identity :toggleSwitch:lacI_inverter:pLac</code></li>
+       <li><code>add-component --namespace "http://example.com/" --identity .toggleSwitch.lacI_inverter.pLac</code></li>
        <li><code>add-component --context "http://example.com/toggleswitch/lacI_inverter" --displayId "pLac"</code></li>
-       <li><code>add-component --namespace "http://example.com/" --context :toggleSwitch:lacI_inverter --displayId "pLac"</code></li>
+       <li><code>add-component --namespace "http://example.com/" --context .toggleSwitch.lacI_inverter --displayId "pLac"</code></li>
 
    </ul>
 
