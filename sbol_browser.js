@@ -14313,7 +14313,7 @@
 
   // node_modules/@rdfjs/fetch-lite/lib/patchResponse.js
   function patchResponse(res, factory3, fetch6, parsers) {
-    const contentHeader = [...res.headers.keys()].some((header22) => header22.startsWith("content-"));
+    const contentHeader = [...res.headers.keys()].some((header23) => header23.startsWith("content-"));
     const chunkedEncoding = res.headers.get("transfer-encoding") === "chunked";
     const hasBody = contentHeader || chunkedEncoding;
     if (hasBody) {
@@ -23523,8 +23523,8 @@
                 this.append(name, value);
               }, this);
             } else if (Array.isArray(headers)) {
-              headers.forEach(function(header22) {
-                this.append(header22[0], header22[1]);
+              headers.forEach(function(header23) {
+                this.append(header23[0], header23[1]);
               }, this);
             } else if (headers) {
               Object.getOwnPropertyNames(headers).forEach(function(name) {
@@ -48131,32 +48131,32 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       init_shim();
       Object.defineProperty(exports, "__esModule", { value: true });
       exports.prefixify = exports.Prefixes = void 0;
-      var Prefixes4;
-      (function(Prefixes5) {
-        Prefixes5.sbol1 = "http://sbols.org/v1#";
-        Prefixes5.sbol2 = "http://sbols.org/v2#";
-        Prefixes5.sbolx = "http://sboldata.org/sbolx#";
-        Prefixes5.sbol3 = "http://sbols.org/v3#";
-        Prefixes5.rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
-        Prefixes5.visual = "http://wiki.synbiohub.org/wiki/Terms/visual#";
-        Prefixes5.sequenceOntologyPurl = "http://purl.org/obo/owl/SO#";
-        Prefixes5.sequenceOntologyIdentifiersOrg = "http://identifiers.org/so/";
-        Prefixes5.go = "http://identifiers.org/go/";
-        Prefixes5.dcterms = "http://purl.org/dc/terms/";
-        Prefixes5.rdfs = "http://www.w3.org/2000/01/rdf-schema#";
-        Prefixes5.svg = "http://www.w3.org/2000/svg#";
-        Prefixes5.sbo = "http://identifiers.org/biomodels.sbo/";
-        Prefixes5.sboNs = "https://identifiers.org/SBO:";
-        Prefixes5.sybio = "http://www.sybio.ncl.ac.uk#";
-        Prefixes5.prov = "http://www.w3.org/ns/prov#";
-        Prefixes5.enrichment = "http://wiki.synbiohub.org/wiki/Terms/enrichment#";
-        Prefixes5.measure = "http://www.ontology-of-units-of-measure.org/resource/om-2/";
-      })(Prefixes4 = exports.Prefixes || (exports.Prefixes = {}));
+      var Prefixes5;
+      (function(Prefixes6) {
+        Prefixes6.sbol1 = "http://sbols.org/v1#";
+        Prefixes6.sbol2 = "http://sbols.org/v2#";
+        Prefixes6.sbolx = "http://sboldata.org/sbolx#";
+        Prefixes6.sbol3 = "http://sbols.org/v3#";
+        Prefixes6.rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+        Prefixes6.visual = "http://wiki.synbiohub.org/wiki/Terms/visual#";
+        Prefixes6.sequenceOntologyPurl = "http://purl.org/obo/owl/SO#";
+        Prefixes6.sequenceOntologyIdentifiersOrg = "http://identifiers.org/so/";
+        Prefixes6.go = "http://identifiers.org/go/";
+        Prefixes6.dcterms = "http://purl.org/dc/terms/";
+        Prefixes6.rdfs = "http://www.w3.org/2000/01/rdf-schema#";
+        Prefixes6.svg = "http://www.w3.org/2000/svg#";
+        Prefixes6.sbo = "http://identifiers.org/biomodels.sbo/";
+        Prefixes6.sboNs = "https://identifiers.org/SBO:";
+        Prefixes6.sybio = "http://www.sybio.ncl.ac.uk#";
+        Prefixes6.prov = "http://www.w3.org/ns/prov#";
+        Prefixes6.enrichment = "http://wiki.synbiohub.org/wiki/Terms/enrichment#";
+        Prefixes6.measure = "http://www.ontology-of-units-of-measure.org/resource/om-2/";
+      })(Prefixes5 = exports.Prefixes || (exports.Prefixes = {}));
       function prefixify(uri) {
         uri = "" + uri;
         for (var i = 0; i < keys.length; ++i) {
           const prefix = keys[i];
-          const uriPrefix = Prefixes4[prefix];
+          const uriPrefix = Prefixes5[prefix];
           if (uri.indexOf(uriPrefix) === 0) {
             return prefix + ":" + uri.slice(uriPrefix.length);
           }
@@ -48164,7 +48164,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         return uri;
       }
       exports.prefixify = prefixify;
-      var keys = Object.keys(Prefixes4);
+      var keys = Object.keys(Prefixes5);
     }
   });
 
@@ -57859,7 +57859,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       var S1Facade_1 = require_S1Facade();
       var S1SequenceAnnotation_1 = require_S1SequenceAnnotation();
       var S1DnaSequence_1 = require_S1DnaSequence();
-      var S1DnaComponent8 = class extends S1Facade_1.default {
+      var S1DnaComponent10 = class extends S1Facade_1.default {
         constructor(view, subject) {
           super(view, subject);
         }
@@ -57894,10 +57894,10 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
               visited.add(sc.subject.value);
             }
           }
-          return scs.map((subject) => new S1DnaComponent8(this.view, subject));
+          return scs.map((subject) => new S1DnaComponent10(this.view, subject));
         }
       };
-      exports.default = S1DnaComponent8;
+      exports.default = S1DnaComponent10;
     }
   });
 
@@ -57948,7 +57948,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       var S1SequenceAnnotation_1 = require_S1SequenceAnnotation();
       var bioterms_1 = require_dist2();
       var isOwnershipRelation_1 = require_isOwnershipRelation();
-      var SBOL1GraphView15 = class extends rdfoo_1.GraphViewBasic {
+      var SBOL1GraphView16 = class extends rdfoo_1.GraphViewBasic {
         constructor(graph2) {
           super(graph2);
           this.graph = graph2;
@@ -58004,9 +58004,9 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           }).map((subject) => new S1DnaComponent_1.default(this, subject));
         }
       };
-      exports.default = SBOL1GraphView15;
+      exports.default = SBOL1GraphView16;
       function sbol12(graph2) {
-        return new SBOL1GraphView15(graph2);
+        return new SBOL1GraphView16(graph2);
       }
       exports.sbol1 = sbol12;
     }
@@ -59710,9 +59710,9 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
       }
       exports.default = fastaToSBOL2;
-      function parseHeader(header22) {
-        if (header22.startsWith(">sp|") || header22.startsWith(">tr|")) {
-          let matches = /([^|]*?)\|([^|]*?)([^\s]+=)/g.exec(header22);
+      function parseHeader(header23) {
+        if (header23.startsWith(">sp|") || header23.startsWith(">tr|")) {
+          let matches = /([^|]*?)\|([^|]*?)([^\s]+=)/g.exec(header23);
           if (matches && matches.length === 4) {
             let accession = matches[1].trim();
             let entryName = matches[2].trim();
@@ -59726,8 +59726,8 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
             };
           }
         }
-        if (header22.startsWith("gb|") || header22.startsWith("emb|") || header22.startsWith("dbj|") || header22.startsWith("sp|") || header22.startsWith("ref|")) {
-          let tokens = header22.split("|");
+        if (header23.startsWith("gb|") || header23.startsWith("emb|") || header23.startsWith("dbj|") || header23.startsWith("sp|") || header23.startsWith("ref|")) {
+          let tokens = header23.split("|");
           let accession = tokens[1];
           return {
             id: accession,
@@ -59735,9 +59735,9 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           };
         }
         return {
-          id: header22.slice(1).split(" ")[0] || "imported_fasta",
+          id: header23.slice(1).split(" ")[0] || "imported_fasta",
           properties: {
-            [bioterms_1.Predicates.Dcterms.title]: rdfoo_1.node.createStringNode(header22.slice(1))
+            [bioterms_1.Predicates.Dcterms.title]: rdfoo_1.node.createStringNode(header23.slice(1))
           }
         };
       }
@@ -60103,32 +60103,32 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       init_shim();
       Object.defineProperty(exports, "__esModule", { value: true });
       exports.prefixify = exports.Prefixes = void 0;
-      var Prefixes4;
-      (function(Prefixes5) {
-        Prefixes5.sbol1 = "http://sbols.org/v1#";
-        Prefixes5.sbol2 = "http://sbols.org/v2#";
-        Prefixes5.sbolx = "http://sboldata.org/sbolx#";
-        Prefixes5.sbol3 = "http://sbols.org/v3#";
-        Prefixes5.rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
-        Prefixes5.visual = "http://wiki.synbiohub.org/wiki/Terms/visual#";
-        Prefixes5.sequenceOntologyPurl = "http://purl.org/obo/owl/SO#";
-        Prefixes5.sequenceOntologyIdentifiersOrg = "http://identifiers.org/so/";
-        Prefixes5.go = "http://identifiers.org/go/";
-        Prefixes5.dcterms = "http://purl.org/dc/terms/";
-        Prefixes5.rdfs = "http://www.w3.org/2000/01/rdf-schema#";
-        Prefixes5.svg = "http://www.w3.org/2000/svg#";
-        Prefixes5.sbo = "http://identifiers.org/biomodels.sbo/";
-        Prefixes5.sboNs = "https://identifiers.org/SBO:";
-        Prefixes5.sybio = "http://www.sybio.ncl.ac.uk#";
-        Prefixes5.prov = "http://www.w3.org/ns/prov#";
-        Prefixes5.enrichment = "http://wiki.synbiohub.org/wiki/Terms/enrichment#";
-        Prefixes5.measure = "http://www.ontology-of-units-of-measure.org/resource/om-2/";
-      })(Prefixes4 = exports.Prefixes || (exports.Prefixes = {}));
+      var Prefixes5;
+      (function(Prefixes6) {
+        Prefixes6.sbol1 = "http://sbols.org/v1#";
+        Prefixes6.sbol2 = "http://sbols.org/v2#";
+        Prefixes6.sbolx = "http://sboldata.org/sbolx#";
+        Prefixes6.sbol3 = "http://sbols.org/v3#";
+        Prefixes6.rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+        Prefixes6.visual = "http://wiki.synbiohub.org/wiki/Terms/visual#";
+        Prefixes6.sequenceOntologyPurl = "http://purl.org/obo/owl/SO#";
+        Prefixes6.sequenceOntologyIdentifiersOrg = "http://identifiers.org/so/";
+        Prefixes6.go = "http://identifiers.org/go/";
+        Prefixes6.dcterms = "http://purl.org/dc/terms/";
+        Prefixes6.rdfs = "http://www.w3.org/2000/01/rdf-schema#";
+        Prefixes6.svg = "http://www.w3.org/2000/svg#";
+        Prefixes6.sbo = "http://identifiers.org/biomodels.sbo/";
+        Prefixes6.sboNs = "https://identifiers.org/SBO:";
+        Prefixes6.sybio = "http://www.sybio.ncl.ac.uk#";
+        Prefixes6.prov = "http://www.w3.org/ns/prov#";
+        Prefixes6.enrichment = "http://wiki.synbiohub.org/wiki/Terms/enrichment#";
+        Prefixes6.measure = "http://www.ontology-of-units-of-measure.org/resource/om-2/";
+      })(Prefixes5 = exports.Prefixes || (exports.Prefixes = {}));
       function prefixify(uri) {
         uri = "" + uri;
         for (var i = 0; i < keys.length; ++i) {
           const prefix = keys[i];
-          const uriPrefix = Prefixes4[prefix];
+          const uriPrefix = Prefixes5[prefix];
           if (uri.indexOf(uriPrefix) === 0) {
             return prefix + ":" + uri.slice(uriPrefix.length);
           }
@@ -60136,7 +60136,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         return uri;
       }
       exports.prefixify = prefixify;
-      var keys = Object.keys(Prefixes4);
+      var keys = Object.keys(Prefixes5);
     }
   });
 
@@ -70263,7 +70263,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       var bioterms_1 = require_dist2();
       var S3Facade_1 = require_S3Facade();
       var URIUtils_1 = require_URIUtils();
-      var S3Identified2 = class extends S3Facade_1.default {
+      var S3Identified3 = class extends S3Facade_1.default {
         constructor(view, subject) {
           super(view, subject);
         }
@@ -70307,7 +70307,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           return this.getProperties(bioterms_1.Predicates.SBOL2.measure).map((measure) => new S3Measure_1.default(this.view, measure));
         }
       };
-      exports.default = S3Identified2;
+      exports.default = S3Identified3;
       var S3Measure_1 = require_S3Measure();
     }
   });
@@ -72652,7 +72652,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       var S3LocalSubComponent_1 = require_S3LocalSubComponent();
       var S3ExternallyDefined_1 = require_S3ExternallyDefined();
       var S3ComponentReference_1 = require_S3ComponentReference();
-      var SBOL3GraphView15 = class extends rdfoo_1.GraphViewHybrid {
+      var SBOL3GraphView16 = class extends rdfoo_1.GraphViewHybrid {
         constructor(graph2) {
           super(graph2);
           this.addView(new SBOL3(this));
@@ -72725,7 +72725,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
         static loadString(data, defaultURIPrefix, mimeType) {
           return __awaiter(this, void 0, void 0, function* () {
-            let graph2 = new SBOL3GraphView15(new rdfoo_1.Graph());
+            let graph2 = new SBOL3GraphView16(new rdfoo_1.Graph());
             yield graph2.loadString(data, defaultURIPrefix, mimeType);
             return graph2;
           });
@@ -72852,7 +72852,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           return new Set(this.graph.match(null, bioterms_1.Predicates.SBOL3.hasNamespace, null).map((t) => t.object).map((n) => n.value));
         }
       };
-      exports.default = SBOL3GraphView15;
+      exports.default = SBOL3GraphView16;
       var SBOL3 = class extends rdfoo_1.GraphViewBasic {
         constructor(view) {
           super(view.graph);
@@ -72912,10 +72912,10 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           return super.subjectToFacade(subject);
         }
       };
-      function sbol32(graph2) {
-        return new SBOL3GraphView15(graph2);
+      function sbol33(graph2) {
+        return new SBOL3GraphView16(graph2);
       }
-      exports.sbol3 = sbol32;
+      exports.sbol3 = sbol33;
     }
   });
 
@@ -73582,7 +73582,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       var S2SequenceConstraint_1 = require_S2SequenceConstraint();
       var S2VariableComponent_1 = require_S2VariableComponent();
       var S2CombinatorialDerivation_1 = require_S2CombinatorialDerivation();
-      var SBOL2GraphView17 = class extends rdfoo_1.GraphViewHybrid {
+      var SBOL2GraphView18 = class extends rdfoo_1.GraphViewHybrid {
         constructor(graph2) {
           super(graph2);
           this._cachedUriPrefixes = null;
@@ -73736,7 +73736,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
         static loadString(data, defaultURIPrefix, mimeType) {
           return __awaiter(this, void 0, void 0, function* () {
-            let graph2 = new SBOL2GraphView17(new rdfoo_1.Graph());
+            let graph2 = new SBOL2GraphView18(new rdfoo_1.Graph());
             yield graph2.loadString(data, defaultURIPrefix, mimeType);
             return graph2;
           });
@@ -73873,7 +73873,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           (0, enforceURICompliance_1.default)(this, uriPrefix);
         }
       };
-      exports.default = SBOL2GraphView17;
+      exports.default = SBOL2GraphView18;
       var SBOL2 = class extends rdfoo_1.GraphViewBasic {
         constructor(view) {
           super(view.graph);
@@ -73938,7 +73938,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
       };
       function sbol22(graph2) {
-        return new SBOL2GraphView17(graph2);
+        return new SBOL2GraphView18(graph2);
       }
       exports.sbol2 = sbol22;
     }
@@ -77680,7 +77680,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         return _setPrototypeOf(o, p);
       }
       var codes = {};
-      var assert22;
+      var assert23;
       var util;
       function createErrorType(code, message, Base) {
         if (!Base) {
@@ -77744,9 +77744,9 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       }
       createErrorType("ERR_AMBIGUOUS_ARGUMENT", 'The "%s" argument is ambiguous. %s', TypeError);
       createErrorType("ERR_INVALID_ARG_TYPE", function(name, expected, actual) {
-        if (assert22 === void 0)
-          assert22 = require_assert();
-        assert22(typeof name === "string", "'name' must be a string");
+        if (assert23 === void 0)
+          assert23 = require_assert();
+        assert23(typeof name === "string", "'name' must be a string");
         var determiner;
         if (typeof expected === "string" && startsWith(expected, "not ")) {
           determiner = "must not be";
@@ -77787,9 +77787,9 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
           args[_key] = arguments[_key];
         }
-        if (assert22 === void 0)
-          assert22 = require_assert();
-        assert22(args.length > 0, "At least one arg needs to be specified");
+        if (assert23 === void 0)
+          assert23 = require_assert();
+        assert23(args.length > 0, "At least one arg needs to be specified");
         var msg = "The ";
         var len = args.length;
         args = args.map(function(a) {
@@ -79298,7 +79298,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         isDeepStrictEqual = comparison.isDeepStrictEqual;
       }
       var warned = false;
-      var assert22 = module.exports = ok;
+      var assert23 = module.exports = ok;
       var NO_EXCEPTION_SENTINEL = {};
       function innerFail(obj) {
         if (obj.message instanceof Error)
@@ -79340,8 +79340,8 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
         throw err;
       }
-      assert22.fail = fail;
-      assert22.AssertionError = AssertionError;
+      assert23.fail = fail;
+      assert23.AssertionError = AssertionError;
       function innerOk(fn, argLen, value, message) {
         if (!value) {
           var generatedMessage = false;
@@ -79368,8 +79368,8 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
         innerOk.apply(void 0, [ok, args.length].concat(args));
       }
-      assert22.ok = ok;
-      assert22.equal = function equal(actual, expected, message) {
+      assert23.ok = ok;
+      assert23.equal = function equal(actual, expected, message) {
         if (arguments.length < 2) {
           throw new ERR_MISSING_ARGS("actual", "expected");
         }
@@ -79383,7 +79383,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           });
         }
       };
-      assert22.notEqual = function notEqual(actual, expected, message) {
+      assert23.notEqual = function notEqual(actual, expected, message) {
         if (arguments.length < 2) {
           throw new ERR_MISSING_ARGS("actual", "expected");
         }
@@ -79397,7 +79397,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           });
         }
       };
-      assert22.deepEqual = function deepEqual(actual, expected, message) {
+      assert23.deepEqual = function deepEqual(actual, expected, message) {
         if (arguments.length < 2) {
           throw new ERR_MISSING_ARGS("actual", "expected");
         }
@@ -79413,7 +79413,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           });
         }
       };
-      assert22.notDeepEqual = function notDeepEqual(actual, expected, message) {
+      assert23.notDeepEqual = function notDeepEqual(actual, expected, message) {
         if (arguments.length < 2) {
           throw new ERR_MISSING_ARGS("actual", "expected");
         }
@@ -79429,7 +79429,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           });
         }
       };
-      assert22.deepStrictEqual = function deepStrictEqual(actual, expected, message) {
+      assert23.deepStrictEqual = function deepStrictEqual(actual, expected, message) {
         if (arguments.length < 2) {
           throw new ERR_MISSING_ARGS("actual", "expected");
         }
@@ -79445,7 +79445,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           });
         }
       };
-      assert22.notDeepStrictEqual = notDeepStrictEqual;
+      assert23.notDeepStrictEqual = notDeepStrictEqual;
       function notDeepStrictEqual(actual, expected, message) {
         if (arguments.length < 2) {
           throw new ERR_MISSING_ARGS("actual", "expected");
@@ -79462,7 +79462,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           });
         }
       }
-      assert22.strictEqual = function strictEqual(actual, expected, message) {
+      assert23.strictEqual = function strictEqual(actual, expected, message) {
         if (arguments.length < 2) {
           throw new ERR_MISSING_ARGS("actual", "expected");
         }
@@ -79476,7 +79476,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           });
         }
       };
-      assert22.notStrictEqual = function notStrictEqual(actual, expected, message) {
+      assert23.notStrictEqual = function notStrictEqual(actual, expected, message) {
         if (arguments.length < 2) {
           throw new ERR_MISSING_ARGS("actual", "expected");
         }
@@ -79662,13 +79662,13 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
         throw actual;
       }
-      assert22.throws = function throws(promiseFn) {
+      assert23.throws = function throws(promiseFn) {
         for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
           args[_key2 - 1] = arguments[_key2];
         }
         expectsError.apply(void 0, [throws, getActual(promiseFn)].concat(args));
       };
-      assert22.rejects = function rejects(promiseFn) {
+      assert23.rejects = function rejects(promiseFn) {
         for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
           args[_key3 - 1] = arguments[_key3];
         }
@@ -79676,13 +79676,13 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           return expectsError.apply(void 0, [rejects, result].concat(args));
         });
       };
-      assert22.doesNotThrow = function doesNotThrow(fn) {
+      assert23.doesNotThrow = function doesNotThrow(fn) {
         for (var _len4 = arguments.length, args = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
           args[_key4 - 1] = arguments[_key4];
         }
         expectsNoError.apply(void 0, [doesNotThrow, getActual(fn)].concat(args));
       };
-      assert22.doesNotReject = function doesNotReject(fn) {
+      assert23.doesNotReject = function doesNotReject(fn) {
         for (var _len5 = arguments.length, args = new Array(_len5 > 1 ? _len5 - 1 : 0), _key5 = 1; _key5 < _len5; _key5++) {
           args[_key5 - 1] = arguments[_key5];
         }
@@ -79690,7 +79690,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           return expectsNoError.apply(void 0, [doesNotReject, result].concat(args));
         });
       };
-      assert22.ifError = function ifError(err) {
+      assert23.ifError = function ifError(err) {
         if (err !== null && err !== void 0) {
           var message = "ifError got unwanted exception: ";
           if (_typeof(err) === "object" && typeof err.message === "string") {
@@ -79732,13 +79732,13 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
         innerOk.apply(void 0, [strict, args.length].concat(args));
       }
-      assert22.strict = objectAssign(strict, assert22, {
-        equal: assert22.strictEqual,
-        deepEqual: assert22.deepStrictEqual,
-        notEqual: assert22.notStrictEqual,
-        notDeepEqual: assert22.notDeepStrictEqual
+      assert23.strict = objectAssign(strict, assert23, {
+        equal: assert23.strictEqual,
+        deepEqual: assert23.deepStrictEqual,
+        notEqual: assert23.notStrictEqual,
+        notDeepEqual: assert23.notDeepStrictEqual
       });
-      assert22.strict.strict = assert22.strict;
+      assert23.strict.strict = assert23.strict;
     }
   });
 
@@ -79785,31 +79785,31 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       "use strict";
       init_shim();
       Object.defineProperty(exports, "__esModule", { value: true });
-      var Prefixes4;
-      (function(Prefixes5) {
-        Prefixes5.sbol1 = "http://sbols.org/v1#";
-        Prefixes5.sbol2 = "http://sbols.org/v2#";
-        Prefixes5.sbolx = "http://sboldata.org/sbolx#";
-        Prefixes5.sbol3 = "http://sbols.org/v3#";
-        Prefixes5.rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
-        Prefixes5.visual = "http://wiki.synbiohub.org/wiki/Terms/visual#";
-        Prefixes5.sequenceOntologyPurl = "http://purl.org/obo/owl/SO#";
-        Prefixes5.sequenceOntologyIdentifiersOrg = "http://identifiers.org/so/";
-        Prefixes5.go = "http://identifiers.org/go/";
-        Prefixes5.dcterms = "http://purl.org/dc/terms/";
-        Prefixes5.rdfs = "http://www.w3.org/2000/01/rdf-schema#";
-        Prefixes5.svg = "http://www.w3.org/2000/svg#";
-        Prefixes5.sbo = "http://identifiers.org/biomodels.sbo/";
-        Prefixes5.sybio = "http://www.sybio.ncl.ac.uk#";
-        Prefixes5.prov = "http://www.w3.org/ns/prov#";
-        Prefixes5.enrichment = "http://wiki.synbiohub.org/wiki/Terms/enrichment#";
-        Prefixes5.measure = "http://www.ontology-of-units-of-measure.org/resource/om-2/";
-      })(Prefixes4 = exports.Prefixes || (exports.Prefixes = {}));
+      var Prefixes5;
+      (function(Prefixes6) {
+        Prefixes6.sbol1 = "http://sbols.org/v1#";
+        Prefixes6.sbol2 = "http://sbols.org/v2#";
+        Prefixes6.sbolx = "http://sboldata.org/sbolx#";
+        Prefixes6.sbol3 = "http://sbols.org/v3#";
+        Prefixes6.rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+        Prefixes6.visual = "http://wiki.synbiohub.org/wiki/Terms/visual#";
+        Prefixes6.sequenceOntologyPurl = "http://purl.org/obo/owl/SO#";
+        Prefixes6.sequenceOntologyIdentifiersOrg = "http://identifiers.org/so/";
+        Prefixes6.go = "http://identifiers.org/go/";
+        Prefixes6.dcterms = "http://purl.org/dc/terms/";
+        Prefixes6.rdfs = "http://www.w3.org/2000/01/rdf-schema#";
+        Prefixes6.svg = "http://www.w3.org/2000/svg#";
+        Prefixes6.sbo = "http://identifiers.org/biomodels.sbo/";
+        Prefixes6.sybio = "http://www.sybio.ncl.ac.uk#";
+        Prefixes6.prov = "http://www.w3.org/ns/prov#";
+        Prefixes6.enrichment = "http://wiki.synbiohub.org/wiki/Terms/enrichment#";
+        Prefixes6.measure = "http://www.ontology-of-units-of-measure.org/resource/om-2/";
+      })(Prefixes5 = exports.Prefixes || (exports.Prefixes = {}));
       function prefixify(uri) {
         uri = "" + uri;
         for (var i = 0; i < keys.length; ++i) {
           const prefix = keys[i];
-          const uriPrefix = Prefixes4[prefix];
+          const uriPrefix = Prefixes5[prefix];
           if (uri.indexOf(uriPrefix) === 0) {
             return prefix + ":" + uri.slice(uriPrefix.length);
           }
@@ -79817,7 +79817,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         return uri;
       }
       exports.prefixify = prefixify;
-      var keys = Object.keys(Prefixes4);
+      var keys = Object.keys(Prefixes5);
     }
   });
 
@@ -89239,7 +89239,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
     "node_modules/console-browserify/index.js"(exports, module) {
       init_shim();
       var util = require_util2();
-      var assert22 = require_assert();
+      var assert23 = require_assert();
       function now() {
         return new Date().getTime();
       }
@@ -89312,7 +89312,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       function consoleAssert(expression) {
         if (!expression) {
           var arr = slice.call(arguments, 1);
-          assert22.ok(false, util.format.apply(null, arr));
+          assert23.ok(false, util.format.apply(null, arr));
         }
       }
     }
@@ -89790,7 +89790,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       init_shim();
       var pathModule = require_path_browserify();
       var isWindows = import_process.default.platform === "win32";
-      var fs13 = require_fs();
+      var fs14 = require_fs();
       var DEBUG = import_process.default.env.NODE_DEBUG && /fs/.test(import_process.default.env.NODE_DEBUG);
       function rethrow() {
         var callback;
@@ -89855,7 +89855,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           base = m[0];
           previous = "";
           if (isWindows && !knownHard[base]) {
-            fs13.lstatSync(base);
+            fs14.lstatSync(base);
             knownHard[base] = true;
           }
         }
@@ -89873,7 +89873,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           if (cache && Object.prototype.hasOwnProperty.call(cache, base)) {
             resolvedLink = cache[base];
           } else {
-            var stat = fs13.lstatSync(base);
+            var stat = fs14.lstatSync(base);
             if (!stat.isSymbolicLink()) {
               knownHard[base] = true;
               if (cache)
@@ -89888,8 +89888,8 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
               }
             }
             if (linkTarget === null) {
-              fs13.statSync(base);
-              linkTarget = fs13.readlinkSync(base);
+              fs14.statSync(base);
+              linkTarget = fs14.readlinkSync(base);
             }
             resolvedLink = pathModule.resolve(previous, linkTarget);
             if (cache)
@@ -89926,7 +89926,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           base = m[0];
           previous = "";
           if (isWindows && !knownHard[base]) {
-            fs13.lstat(base, function(err) {
+            fs14.lstat(base, function(err) {
               if (err)
                 return cb(err);
               knownHard[base] = true;
@@ -89954,7 +89954,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           if (cache && Object.prototype.hasOwnProperty.call(cache, base)) {
             return gotResolvedLink(cache[base]);
           }
-          return fs13.lstat(base, gotStat);
+          return fs14.lstat(base, gotStat);
         }
         function gotStat(err, stat) {
           if (err)
@@ -89971,10 +89971,10 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
               return gotTarget(null, seenLinks[id], base);
             }
           }
-          fs13.stat(base, function(err2) {
+          fs14.stat(base, function(err2) {
             if (err2)
               return cb(err2);
-            fs13.readlink(base, function(err3, target) {
+            fs14.readlink(base, function(err3, target) {
               if (!isWindows)
                 seenLinks[id] = target;
               gotTarget(err3, target);
@@ -90007,9 +90007,9 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       realpath.realpathSync = realpathSync;
       realpath.monkeypatch = monkeypatch;
       realpath.unmonkeypatch = unmonkeypatch;
-      var fs13 = require_fs();
-      var origRealpath = fs13.realpath;
-      var origRealpathSync = fs13.realpathSync;
+      var fs14 = require_fs();
+      var origRealpath = fs14.realpath;
+      var origRealpathSync = fs14.realpathSync;
       var version = import_process.default.version;
       var ok = /^v[0-5]\./.test(version);
       var old = require_old();
@@ -90047,12 +90047,12 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
       }
       function monkeypatch() {
-        fs13.realpath = realpath;
-        fs13.realpathSync = realpathSync;
+        fs14.realpath = realpath;
+        fs14.realpathSync = realpathSync;
       }
       function unmonkeypatch() {
-        fs13.realpath = origRealpath;
-        fs13.realpathSync = origRealpathSync;
+        fs14.realpath = origRealpath;
+        fs14.realpathSync = origRealpathSync;
       }
     }
   });
@@ -90908,7 +90908,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       function ownProp(obj, field) {
         return Object.prototype.hasOwnProperty.call(obj, field);
       }
-      var fs13 = require_fs();
+      var fs14 = require_fs();
       var path = require_path_browserify();
       var minimatch = require_minimatch();
       var isAbsolute = require_path_is_absolute();
@@ -90963,7 +90963,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         self2.stat = !!options.stat;
         self2.noprocess = !!options.noprocess;
         self2.absolute = !!options.absolute;
-        self2.fs = options.fs || fs13;
+        self2.fs = options.fs || fs14;
         self2.maxLength = options.maxLength || Infinity;
         self2.cache = options.cache || /* @__PURE__ */ Object.create(null);
         self2.statCache = options.statCache || /* @__PURE__ */ Object.create(null);
@@ -91101,7 +91101,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       var Glob = require_glob().Glob;
       var util = require_util2();
       var path = require_path_browserify();
-      var assert22 = require_assert();
+      var assert23 = require_assert();
       var isAbsolute = require_path_is_absolute();
       var common = require_common();
       var setopts = common.setopts;
@@ -91131,7 +91131,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         this._finish();
       }
       GlobSync.prototype._finish = function() {
-        assert22.ok(this instanceof GlobSync);
+        assert23.ok(this instanceof GlobSync);
         if (this.realpath) {
           var self2 = this;
           this.matches.forEach(function(matchset, index) {
@@ -91153,7 +91153,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         common.finish(this);
       };
       GlobSync.prototype._process = function(pattern, index, inGlobStar) {
-        assert22.ok(this instanceof GlobSync);
+        assert23.ok(this instanceof GlobSync);
         var n = 0;
         while (typeof pattern[n] === "string") {
           n++;
@@ -91579,7 +91579,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       var inherits = require_inherits_browser();
       var EE = require_events().EventEmitter;
       var path = require_path_browserify();
-      var assert22 = require_assert();
+      var assert23 = require_assert();
       var isAbsolute = require_path_is_absolute();
       var globSync = require_sync();
       var common = require_common();
@@ -91684,7 +91684,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
       }
       Glob.prototype._finish = function() {
-        assert22(this instanceof Glob);
+        assert23(this instanceof Glob);
         if (this.aborted)
           return;
         if (this.realpath && !this._didRealpath)
@@ -91773,8 +91773,8 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
       };
       Glob.prototype._process = function(pattern, index, inGlobStar, cb) {
-        assert22(this instanceof Glob);
-        assert22(typeof cb === "function");
+        assert23(this instanceof Glob);
+        assert23(typeof cb === "function");
         if (this.aborted)
           return;
         this._processing++;
@@ -92244,7 +92244,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
   var require_main = __commonJS({
     "node_modules/promise-fs/main.js"(exports, module) {
       init_shim();
-      var fs13 = require_fs();
+      var fs14 = require_fs();
       var promisify = require_promisify();
       var isFunction = (value) => typeof value === "function";
       var names = [
@@ -92278,7 +92278,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         "futimes",
         "ftruncate"
       ];
-      var pfs = promisify.some(fs13, names.filter((name) => isFunction(fs13[name])));
+      var pfs = promisify.some(fs14, names.filter((name) => isFunction(fs14[name])));
       module.exports = pfs;
       module.exports.default = pfs;
     }
@@ -92467,7 +92467,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
 
   // src/sboltools.ts
   init_shim();
-  var import_sboljs20 = __toESM(require_dist5());
+  var import_sboljs21 = __toESM(require_dist5());
 
   // src/output/print.ts
   init_shim();
@@ -92902,7 +92902,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
   init_shim();
   var import_rdfoo = __toESM(require_dist());
   var import_sboljs = __toESM(require_dist5());
-  function importToGraph(g, src, format) {
+  function importToGraph2(g, src, format) {
     return __async(this, null, function* () {
       let ft = (0, import_rdfoo.identifyFiletype)(src, "");
       if (!format) {
@@ -92979,7 +92979,7 @@ for FASTA/GenBank imports defaults to SBOL3.
       trace(text("Import: positional opts " + JSON.stringify(positionalOpts)));
       let format = _as ? _as.getString(g) : void 0;
       let src = yield source.downloadToString();
-      yield importToGraph(g, src, format);
+      yield importToGraph2(g, src, format);
       return new ActionResult();
     });
   }
@@ -93271,7 +93271,7 @@ for FASTA/GenBank imports defaults to SBOL3.
     });
   }
 
-  // src/actions/create-sequence.ts
+  // src/actions/object-cd/create-sequence.ts
   init_shim();
   var import_rdfoo7 = __toESM(require_dist());
   var import_assert6 = __toESM(require_assert());
@@ -93362,20 +93362,20 @@ for FASTA/GenBank imports defaults to SBOL3.
   var import_assert3 = __toESM(require_assert());
   var Chain = class {
     static isChain(chain) {
-      return chain[0] === ".";
+      return chain.indexOf("://") === -1;
     }
     static isEmpty(chain) {
       return Chain.tokens(chain).length === 0;
     }
     static context(chain) {
-      return "." + Chain.tokens(chain).slice(0, -1).join(".");
+      return Chain.tokens(chain).slice(0, -1).join(".");
     }
     static displayId(chain) {
       return Chain.tokens(chain).pop();
     }
     static tokens(chain) {
       (0, import_assert3.strict)(Chain.isChain(chain));
-      return chain.slice(1).split(".");
+      return chain.split(".");
     }
   };
 
@@ -93999,16 +93999,9 @@ for FASTA/GenBank imports defaults to SBOL3.
       let context = this.argv.getString(paramPrefix + "context", "");
       let identity = this.argv.getString(this.optDef.name, "") || this.argv.getString(paramPrefix + "identity", "");
       let sbolversion = this.argv.getString(paramPrefix + "sbol-version", "");
-      if (this.optDef.name === "") {
-        let anonIdChain = this.argv.getIdentityChain();
-        if (anonIdChain !== void 0) {
-          identity = anonIdChain;
-        }
-      } else {
-        let identityOpt = this.argv.getString(this.optDef.name, "");
-        if (identityOpt) {
-          identity = identityOpt;
-        }
+      let identityOpt = this.argv.getString(this.optDef.name, "");
+      if (identityOpt) {
+        identity = identityOpt;
       }
       trace(text(`get identity: relatedIdentity ${relatedIdentity}`));
       if (relatedIdentity) {
@@ -94139,49 +94132,89 @@ for FASTA/GenBank imports defaults to SBOL3.
     ]));
   }
 
-  // src/actions/create-sequence.ts
+  // src/actions/object-cd/create-sequence.ts
   var import_bioterms7 = __toESM(require_dist6());
 
   // src/actions/opt/OptTerm.ts
   init_shim();
-  var OptTerm = class extends Opt {
-    constructor(actDef, optDef, argv) {
-      super(actDef, optDef, argv);
+
+  // src/vocab.ts
+  init_shim();
+
+  // src/TwoWayMapping.ts
+  init_shim();
+  var TwoWayMapping = class {
+    constructor(obj) {
+      this.aToBMap = /* @__PURE__ */ new Map();
+      this.bToAMap = /* @__PURE__ */ new Map();
+      for (let a of Object.keys(obj)) {
+        this.aToBMap.set(a, obj[a]);
+        this.bToAMap.set(obj[a], a);
+      }
     }
-    getTerm(type) {
-      let name = this.argv.getString(this.optDef.name, "");
-      if (!name) {
-        return void 0;
-      }
-      if (name.indexOf("://") !== -1) {
-        return name;
-      }
-      if (type === "Role" /* Role */) {
-        var uri = roleVocab[name.toLowerCase()];
-      } else if (type === "InteractionType" /* InteractionType */) {
-        var uri = interactionTypeVocab[name.toLowerCase()];
-      } else if (type == "ParticipationRole" /* ParticipationRole */) {
-        var uri = participationRoleVocab[name.toLowerCase()];
-      } else if (type == "RestrictionSBOL2" /* RestrictionSBOL2 */) {
-        var uri = restrictionVocabSBOL2[name.toLowerCase()];
-      } else if (type == "RestrictionSBOL3" /* RestrictionSBOL3 */) {
-        var uri = restrictionVocabSBOL3[name.toLowerCase()];
-      } else if (type == "SequenceEncodingSBOL2" /* SequenceEncodingSBOL2 */) {
-        var uri = sequenceEncodingVocabSBOL2[name.toLowerCase()];
-      } else if (type == "SequenceEncodingSBOL3" /* SequenceEncodingSBOL3 */) {
-        var uri = sequenceEncodingVocabSBOL3[name.toLowerCase()];
-      } else if (type == "ComponentTypeSBOL2" /* ComponentTypeSBOL2 */) {
-        var uri = componentTypeVocabSBOL2[name.toLowerCase()];
-      } else if (type == "ComponentTypeSBOL3" /* ComponentTypeSBOL3 */) {
-        var uri = componentTypeVocabSBOL3[name.toLowerCase()];
-      }
-      if (uri === void 0) {
-        throw new ActionResult(text("Unknown term: " + name + " for term type " + type));
-      }
-      return uri;
+    aToB(a) {
+      return this.aToBMap.get(a);
+    }
+    bToA(b) {
+      return this.bToAMap.get(b);
     }
   };
-  var roleVocab = {
+
+  // src/vocab.ts
+  function termShorthandToUri(type, name) {
+    if (name.indexOf("://") !== -1) {
+      return name;
+    }
+    if (type === "Role" /* Role */) {
+      var uri = roleVocab.aToB(name.toLowerCase());
+    } else if (type === "InteractionType" /* InteractionType */) {
+      var uri = interactionTypeVocab.aToB(name.toLowerCase());
+    } else if (type == "ParticipationRole" /* ParticipationRole */) {
+      var uri = participationRoleVocab.aToB(name.toLowerCase());
+    } else if (type == "RestrictionSBOL2" /* RestrictionSBOL2 */) {
+      var uri = restrictionVocabSBOL2.aToB(name.toLowerCase());
+    } else if (type == "RestrictionSBOL3" /* RestrictionSBOL3 */) {
+      var uri = restrictionVocabSBOL3.aToB(name.toLowerCase());
+    } else if (type == "SequenceEncodingSBOL2" /* SequenceEncodingSBOL2 */) {
+      var uri = sequenceEncodingVocabSBOL2.aToB(name.toLowerCase());
+    } else if (type == "SequenceEncodingSBOL3" /* SequenceEncodingSBOL3 */) {
+      var uri = sequenceEncodingVocabSBOL3.aToB(name.toLowerCase());
+    } else if (type == "ComponentTypeSBOL2" /* ComponentTypeSBOL2 */) {
+      var uri = componentTypeVocabSBOL2.aToB(name.toLowerCase());
+    } else if (type == "ComponentTypeSBOL3" /* ComponentTypeSBOL3 */) {
+      var uri = componentTypeVocabSBOL3.aToB(name.toLowerCase());
+    }
+    if (uri === void 0) {
+      throw new ActionResult(text("Unknown term: " + name + " for term type " + type));
+    }
+    return uri;
+  }
+  function termUriToShorthand(type, uri) {
+    if (type === "Role" /* Role */) {
+      var short = roleVocab.bToA(uri.toLowerCase());
+    } else if (type === "InteractionType" /* InteractionType */) {
+      var short = interactionTypeVocab.bToA(uri.toLowerCase());
+    } else if (type == "ParticipationRole" /* ParticipationRole */) {
+      var short = participationRoleVocab.bToA(uri.toLowerCase());
+    } else if (type == "RestrictionSBOL2" /* RestrictionSBOL2 */) {
+      var short = restrictionVocabSBOL2.bToA(uri.toLowerCase());
+    } else if (type == "RestrictionSBOL3" /* RestrictionSBOL3 */) {
+      var short = restrictionVocabSBOL3.bToA(uri.toLowerCase());
+    } else if (type == "SequenceEncodingSBOL2" /* SequenceEncodingSBOL2 */) {
+      var short = sequenceEncodingVocabSBOL2.bToA(uri.toLowerCase());
+    } else if (type == "SequenceEncodingSBOL3" /* SequenceEncodingSBOL3 */) {
+      var short = sequenceEncodingVocabSBOL3.bToA(uri.toLowerCase());
+    } else if (type == "ComponentTypeSBOL2" /* ComponentTypeSBOL2 */) {
+      var short = componentTypeVocabSBOL2.bToA(uri.toLowerCase());
+    } else if (type == "ComponentTypeSBOL3" /* ComponentTypeSBOL3 */) {
+      var short = componentTypeVocabSBOL3.bToA(uri.toLowerCase());
+    }
+    if (short === void 0) {
+      return uri;
+    }
+    return short;
+  }
+  var roleVocab = new TwoWayMapping({
     "dna": "https://identifiers.org/SBO:0000251",
     "rna": "https://identifiers.org/SBO:0000250",
     "protein": "https://identifiers.org/SBO:0000252",
@@ -94205,8 +94238,8 @@ for FASTA/GenBank imports defaults to SBOL3.
     "mrna": "http://identifiers.org/so/SO:0000234",
     "effector": "http://identifiers.org/chebi/CHEBI:35224",
     "transcriptionfactor": "http://identifiers.org/go/GO:0003700"
-  };
-  var interactionTypeVocab = {
+  });
+  var interactionTypeVocab = new TwoWayMapping({
     "inhibition": "http://identifiers.org/biomodels.sbo/SBO:0000169",
     "stimulation": "http://identifiers.org/biomodels.sbo/SBO:0000170",
     "biochemicalreaction": "http://identifiers.org/biomodels.sbo/SBO:0000176",
@@ -94214,8 +94247,8 @@ for FASTA/GenBank imports defaults to SBOL3.
     "degradation": "http://identifiers.org/biomodels.sbo/SBO:0000179",
     "geneticproduction": "http://identifiers.org/biomodels.sbo/SBO:0000589",
     "control": "http://identifiers.org/biomodels.sbo/SBO:0000168"
-  };
-  var participationRoleVocab = {
+  });
+  var participationRoleVocab = new TwoWayMapping({
     "inhibitor": "http://identifiers.org/biomodels.sbo/SBO:0000020",
     "inhibited": "http://identifiers.org/biomodels.sbo/SBO:0000642",
     "stimulator": "http://identifiers.org/biomodels.sbo/SBO:0000459",
@@ -94226,21 +94259,21 @@ for FASTA/GenBank imports defaults to SBOL3.
     "modifier": "http://identifiers.org/biomodels.sbo/SBO:0000019",
     "modified": "http://identifiers.org/biomodels.sbo/SBO:0000644",
     "template": "http://identifiers.org/biomodels.sbo/SBO:0000645"
-  };
-  var restrictionVocabSBOL2 = {
+  });
+  var restrictionVocabSBOL2 = new TwoWayMapping({
     "precedes": "http://sbols.org/v2#precedes"
-  };
-  var restrictionVocabSBOL3 = {
+  });
+  var restrictionVocabSBOL3 = new TwoWayMapping({
     "precedes": "http://sbols.org/v3#precedes"
-  };
-  var sequenceEncodingVocabSBOL2 = {
+  });
+  var sequenceEncodingVocabSBOL2 = new TwoWayMapping({
     "nucleicacid": "http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html",
     "dna": "http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html",
     "rna": "http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html",
     "protein": "http://www.chem.qmul.ac.uk/iupac/AminoAcid/",
     "smiles": "http://www.opensmiles.org/opensmiles.html"
-  };
-  var sequenceEncodingVocabSBOL3 = {
+  });
+  var sequenceEncodingVocabSBOL3 = new TwoWayMapping({
     "nucleicacid": "http://sbols.org/v3#iupacNucleicAcid",
     "dna": "http://sbols.org/v3#iupacNucleicAcid",
     "rna": "http://sbols.org/v3#iupacNucleicAcid",
@@ -94248,8 +94281,8 @@ for FASTA/GenBank imports defaults to SBOL3.
     "protein": "http://sbols.org/v3#iupacAminoAcid",
     "smiles": "http://www.opensmiles.org/opensmiles.html",
     "chemical": "http://www.opensmiles.org/opensmiles.html"
-  };
-  var componentTypeVocabSBOL2 = {
+  });
+  var componentTypeVocabSBOL2 = new TwoWayMapping({
     "dna": "http://www.biopax.org/release/biopax-level3.owl#Dna",
     "dnamolecule": "http://www.biopax.org/release/biopax-level3.owl#Dna",
     "dnaregion": "http://www.biopax.org/release/biopax-level3.owl#DnaRegion",
@@ -94259,8 +94292,8 @@ for FASTA/GenBank imports defaults to SBOL3.
     "protein": "http://www.biopax.org/release/biopax-level3.owl#Protein",
     "smallmolecule": "http://www.biopax.org/release/biopax-level3.owl#SmallMolecule",
     "complex": "http://www.biopax.org/release/biopax-level3.owl#Complex"
-  };
-  var componentTypeVocabSBOL3 = {
+  });
+  var componentTypeVocabSBOL3 = new TwoWayMapping({
     "dna": "https://identifiers.org/SBO:0000251",
     "dnamolecule": "https://identifiers.org/SBO:0000251",
     "dnaregion": "https://identifiers.org/SBO:0000251",
@@ -94272,9 +94305,23 @@ for FASTA/GenBank imports defaults to SBOL3.
     "complex": "https://identifiers.org/SBO:0000253",
     "functionalentity": "https://identifiers.org/SBO:0000241",
     "module": "https://identifiers.org/SBO:0000241"
+  });
+
+  // src/actions/opt/OptTerm.ts
+  var OptTerm = class extends Opt {
+    constructor(actDef, optDef, argv) {
+      super(actDef, optDef, argv);
+    }
+    getTerm(type) {
+      let name = this.argv.getString(this.optDef.name, "");
+      if (!name) {
+        return void 0;
+      }
+      return termShorthandToUri(type, name);
+    }
   };
 
-  // src/actions/create-sequence.ts
+  // src/actions/object-cd/create-sequence.ts
   var createSequenceAction2 = {
     name: "sequence",
     description: "Creates a sequence",
@@ -94311,13 +94358,13 @@ If such inference is not possible (e.g. no component is specified, or the specif
   function createSequence(ctx, namedOpts, positionalOpts) {
     return __async(this, null, function* () {
       let g = ctx.getCurrentGraph();
-      let [optIdentity, optForComponentIdentity, optSource, optEncoding] = namedOpts;
-      (0, import_assert6.strict)(optIdentity instanceof OptIdentity);
+      let [optIdentity2, optForComponentIdentity, optSource, optEncoding] = namedOpts;
+      (0, import_assert6.strict)(optIdentity2 instanceof OptIdentity);
       (0, import_assert6.strict)(optSource instanceof OptURL);
       (0, import_assert6.strict)(optForComponentIdentity instanceof OptIdentity);
       (0, import_assert6.strict)(optEncoding instanceof OptTerm);
       let forComponentIdentity = optForComponentIdentity.getIdentity(ctx, "MustExist" /* MustExist */);
-      let identity = optIdentity.getIdentity(ctx, "MustNotExist" /* MustNotExist */);
+      let identity = optIdentity2.getIdentity(ctx, "MustNotExist" /* MustNotExist */);
       (0, import_assert6.strict)(identity !== void 0);
       let source = yield optSource.downloadToString();
       let sourceG = new import_rdfoo7.Graph();
@@ -94332,10 +94379,10 @@ If such inference is not possible (e.g. no component is specified, or the specif
         case "SBOL1" /* SBOL1 */:
           return createSequenceSBOL1(g, identity, forComponentIdentity, encoding2, elements);
         case "SBOL2" /* SBOL2 */:
-          var encoding2 = optEncoding.getTerm("SequenceEncodingSBOL2" /* SequenceEncodingSBOL2 */);
+          var encoding2 = optEncoding.getTerm(TermType.SequenceEncodingSBOL2);
           return createSequenceSBOL2(g, identity, forComponentIdentity, encoding2, elements);
         case "SBOL3" /* SBOL3 */:
-          var encoding2 = optEncoding.getTerm("SequenceEncodingSBOL3" /* SequenceEncodingSBOL3 */);
+          var encoding2 = optEncoding.getTerm(TermType.SequenceEncodingSBOL3);
           (0, import_assert6.strict)(encoding2);
           return createSequenceSBOL3(g, identity, forComponentIdentity, encoding2, elements);
         default:
@@ -94365,10 +94412,10 @@ If such inference is not possible (e.g. no component is specified, or the specif
     if (!encoding2) {
       if (forComponentIdentity !== void 0) {
         let component = gv.subjectToFacade(import_rdfoo7.node.createUriNode(forComponentIdentity.uri));
-        (0, import_assert6.strict)(component instanceof import_sboljs8.S2ComponentDefinition);
+        (0, import_assert6.strict)(component instanceof S2ComponentDefinition);
         trace(text("Attempting to infer seq encoding from component with types " + component.types.join(", ")));
-        trace(text(import_bioterms7.Specifiers.SBOL2.Type.DNA));
-        trace(text(import_bioterms7.Specifiers.SBOL2.SequenceEncoding.NucleicAcid));
+        trace(text(Specifiers.SBOL2.Type.DNA));
+        trace(text(Specifiers.SBOL2.SequenceEncoding.NucleicAcid));
         encoding2 = typesToEncoding(component.types);
       }
     }
@@ -94398,23 +94445,23 @@ If such inference is not possible (e.g. no component is specified, or the specif
   }
   function typesToEncoding(types) {
     if (types.indexOf("http://www.biopax.org/release/biopax-level3.owl#Dna") !== -1) {
-      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
+      return Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
     } else if (types.indexOf("http://www.biopax.org/release/biopax-level3.owl#DnaRegion") !== -1) {
-      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
+      return Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
     } else if (types.indexOf("http://www.biopax.org/release/biopax-level3.owl#Rna") !== -1) {
-      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
+      return Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
     } else if (types.indexOf("http://www.biopax.org/release/biopax-level3.owl#RnaRegion") !== -1) {
-      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
+      return Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
     } else if (types.indexOf("http://www.biopax.org/release/biopax-level3.owl#Protein") !== -1) {
-      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.AminoAcid;
+      return Specifiers.SBOL2.SequenceEncoding.AminoAcid;
     } else if (types.indexOf("http://www.biopax.org/release/biopax-level3.owl#Protein") !== -1) {
-      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.AminoAcid;
+      return Specifiers.SBOL2.SequenceEncoding.AminoAcid;
     } else if (types.indexOf("https://identifiers.org/SBO:0000251") !== -1) {
-      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
+      return Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
     } else if (types.indexOf("https://identifiers.org/SBO:0000251") !== -1) {
-      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
+      return Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
     } else if (types.indexOf("https://identifiers.org/SBO:0000252") !== -1) {
-      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.AminoAcid;
+      return Specifiers.SBOL2.SequenceEncoding.AminoAcid;
     }
     (0, import_assert6.strict)(false);
   }
@@ -94604,7 +94651,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
     });
   }
 
-  // src/actions/create-constraint.ts
+  // src/actions/object-cd/create-constraint.ts
   init_shim();
   var import_rdfoo8 = __toESM(require_dist());
   var import_assert7 = __toESM(require_assert());
@@ -94643,11 +94690,13 @@ If such inference is not possible (e.g. no component is specified, or the specif
     return __async(this, null, function* () {
       let g = ctx.getCurrentGraph();
       trace(text("createConstraint"));
-      let [optIdentity, optSubject, optRestriction, optObject] = namedOpts;
-      (0, import_assert7.strict)(optIdentity instanceof OptIdentity);
+      let [optNamedIdentity, optSubject, optRestriction, optObject] = namedOpts;
+      (0, import_assert7.strict)(optNamedIdentity instanceof OptIdentity);
       (0, import_assert7.strict)(optSubject instanceof OptIdentity);
       (0, import_assert7.strict)(optRestriction instanceof OptTerm);
       (0, import_assert7.strict)(optObject instanceof OptIdentity);
+      let [optPositionalIdentity] = positionalOpts;
+      (0, import_assert7.strict)(!optPositionalIdentity || optPositionalIdentity instanceof OptIdentity);
       let identity = optIdentity.getIdentity(ctx, "MustNotExist" /* MustNotExist */);
       (0, import_assert7.strict)(identity !== void 0);
       if (!identity.parentURI) {
@@ -94679,7 +94728,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
     });
   }
   function createConstraintSBOL2(g, identity, subject, optRestriction, object) {
-    let restriction = optRestriction.getTerm("RestrictionSBOL2" /* RestrictionSBOL2 */);
+    let restriction = optRestriction.getTerm(TermType.RestrictionSBOL2);
     (0, import_assert7.strict)(restriction);
     let gv = new import_sboljs11.SBOL2GraphView(g);
     g.insertProperties(import_rdfoo8.node.createUriNode(identity.uri), {
@@ -94699,7 +94748,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
     return new ActionResult();
   }
   function createConstraintSBOL3(g, identity, subject, optRestriction, object) {
-    let restriction = optRestriction.getTerm("RestrictionSBOL3" /* RestrictionSBOL3 */);
+    let restriction = optRestriction.getTerm(TermType.RestrictionSBOL3);
     (0, import_assert7.strict)(restriction);
     let gv = new import_sboljs11.SBOL3GraphView(g);
     let namespace3 = identity.namespace;
@@ -94716,7 +94765,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
     return new ActionResult();
   }
 
-  // src/actions/create-component.ts
+  // src/actions/object-cd/create-component.ts
   init_shim();
   var import_rdfoo9 = __toESM(require_dist());
   var import_assert8 = __toESM(require_assert());
@@ -94740,7 +94789,13 @@ If such inference is not possible (e.g. no component is specified, or the specif
         type: OptTerm
       }
     ],
-    positionalOpts: [],
+    positionalOpts: [
+      {
+        name: "",
+        type: OptIdentity,
+        optional: true
+      }
+    ],
     run: createComponent
   };
   var create_component_default = createComponentAction;
@@ -94748,11 +94803,13 @@ If such inference is not possible (e.g. no component is specified, or the specif
     return __async(this, null, function* () {
       let g = ctx.getCurrentGraph();
       trace(text("createComponent"));
-      let [optIdentity, optType, optRole] = namedOpts;
-      (0, import_assert8.strict)(optIdentity instanceof OptIdentity);
+      let [optNamedIdentity, optType, optRole] = namedOpts;
       (0, import_assert8.strict)(optType instanceof OptTerm);
       (0, import_assert8.strict)(optRole instanceof OptTerm);
-      let identity = optIdentity.getIdentity(ctx, "MustNotExist" /* MustNotExist */);
+      (0, import_assert8.strict)(optNamedIdentity instanceof Opt);
+      let [optPositionalIdentity] = positionalOpts;
+      (0, import_assert8.strict)(!optPositionalIdentity || optPositionalIdentity instanceof OptIdentity);
+      let identity = (optPositionalIdentity || optNamedIdentity).getIdentity(ctx, "MustNotExist" /* MustNotExist */);
       (0, import_assert8.strict)(identity !== void 0);
       let parentURI = "";
       if (identity.parentURI) {
@@ -94829,13 +94886,14 @@ If such inference is not possible (e.g. no component is specified, or the specif
   function createComponentSBOL3(g, identity, optType, optRole, parentURI) {
     let type = optType.getTerm("Role" /* Role */);
     if (!type) {
-      throw new ActionResult(text(`--type parameter is required for component create action`), 0 /* Abort */);
+      throw new ActionResult(text(`--type parameter is required for component create action. For example, component --type DNA.`), 0 /* Abort */);
     }
     let gv = new import_sboljs12.SBOL3GraphView(g);
     g.insertProperties(import_rdfoo9.node.createUriNode(identity.uri), {
       [import_bioterms9.Predicates.a]: import_rdfoo9.node.createUriNode(import_bioterms9.Types.SBOL3.Component),
       [import_bioterms9.Predicates.SBOL3.type]: import_rdfoo9.node.createUriNode(type),
-      [import_bioterms9.Predicates.SBOL3.displayId]: import_rdfoo9.node.createStringNode(identity.displayId)
+      [import_bioterms9.Predicates.SBOL3.displayId]: import_rdfoo9.node.createStringNode(identity.displayId),
+      [import_bioterms9.Predicates.SBOL3.hasNamespace]: import_rdfoo9.node.createUriNode(identity.namespace)
     });
     if (parentURI) {
       if (!g.hasMatch(import_rdfoo9.node.createUriNode(parentURI), import_bioterms9.Predicates.a, import_rdfoo9.node.createUriNode(import_bioterms9.Types.SBOL3.Component))) {
@@ -94855,7 +94913,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
     return new ActionResult();
   }
 
-  // src/actions/create-module.ts
+  // src/actions/object-cd/create-module.ts
   init_shim();
   var import_rdfoo10 = __toESM(require_dist());
   var import_assert9 = __toESM(require_assert());
@@ -94884,13 +94942,13 @@ If such inference is not possible (e.g. no component is specified, or the specif
     return __async(this, null, function* () {
       let g = ctx.getCurrentGraph();
       trace(text("createModule"));
-      let [optIdentity, optWithinModuleIdentity] = namedOpts;
-      (0, import_assert9.strict)(optIdentity instanceof OptIdentity);
+      let [optIdentity2, optWithinModuleIdentity] = namedOpts;
+      (0, import_assert9.strict)(optIdentity2 instanceof OptIdentity);
       (0, import_assert9.strict)(optWithinModuleIdentity instanceof OptIdentity);
       trace(text(`Getting withinModuleIdentity`));
       let withinModuleIdentity = optWithinModuleIdentity.getIdentity(ctx, "MustExist" /* MustExist */);
       trace(text(`Got withinModuleIdentity: ${withinModuleIdentity}`));
-      let identity = optIdentity.getIdentity(ctx, "MustNotExist" /* MustNotExist */, withinModuleIdentity);
+      let identity = optIdentity2.getIdentity(ctx, "MustNotExist" /* MustNotExist */, withinModuleIdentity);
       (0, import_assert9.strict)(identity !== void 0);
       if (identity.parentURI) {
         throw new ActionResult(text("Modules cannot have parents, as they are designated top-level. To specify a module-submodule relationship, use the --within-module option."), 0 /* Abort */);
@@ -94931,7 +94989,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
     return new ActionResult();
   }
 
-  // src/actions/create-interaction.ts
+  // src/actions/object-cd/create-interaction.ts
   init_shim();
   var import_rdfoo11 = __toESM(require_dist());
   var import_assert10 = __toESM(require_assert());
@@ -94965,12 +95023,12 @@ If such inference is not possible (e.g. no component is specified, or the specif
     return __async(this, null, function* () {
       let g = ctx.getCurrentGraph();
       trace(text("createInteraction"));
-      let [optIdentity, optWithinComponentIdentity, optRole] = namedOpts;
-      (0, import_assert10.strict)(optIdentity instanceof OptIdentity);
+      let [optIdentity2, optWithinComponentIdentity, optRole] = namedOpts;
+      (0, import_assert10.strict)(optIdentity2 instanceof OptIdentity);
       (0, import_assert10.strict)(optWithinComponentIdentity instanceof OptIdentity);
       (0, import_assert10.strict)(optRole instanceof OptTerm);
       let withinComponentIdentity = optWithinComponentIdentity.getIdentity(ctx, "MayExist" /* MayExist */);
-      let identity = optIdentity.getIdentity(ctx, "MustNotExist" /* MustNotExist */, withinComponentIdentity);
+      let identity = optIdentity2.getIdentity(ctx, "MustNotExist" /* MustNotExist */, withinComponentIdentity);
       (0, import_assert10.strict)(identity !== void 0);
       if (!withinComponentIdentity) {
         if (identity.parentURI) {
@@ -94981,7 +95039,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
       if (!withinComponentIdentity) {
         throw new ActionResult(text("Components cannot have parents, as they are designated top-level. To specify a component-subcomponent relationship, use the --within-component option."), 0 /* Abort */);
       }
-      let role = optRole.getTerm("InteractionType" /* InteractionType */);
+      let role = optRole.getTerm(TermType.InteractionType);
       (0, import_assert10.strict)(role);
       switch (identity.sbolVersion) {
         case "SBOL2" /* SBOL2 */:
@@ -95025,7 +95083,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
     return new ActionResult();
   }
 
-  // src/actions/create-participation.ts
+  // src/actions/object-cd/create-participation.ts
   init_shim();
   var import_rdfoo12 = __toESM(require_dist());
   var import_assert11 = __toESM(require_assert());
@@ -95064,14 +95122,14 @@ If such inference is not possible (e.g. no component is specified, or the specif
     return __async(this, null, function* () {
       let g = ctx.getCurrentGraph();
       trace(text("createParticipation"));
-      let [optIdentity, optWithinInteractionIdentity, optParticipant, optRole] = namedOpts;
-      (0, import_assert11.strict)(optIdentity instanceof OptIdentity);
+      let [optIdentity2, optWithinInteractionIdentity, optParticipant, optRole] = namedOpts;
+      (0, import_assert11.strict)(optIdentity2 instanceof OptIdentity);
       (0, import_assert11.strict)(optWithinInteractionIdentity instanceof OptIdentity);
       (0, import_assert11.strict)(optParticipant instanceof OptIdentity);
       (0, import_assert11.strict)(optRole instanceof OptTerm);
       trace(text(`createParticipation participant ${JSON.stringify(optParticipant.optDef)}`));
       let withinInteractionIdentity = optWithinInteractionIdentity.getIdentity(ctx, "MayExist" /* MayExist */);
-      let identity = optIdentity.getIdentity(ctx, "MustNotExist" /* MustNotExist */, withinInteractionIdentity);
+      let identity = optIdentity2.getIdentity(ctx, "MustNotExist" /* MustNotExist */, withinInteractionIdentity);
       (0, import_assert11.strict)(identity !== void 0);
       if (!withinInteractionIdentity) {
         if (identity.parentURI) {
@@ -95084,7 +95142,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
       }
       let participantIdentity = optParticipant.getIdentity(ctx, "MustExist" /* MustExist */, withinInteractionIdentity);
       (0, import_assert11.strict)(participantIdentity);
-      let role = optRole.getTerm("ParticipationRole" /* ParticipationRole */);
+      let role = optRole.getTerm(TermType.ParticipationRole);
       (0, import_assert11.strict)(role);
       switch (identity.sbolVersion) {
         case "SBOL2" /* SBOL2 */:
@@ -95212,13 +95270,13 @@ If such inference is not possible (e.g. no component is specified, or the specif
   var annotate_range_default = annotateRangeAction;
   function annotateRange(ctx, namedOpts, positionalOpts) {
     return __async(this, null, function* () {
-      let [optIdentity, optInComponentIdentity, optSource, optEncoding] = namedOpts;
+      let [optIdentity2, optInComponentIdentity, optSource, optEncoding] = namedOpts;
       let g = ctx.getCurrentGraph();
-      (0, import_assert12.strict)(optIdentity instanceof OptIdentity);
+      (0, import_assert12.strict)(optIdentity2 instanceof OptIdentity);
       (0, import_assert12.strict)(optInComponentIdentity instanceof OptIdentity);
       (0, import_assert12.strict)(optSource instanceof OptURL);
       (0, import_assert12.strict)(optEncoding instanceof OptString);
-      let identity = optIdentity.getIdentity(ctx, "MustExist" /* MustExist */);
+      let identity = optIdentity2.getIdentity(ctx, "MustExist" /* MustExist */);
       (0, import_assert12.strict)(identity !== void 0);
       if (identity.sbolVersion === "SBOL1" /* SBOL1 */) {
         throw new ActionResult(text("SBOL1 does not support sequence annotations without subcomponents.  Instead, create and assign a subcomponent using the create-component and add-subcomponent actions."), 0 /* Abort */);
@@ -95254,7 +95312,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
     });
   }
 
-  // src/actions/create-participant.ts
+  // src/actions/object-cd/create-participant.ts
   init_shim();
   var import_rdfoo13 = __toESM(require_dist());
   var import_assert13 = __toESM(require_assert());
@@ -95288,12 +95346,12 @@ If such inference is not possible (e.g. no component is specified, or the specif
     return __async(this, null, function* () {
       let g = ctx.getCurrentGraph();
       trace(text("createParticipant"));
-      let [optIdentity, optWithinInteractionIdentity, optRole] = namedOpts;
-      (0, import_assert13.strict)(optIdentity instanceof OptIdentity);
+      let [optIdentity2, optWithinInteractionIdentity, optRole] = namedOpts;
+      (0, import_assert13.strict)(optIdentity2 instanceof OptIdentity);
       (0, import_assert13.strict)(optWithinInteractionIdentity instanceof OptIdentity);
       (0, import_assert13.strict)(optRole instanceof OptTerm);
       let withinInteractionIdentity = optWithinInteractionIdentity.getIdentity(ctx, "MayExist" /* MayExist */);
-      let identity = optIdentity.getIdentity(ctx, "MustExist" /* MustExist */, withinInteractionIdentity);
+      let identity = optIdentity2.getIdentity(ctx, "MustExist" /* MustExist */, withinInteractionIdentity);
       (0, import_assert13.strict)(identity !== void 0);
       if (!withinInteractionIdentity) {
         if (identity.parentURI) {
@@ -95304,7 +95362,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
       if (!withinInteractionIdentity) {
         throw new ActionResult(text("Participation must be contained by an interaction"));
       }
-      let role = optRole.getTerm("ParticipationRole" /* ParticipationRole */);
+      let role = optRole.getTerm(TermType.ParticipationRole);
       (0, import_assert13.strict)(role);
       switch (identity.sbolVersion) {
         case "SBOL2" /* SBOL2 */:
@@ -95917,32 +95975,12 @@ Sets the default SBOL version 1/2/3 for actions which create SBOL objects. This 
     });
   }
 
-  // src/actions/index.ts
-  var actions_default = [
-    import_default,
-    convert_default,
-    components_default,
-    validate_default,
-    create_component_default,
-    create_constraint_default,
-    create_module_default,
-    create_interaction_default,
-    create_participation_default,
-    create_sequence_default,
-    render_default,
-    annotate_range_default,
-    add_subcomponent_default,
-    create_participant_default,
-    dump_graph_default,
-    show_graphs_default,
-    graph_default,
-    compare_default,
-    merge_default,
-    insert_default,
-    namespace_default2,
-    sbol_version_default,
-    run_tests_default
-  ];
+  // src/actions/object-cd/dna.ts
+  init_shim();
+
+  // src/actions/helpers/remap-opts.ts
+  init_shim();
+  var import_console2 = __toESM(require_console_browserify());
 
   // src/parse-argv.ts
   init_shim();
@@ -95966,9 +96004,8 @@ Sets the default SBOL version 1/2/3 for actions which create SBOL objects. This 
     }
   };
   var ArgvOptionSet = class {
-    constructor(opts, identityChain) {
+    constructor(opts) {
       this.opts = opts;
-      this.identityChain = identityChain;
     }
     getStringOrUndefined(opt) {
       var _a;
@@ -95984,9 +96021,6 @@ Sets the default SBOL version 1/2/3 for actions which create SBOL objects. This 
       let value = this.opts.filter((o) => o.name === opt)[0];
       return value !== void 0;
     }
-    getIdentityChain() {
-      return this.identityChain;
-    }
   };
   function parseArgv(argv) {
     let args = argv.slice(2);
@@ -95998,7 +96032,7 @@ Sets the default SBOL version 1/2/3 for actions which create SBOL objects. This 
         args.shift();
         let option = { name };
         if (args[0]) {
-          if (parseToken(args[0]).type === 3 /* Other */) {
+          if (parseToken(args[0]).type === 2 /* Other */) {
             option.value = args.shift();
           }
         }
@@ -96018,16 +96052,8 @@ Sets the default SBOL version 1/2/3 for actions which create SBOL objects. This 
       let namedOpts = [];
       let positionalOpts = [];
       let nPositionalRemaining = def == null ? void 0 : def.positionalOpts.length;
-      let idChain = void 0;
       while (args.length > 0) {
         let { name: name2, type } = parseToken(args[0]);
-        if (type === 2 /* IdentityChain */) {
-          if (idChain !== void 0) {
-            throw new Error("multiple anonymous id chains specified in args: " + args[0]);
-          }
-          idChain = args.shift();
-          continue;
-        }
         if (type !== 0 /* Option */) {
           if (nPositionalRemaining > 0) {
             --nPositionalRemaining;
@@ -96045,7 +96071,7 @@ Sets the default SBOL version 1/2/3 for actions which create SBOL objects. This 
         }
         namedOpts.push(option);
       }
-      return new ArgvAction(name, new ArgvOptionSet(namedOpts, idChain), positionalOpts);
+      return new ArgvAction(name, new ArgvOptionSet(namedOpts), positionalOpts);
     }
   }
   function isAction(str) {
@@ -96056,14 +96082,118 @@ Sets the default SBOL version 1/2/3 for actions which create SBOL objects. This 
       return { type: 0 /* Option */, name: str.slice(1) };
     } else if (/^--[^-]/g.test(str)) {
       return { type: 0 /* Option */, name: str.slice(2) };
-    } else if (str[0] === ".") {
-      return { type: 2 /* IdentityChain */ };
     } else if (isAction(str)) {
       return { type: 1 /* Action */ };
     } else {
-      return { type: 3 /* Other */ };
+      return { type: 2 /* Other */ };
     }
   }
+
+  // src/actions/helpers/remap-opts.ts
+  function remapOpts(thisActDef, actDefToMapTo, opts, newOptsToAdd) {
+    let newOpts = actDefToMapTo.namedOpts.map((newOptDef) => {
+      for (let n = 0; n < thisActDef.namedOpts.length; ++n) {
+        let curOptDef = thisActDef.namedOpts[n];
+        if (curOptDef.name == newOptDef.name) {
+          return new newOptDef.type(actDefToMapTo, newOptDef, opts[n].argv);
+        } else {
+          let newVal = newOptsToAdd[newOptDef.name];
+          (0, import_console2.assert)(newVal);
+          let fakeArgv = new ArgvOptionSet([new ArgvNamedOption(newOptDef.name, newVal)]);
+          let newOpt = new newOptDef.type(actDefToMapTo, newOptDef, fakeArgv);
+          return newOpt;
+        }
+      }
+      throw new Error("??");
+    });
+    return newOpts;
+  }
+
+  // src/actions/object-cd/dna.ts
+  var dnaAction2 = {
+    name: "dna",
+    description: "Alias for `component --type DNA`; creates a DNA component",
+    category: "object-cd",
+    namedOpts: [
+      {
+        name: "",
+        type: OptIdentity
+      },
+      {
+        name: "role",
+        type: OptTerm
+      }
+    ],
+    positionalOpts: [],
+    run: dna
+  };
+  var dna_default = dnaAction2;
+  function dna(ctx, namedOpts, positionalOpts) {
+    return __async(this, null, function* () {
+      let newOpts = remapOpts(dnaAction2, create_component_default, namedOpts, {
+        type: "DNA"
+      });
+      return create_component_default.run(ctx, newOpts, positionalOpts);
+    });
+  }
+
+  // src/actions/object-cd/protein.ts
+  init_shim();
+  var proteinAction = {
+    name: "protein",
+    description: "Alias for `component --type Protein`; creates a Protein component",
+    category: "object-cd",
+    namedOpts: [
+      {
+        name: "",
+        type: OptIdentity
+      },
+      {
+        name: "role",
+        type: OptTerm
+      }
+    ],
+    positionalOpts: [],
+    run: protein
+  };
+  var protein_default = proteinAction;
+  function protein(ctx, namedOpts, positionalOpts) {
+    return __async(this, null, function* () {
+      let newOpts = remapOpts(dnaAction, create_component_default, namedOpts, {
+        type: "Protein"
+      });
+      return create_component_default.run(ctx, newOpts, positionalOpts);
+    });
+  }
+
+  // src/actions/index.ts
+  var actions_default = [
+    import_default,
+    convert_default,
+    components_default,
+    validate_default,
+    create_component_default,
+    dna_default,
+    protein_default,
+    create_constraint_default,
+    create_module_default,
+    create_interaction_default,
+    create_participation_default,
+    create_sequence_default,
+    render_default,
+    annotate_range_default,
+    add_subcomponent_default,
+    create_participant_default,
+    dump_graph_default,
+    show_graphs_default,
+    graph_default,
+    compare_default,
+    merge_default,
+    insert_default,
+    namespace_default2,
+    sbol_version_default,
+    run_tests_default
+  ];
 
   // src/help.ts
   init_shim();
@@ -96375,6 +96505,48 @@ For comprehensive documentation, check out http://sboltools.github.io
     }
   };
 
+  // src/graphToSboltoolsCmd.ts
+  init_shim();
+  var import_sboljs20 = __toESM(require_dist5());
+  var fs13 = require_main();
+  function graphToSboltoolsCmd(g) {
+    return __async(this, null, function* () {
+      let out = [];
+      out.push(indent([
+        text("sbol-version 3")
+      ]));
+      let curNamespace = "";
+      for (let rootC of (0, import_sboljs20.sbol3)(g).rootComponents) {
+        if (curNamespace !== rootC.namespace) {
+          out.push(indent([
+            text("namespace " + rootC.namespace)
+          ]));
+          curNamespace = rootC.namespace;
+        }
+        let componentSection = [];
+        for (let type of rootC.types) {
+          componentSection.push(text("--type " + termUriToShorthand("ComponentTypeSBOL3" /* ComponentTypeSBOL3 */, type)));
+        }
+        let idchain = "." + rootC.displayId;
+        out.push(indent([
+          text("component " + idchain),
+          indent(componentSection)
+        ]));
+      }
+      let lines = tostring(0, group([
+        text("sbol --trace"),
+        indent(out)
+      ])).trim().split("\n");
+      for (let n = 0; n < lines.length; ++n) {
+        if (n < lines.length - 1) {
+          import_process.default.stdout.write(lines[n] + " \\\n");
+        } else {
+          import_process.default.stdout.write(lines[n] + "\n");
+        }
+      }
+    });
+  }
+
   // src/sboltools.ts
   var chalk4 = require_source();
   var sqparse = require_shell_quote().parse;
@@ -96421,9 +96593,15 @@ For comprehensive documentation, check out http://sboltools.github.io
           break;
         }
         let namedOpts = actDef.namedOpts.map((optDef) => new optDef.type(actDef, optDef, action9.namedOpts));
-        let positionalOpts = actDef.positionalOpts.map((optDef, i) => new optDef.type(actDef, optDef, new ArgvOptionSet([
-          new ArgvNamedOption(optDef.name, action9.positionalOpts[i])
-        ], void 0)));
+        let positionalOpts = actDef.positionalOpts.map((optDef, i) => {
+          if (action9.positionalOpts[i]) {
+            return new optDef.type(actDef, optDef, new ArgvOptionSet([
+              new ArgvNamedOption(optDef.name, action9.positionalOpts[i])
+            ], void 0));
+          } else {
+            return void 0;
+          }
+        });
         let err = false;
         try {
           trace(text(`Begin action: ${actDef.name}`));
@@ -96462,16 +96640,19 @@ For comprehensive documentation, check out http://sboltools.github.io
             summarize(ctx.getCurrentGraph());
             break;
           case "sbol1":
-            return new import_sboljs20.SBOL1GraphView(ctx.getCurrentGraph()).serializeXML();
+            return new import_sboljs21.SBOL1GraphView(ctx.getCurrentGraph()).serializeXML();
           case "sbol2":
-            return new import_sboljs20.SBOL2GraphView(ctx.getCurrentGraph()).serializeXML();
+            return new import_sboljs21.SBOL2GraphView(ctx.getCurrentGraph()).serializeXML();
           case "sbol3":
-            return new import_sboljs20.SBOL3GraphView(ctx.getCurrentGraph()).serializeXML();
+            return new import_sboljs21.SBOL3GraphView(ctx.getCurrentGraph()).serializeXML();
           case "fasta":
             print(text(chalk4.red("FASTA output not yet supported")));
             break;
           case "genbank":
             print(text(chalk4.red("GenBank output not yet supported")));
+            break;
+          case "sboltools":
+            graphToSboltoolsCmd(ctx.getCurrentGraph());
             break;
           case "none":
             break;
