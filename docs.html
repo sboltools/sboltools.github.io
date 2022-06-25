@@ -138,7 +138,9 @@ sbol lacI_inverter.xml tetR_inverter_genbank.gbf
     <img src="img/conversionstages.png" />
     </div>
 
-    <p>Conversion between formats is supported on multiple levels:</p>
+    <p>Each time you use the <code>sbol</code> command on the command line, the input is loaded (if provided), and the output is written. The input and output are not always in the same format. Additionally, between these input and output stages, some actions may be performed, which may also include conversion between formats.</p>
+
+    <p>There are therefore different stages in sboltools in which data conversions are performed:</p>
         
     <ul>
             <li><b>Input conversion</b>, where non-SBOL formats (FASTA/GenBank) are converted to
