@@ -96526,7 +96526,7 @@ For comprehensive documentation, check out http://sboltools.github.io
       for (let type of rootC.types) {
         componentSection.push(text("--type " + termUriToShorthand("ComponentTypeSBOL3" /* ComponentTypeSBOL3 */, type)));
       }
-      let idchain = "." + rootC.displayId;
+      let idchain = rootC.displayId;
       out.push(indent([
         text("component " + idchain),
         indent(componentSection)
