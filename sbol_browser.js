@@ -92768,7 +92768,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
     return captured;
   }
   function printStderr(out) {
-    if (typeof window !== void 0 && typeof import_process.default === void 0) {
+    if (typeof window !== void 0 && window["sboltools"]) {
       window["sboltools"].print(out);
     } else {
       import_process.default.stderr.write(out);
@@ -96510,41 +96510,41 @@ For comprehensive documentation, check out http://sboltools.github.io
   var import_sboljs20 = __toESM(require_dist5());
   var fs13 = require_main();
   function graphToSboltoolsCmd(g) {
-    return __async(this, null, function* () {
-      let out = [];
-      out.push(indent([
-        text("sbol-version 3")
-      ]));
-      let curNamespace = "";
-      for (let rootC of (0, import_sboljs20.sbol3)(g).rootComponents) {
-        if (curNamespace !== rootC.namespace) {
-          out.push(indent([
-            text("namespace " + rootC.namespace)
-          ]));
-          curNamespace = rootC.namespace;
-        }
-        let componentSection = [];
-        for (let type of rootC.types) {
-          componentSection.push(text("--type " + termUriToShorthand("ComponentTypeSBOL3" /* ComponentTypeSBOL3 */, type)));
-        }
-        let idchain = "." + rootC.displayId;
+    let out = [];
+    out.push(indent([
+      text("sbol-version 3")
+    ]));
+    let curNamespace = "";
+    for (let rootC of (0, import_sboljs20.sbol3)(g).rootComponents) {
+      if (curNamespace !== rootC.namespace) {
         out.push(indent([
-          text("component " + idchain),
-          indent(componentSection)
+          text("namespace " + rootC.namespace)
         ]));
+        curNamespace = rootC.namespace;
       }
-      let lines = tostring(0, group([
-        text("sbol --trace"),
-        indent(out)
-      ])).trim().split("\n");
-      for (let n = 0; n < lines.length; ++n) {
-        if (n < lines.length - 1) {
-          import_process.default.stdout.write(lines[n] + " \\\n");
-        } else {
-          import_process.default.stdout.write(lines[n] + "\n");
-        }
+      let componentSection = [];
+      for (let type of rootC.types) {
+        componentSection.push(text("--type " + termUriToShorthand("ComponentTypeSBOL3" /* ComponentTypeSBOL3 */, type)));
       }
-    });
+      let idchain = "." + rootC.displayId;
+      out.push(indent([
+        text("component " + idchain),
+        indent(componentSection)
+      ]));
+    }
+    let lines = tostring(0, group([
+      text("sbol --trace"),
+      indent(out)
+    ])).trim().split("\n");
+    let cmd = "";
+    for (let n = 0; n < lines.length; ++n) {
+      if (n < lines.length - 1) {
+        cmd += lines[n] + " \\\n";
+      } else {
+        cmd += lines[n] + "\n";
+      }
+    }
+    return cmd;
   }
 
   // src/sboltools.ts
@@ -96652,8 +96652,7 @@ For comprehensive documentation, check out http://sboltools.github.io
             print(text(chalk4.red("GenBank output not yet supported")));
             break;
           case "sboltools":
-            graphToSboltoolsCmd(ctx.getCurrentGraph());
-            break;
+            return graphToSboltoolsCmd(ctx.getCurrentGraph());
           case "none":
             break;
           default:
