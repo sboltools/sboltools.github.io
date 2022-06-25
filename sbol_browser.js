@@ -92768,8 +92768,10 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
     return captured;
   }
   function printStderr(out) {
-    if (typeof window !== void 0 && window["sboltools"]) {
-      window["sboltools"].print(out);
+    if (typeof window !== "undefined") {
+      if (window["sboltools"]) {
+        window["sboltools"].print(out);
+      }
     } else {
       import_process.default.stderr.write(out);
     }
