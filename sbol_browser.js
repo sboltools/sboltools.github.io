@@ -18212,8 +18212,8 @@
         deleteItems(start) {
           let quads = [start];
           while (!quads[quads.length - 1].object.equals(this.namespace.nil)) {
-            const node17 = quads[quads.length - 1].object;
-            quads = quads.concat([...this.dataset.match(node17)]);
+            const node19 = quads[quads.length - 1].object;
+            quads = quads.concat([...this.dataset.match(node19)]);
           }
           quads.forEach((quad) => {
             this.dataset.delete(quad);
@@ -18284,7 +18284,7 @@
           return terms[0];
         }
         get terms() {
-          return this._context.map((node17) => node17.term).filter(Boolean);
+          return this._context.map((node19) => node19.term).filter(Boolean);
         }
         get value() {
           const term = this.term;
@@ -18301,7 +18301,7 @@
           return datasets[0];
         }
         get datasets() {
-          return this._context.map((node17) => node17.dataset).filter(Boolean);
+          return this._context.map((node19) => node19.dataset).filter(Boolean);
         }
         any() {
           return Clownface.fromContext(this._context.map((current) => current.clone({})));
@@ -22542,32 +22542,32 @@
         return rdf_ext_1.default.namedNode(uri);
       }
       exports.createUriNode = createUriNode;
-      function isUri(node17) {
-        return node17.termType === "NamedNode";
+      function isUri(node19) {
+        return node19.termType === "NamedNode";
       }
       exports.isUri = isUri;
-      function toUri(node17) {
-        if (node17 === void 0)
+      function toUri(node19) {
+        if (node19 === void 0)
           return;
-        if (node17.termType !== "NamedNode") {
+        if (node19.termType !== "NamedNode") {
         }
-        return node17.value;
+        return node19.value;
       }
       exports.toUri = toUri;
       function createIntNode(value) {
         return rdf_ext_1.default.literal("" + value);
       }
       exports.createIntNode = createIntNode;
-      function toInt(node17) {
-        if (node17 === void 0)
+      function toInt(node19) {
+        if (node19 === void 0)
           return;
-        if (node17.termType !== "Literal") {
-          console.error(JSON.stringify(node17));
-          throw new Error("Integer node must be a literal; instead got " + node17.termType);
+        if (node19.termType !== "Literal") {
+          console.error(JSON.stringify(node19));
+          throw new Error("Integer node must be a literal; instead got " + node19.termType);
         }
-        const res = parseInt(node17.value);
+        const res = parseInt(node19.value);
         if (isNaN(res)) {
-          console.warn("parseInt returned NaN for " + JSON.stringify(node17.value));
+          console.warn("parseInt returned NaN for " + JSON.stringify(node19.value));
         }
         return res;
       }
@@ -22576,46 +22576,46 @@
         return rdf_ext_1.default.literal("" + value);
       }
       exports.createStringNode = createStringNode;
-      function toString(node17) {
-        if (node17 === void 0)
+      function toString(node19) {
+        if (node19 === void 0)
           return;
-        if (node17.termType !== "Literal") {
-          console.error(JSON.stringify(node17));
-          throw new Error("String node must be a literal; instead got " + node17.termType);
+        if (node19.termType !== "Literal") {
+          console.error(JSON.stringify(node19));
+          throw new Error("String node must be a literal; instead got " + node19.termType);
         }
-        return node17.value;
+        return node19.value;
       }
       exports.toString = toString;
       function createFloatNode(value) {
         return rdf_ext_1.default.literal("" + value);
       }
       exports.createFloatNode = createFloatNode;
-      function isFloat(node17) {
-        return node17.termType === "Literal";
+      function isFloat(node19) {
+        return node19.termType === "Literal";
       }
       exports.isFloat = isFloat;
-      function toFloat(node17) {
-        if (node17 === void 0)
+      function toFloat(node19) {
+        if (node19 === void 0)
           return;
-        if (node17.termType !== "Literal") {
-          console.error(JSON.stringify(node17));
-          throw new Error("Floating point node must be a literal; instead got " + node17.termType);
+        if (node19.termType !== "Literal") {
+          console.error(JSON.stringify(node19));
+          throw new Error("Floating point node must be a literal; instead got " + node19.termType);
         }
-        return parseFloat(node17.value);
+        return parseFloat(node19.value);
       }
       exports.toFloat = toFloat;
       function createBoolNode(value) {
         return rdf_ext_1.default.literal(value ? "true" : "false");
       }
       exports.createBoolNode = createBoolNode;
-      function toBool(node17) {
-        if (node17 === void 0)
+      function toBool(node19) {
+        if (node19 === void 0)
           return;
-        if (node17.termType !== "Literal") {
-          console.error(JSON.stringify(node17));
-          throw new Error("Boolean node must be a literal; instead got " + node17.termType);
+        if (node19.termType !== "Literal") {
+          console.error(JSON.stringify(node19));
+          throw new Error("Boolean node must be a literal; instead got " + node19.termType);
         }
-        return node17.value === "true" ? true : false;
+        return node19.value === "true" ? true : false;
       }
       exports.toBool = toBool;
     }
@@ -34817,8 +34817,8 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           ignoreErrors = false
         } = {}) {
           const lists = {};
-          const onError = ignoreErrors ? () => true : (node17, message) => {
-            throw new Error(`${node17.value} ${message}`);
+          const onError = ignoreErrors ? () => true : (node19, message) => {
+            throw new Error(`${node19.value} ${message}`);
           };
           const tails = this.getQuads(null, _IRIs.default.rdf.rest, _IRIs.default.rdf.nil, null);
           const toRemove = remove ? [...tails] : [];
@@ -47098,48 +47098,48 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       init_shim();
       Object.defineProperty(exports, "__esModule", { value: true });
       exports.fromSPO = exports.objectString = exports.objectBool = exports.objectFloat = exports.objectInt = exports.objectUri = exports.predicateUri = exports.subjectUri = void 0;
-      var node17 = require_node();
+      var node19 = require_node();
       var rdf_ext_1 = (init_rdf_ext(), __toCommonJS(rdf_ext_exports));
       function subjectUri(triple6) {
         if (triple6 === void 0)
           return void 0;
-        return node17.toUri(triple6.subject);
+        return node19.toUri(triple6.subject);
       }
       exports.subjectUri = subjectUri;
       function predicateUri(triple6) {
         if (triple6 === void 0)
           return void 0;
-        return node17.toUri(triple6.predicate);
+        return node19.toUri(triple6.predicate);
       }
       exports.predicateUri = predicateUri;
       function objectUri(triple6) {
         if (triple6 === void 0)
           return void 0;
-        return node17.toUri(triple6.object);
+        return node19.toUri(triple6.object);
       }
       exports.objectUri = objectUri;
       function objectInt(triple6) {
         if (triple6 === void 0)
           return void 0;
-        return node17.toInt(triple6.object);
+        return node19.toInt(triple6.object);
       }
       exports.objectInt = objectInt;
       function objectFloat(triple6) {
         if (triple6 === void 0)
           return void 0;
-        return node17.toFloat(triple6.object);
+        return node19.toFloat(triple6.object);
       }
       exports.objectFloat = objectFloat;
       function objectBool(triple6) {
         if (triple6 === void 0)
           return void 0;
-        return node17.toBool(triple6.object);
+        return node19.toBool(triple6.object);
       }
       exports.objectBool = objectBool;
       function objectString(triple6) {
         if (triple6 === void 0)
           return void 0;
-        return node17.toString(triple6.object);
+        return node19.toString(triple6.object);
       }
       exports.objectString = objectString;
       function fromSPO(s, p, o) {
@@ -47236,12 +47236,12 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           xml_declaration: true,
           indent: 2
         });
-        function nodeToURI(node17) {
-          if (node17.termType !== "NamedNode")
-            throw new Error("expected NamedNode but found " + JSON.stringify(node17));
-          if (typeof node17.value !== "string")
+        function nodeToURI(node19) {
+          if (node19.termType !== "NamedNode")
+            throw new Error("expected NamedNode but found " + JSON.stringify(node19));
+          if (typeof node19.value !== "string")
             throw new Error("value not a string?");
-          return node17.value;
+          return node19.value;
         }
         function prefixify(iri) {
           for (var prefix of prefixes.keys()) {
@@ -47512,7 +47512,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         });
       };
       Object.defineProperty(exports, "__esModule", { value: true });
-      var node17 = require_node();
+      var node19 = require_node();
       var shortid = require_shortid();
       var identifyFiletype_1 = require_identifyFiletype();
       var parseRDF_1 = require_parseRDF();
@@ -47520,7 +47520,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       var rdf_ext_1 = (init_rdf_ext(), __toCommonJS(rdf_ext_exports));
       var formats = require_formats();
       var streamToString = require_stream_to_string();
-      var Graph19 = class {
+      var Graph23 = class {
         constructor(triples) {
           this.graph = triples ? rdf_ext_1.default.dataset(triples) : rdf_ext_1.default.dataset([]);
           this._globalWatchers = new Array();
@@ -47670,7 +47670,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
               return n;
             if (n.value !== oldSubject.value)
               return n;
-            return node17.createUriNode(newSubject.value);
+            return node19.createUriNode(newSubject.value);
           }
         }
         watchSubject(uri, cb) {
@@ -47712,7 +47712,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
         static loadString(data, defaultURIPrefix, mimeType) {
           return __awaiter(this, void 0, void 0, function* () {
-            let graph2 = new Graph19();
+            let graph2 = new Graph23();
             yield graph2.loadString(data, defaultURIPrefix, mimeType);
             return graph2;
           });
@@ -47736,7 +47736,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           return Array.from(this.graph);
         }
         clone() {
-          return new Graph19(this.graph.clone());
+          return new Graph23(this.graph.clone());
         }
         serializeXML() {
           return (0, serialize_1.default)(this, /* @__PURE__ */ new Map(), () => false, "");
@@ -47757,13 +47757,13 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           });
         }
         filter(test) {
-          return new Graph19(this.graph.filter(test));
+          return new Graph23(this.graph.filter(test));
         }
         map(fn) {
-          return new Graph19(this.graph.map(fn));
+          return new Graph23(this.graph.map(fn));
         }
       };
-      exports.default = Graph19;
+      exports.default = Graph23;
     }
   });
 
@@ -47773,7 +47773,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       "use strict";
       init_shim();
       Object.defineProperty(exports, "__esModule", { value: true });
-      var node17 = require_node();
+      var node19 = require_node();
       var rdf_ext_1 = (init_rdf_ext(), __toCommonJS(rdf_ext_exports));
       var Facade = class {
         constructor(graph2, subject) {
@@ -47869,38 +47869,38 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           if (value === void 0) {
             this.deleteProperty(predicate);
           } else {
-            this.setProperty(predicate, node17.createUriNode(value));
+            this.setProperty(predicate, node19.createUriNode(value));
           }
         }
         insertUriProperty(predicate, value) {
-          this.insertProperty(predicate, node17.createUriNode(value));
+          this.insertProperty(predicate, node19.createUriNode(value));
         }
         setStringProperty(predicate, value) {
           if (value === void 0) {
             this.deleteProperty(predicate);
           } else {
-            this.setProperty(predicate, node17.createStringNode(value));
+            this.setProperty(predicate, node19.createStringNode(value));
           }
         }
         setIntProperty(predicate, value) {
           if (value === void 0) {
             this.deleteProperty(predicate);
           } else {
-            this.setProperty(predicate, node17.createIntNode(value));
+            this.setProperty(predicate, node19.createIntNode(value));
           }
         }
         setBoolProperty(predicate, value) {
           if (value === void 0) {
             this.deleteProperty(predicate);
           } else {
-            this.setProperty(predicate, node17.createBoolNode(value));
+            this.setProperty(predicate, node19.createBoolNode(value));
           }
         }
         setFloatProperty(predicate, value) {
           if (value === void 0) {
             this.deleteProperty(predicate);
           } else {
-            this.setProperty(predicate, node17.createFloatNode(value));
+            this.setProperty(predicate, node19.createFloatNode(value));
           }
         }
         get objectType() {
@@ -47927,16 +47927,16 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       "use strict";
       init_shim();
       Object.defineProperty(exports, "__esModule", { value: true });
-      var node17 = require_node();
-      var GraphView2 = class {
+      var node19 = require_node();
+      var GraphView6 = class {
         constructor(graph2) {
           this.graph = graph2;
         }
         uriToFacade(uri) {
-          return this.subjectToFacade(node17.createUriNode(uri));
+          return this.subjectToFacade(node19.createUriNode(uri));
         }
       };
-      exports.default = GraphView2;
+      exports.default = GraphView6;
     }
   });
 
@@ -47948,7 +47948,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       Object.defineProperty(exports, "__esModule", { value: true });
       var GraphView_1 = require_GraphView();
       var triple6 = require_triple();
-      var node17 = require_node();
+      var node19 = require_node();
       var rdf_ext_1 = (init_rdf_ext(), __toCommonJS(rdf_ext_exports));
       var GraphViewBasic = class extends GraphView_1.default {
         constructor(graph2) {
@@ -47962,7 +47962,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
         instancesOfType(type) {
           if (typeof type === "string")
-            type = node17.createUriNode(type);
+            type = node19.createUriNode(type);
           return this.graph.match(null, "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", type).map((t) => t.subject);
         }
         getType(uri) {
@@ -48015,7 +48015,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       Object.defineProperty(exports, "__esModule", { value: true });
       var rdf_ext_1 = (init_rdf_ext(), __toCommonJS(rdf_ext_exports));
       var triple6 = require_triple();
-      var node17 = require_node();
+      var node19 = require_node();
       function changeURIPrefix(graph2, topLevels, newPrefix) {
         let newGraph = rdf_ext_1.default.dataset([]);
         let prefixes = /* @__PURE__ */ new Set();
@@ -48063,7 +48063,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         graph2.graph = newGraph;
         return identityMap;
         function prefix(uri) {
-          let hasNamespace = triple6.objectUri(graph2.matchOne(node17.createUriNode(uri), "http://sbols.org/v3#hasNamespace", null));
+          let hasNamespace = triple6.objectUri(graph2.matchOne(node19.createUriNode(uri), "http://sbols.org/v3#hasNamespace", null));
           if (hasNamespace) {
             return hasNamespace;
           }
@@ -48100,8 +48100,8 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       exports.GraphViewHybrid = GraphViewHybrid_1.default;
       var GraphViewBasic_1 = require_GraphViewBasic();
       exports.GraphViewBasic = GraphViewBasic_1.default;
-      var node17 = require_node();
-      exports.node = node17;
+      var node19 = require_node();
+      exports.node = node19;
       var triple6 = require_triple();
       exports.triple = triple6;
       var serialize_1 = require_serialize();
@@ -57681,12 +57681,12 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         return false;
       }
       exports.default = isOwnershipRelation;
-      function nodeToURI(node17) {
-        if (node17.termType !== "NamedNode")
-          throw new Error("expected NamedNode but found " + JSON.stringify(node17));
-        if (typeof node17.value !== "string")
+      function nodeToURI(node19) {
+        if (node19.termType !== "NamedNode")
+          throw new Error("expected NamedNode but found " + JSON.stringify(node19));
+        if (typeof node19.value !== "string")
           throw new Error("nominalValue not a string?");
-        return node17.value;
+        return node19.value;
       }
     }
   });
@@ -57948,7 +57948,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       var S1SequenceAnnotation_1 = require_S1SequenceAnnotation();
       var bioterms_1 = require_dist2();
       var isOwnershipRelation_1 = require_isOwnershipRelation();
-      var SBOL1GraphView16 = class extends rdfoo_1.GraphViewBasic {
+      var SBOL1GraphView17 = class extends rdfoo_1.GraphViewBasic {
         constructor(graph2) {
           super(graph2);
           this.graph = graph2;
@@ -58004,9 +58004,9 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           }).map((subject) => new S1DnaComponent_1.default(this, subject));
         }
       };
-      exports.default = SBOL1GraphView16;
+      exports.default = SBOL1GraphView17;
       function sbol12(graph2) {
-        return new SBOL1GraphView16(graph2);
+        return new SBOL1GraphView17(graph2);
       }
       exports.sbol1 = sbol12;
     }
@@ -73582,7 +73582,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       var S2SequenceConstraint_1 = require_S2SequenceConstraint();
       var S2VariableComponent_1 = require_S2VariableComponent();
       var S2CombinatorialDerivation_1 = require_S2CombinatorialDerivation();
-      var SBOL2GraphView18 = class extends rdfoo_1.GraphViewHybrid {
+      var SBOL2GraphView19 = class extends rdfoo_1.GraphViewHybrid {
         constructor(graph2) {
           super(graph2);
           this._cachedUriPrefixes = null;
@@ -73736,7 +73736,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
         static loadString(data, defaultURIPrefix, mimeType) {
           return __awaiter(this, void 0, void 0, function* () {
-            let graph2 = new SBOL2GraphView18(new rdfoo_1.Graph());
+            let graph2 = new SBOL2GraphView19(new rdfoo_1.Graph());
             yield graph2.loadString(data, defaultURIPrefix, mimeType);
             return graph2;
           });
@@ -73873,7 +73873,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           (0, enforceURICompliance_1.default)(this, uriPrefix);
         }
       };
-      exports.default = SBOL2GraphView18;
+      exports.default = SBOL2GraphView19;
       var SBOL2 = class extends rdfoo_1.GraphViewBasic {
         constructor(view) {
           super(view.graph);
@@ -73938,7 +73938,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
       };
       function sbol22(graph2) {
-        return new SBOL2GraphView18(graph2);
+        return new SBOL2GraphView19(graph2);
       }
       exports.sbol2 = sbol22;
     }
@@ -75194,10 +75194,10 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           const adjacents = Object.keys(conversions[current]);
           for (let len = adjacents.length, i = 0; i < len; i++) {
             const adjacent = adjacents[i];
-            const node17 = graph2[adjacent];
-            if (node17.distance === -1) {
-              node17.distance = graph2[current].distance + 1;
-              node17.parent = current;
+            const node19 = graph2[adjacent];
+            if (node19.distance === -1) {
+              node19.distance = graph2[current].distance + 1;
+              node19.parent = current;
               queue.unshift(adjacent);
             }
           }
@@ -75227,8 +75227,8 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         const models = Object.keys(graph2);
         for (let len = models.length, i = 0; i < len; i++) {
           const toModel = models[i];
-          const node17 = graph2[toModel];
-          if (node17.parent === null) {
+          const node19 = graph2[toModel];
+          if (node19.parent === null) {
             continue;
           }
           conversion[toModel] = wrapConversion(toModel, graph2);
@@ -76743,10 +76743,10 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           var adjacents = Object.keys(conversions[current]);
           for (var len = adjacents.length, i = 0; i < len; i++) {
             var adjacent = adjacents[i];
-            var node17 = graph2[adjacent];
-            if (node17.distance === -1) {
-              node17.distance = graph2[current].distance + 1;
-              node17.parent = current;
+            var node19 = graph2[adjacent];
+            if (node19.distance === -1) {
+              node19.distance = graph2[current].distance + 1;
+              node19.parent = current;
               queue.unshift(adjacent);
             }
           }
@@ -76776,8 +76776,8 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         var models = Object.keys(graph2);
         for (var len = models.length, i = 0; i < len; i++) {
           var toModel = models[i];
-          var node17 = graph2[toModel];
-          if (node17.parent === null) {
+          var node19 = graph2[toModel];
+          if (node19.parent === null) {
             continue;
           }
           conversion[toModel] = wrapConversion(toModel, graph2);
@@ -77680,7 +77680,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         return _setPrototypeOf(o, p);
       }
       var codes = {};
-      var assert23;
+      var assert27;
       var util;
       function createErrorType(code, message, Base) {
         if (!Base) {
@@ -77744,9 +77744,9 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       }
       createErrorType("ERR_AMBIGUOUS_ARGUMENT", 'The "%s" argument is ambiguous. %s', TypeError);
       createErrorType("ERR_INVALID_ARG_TYPE", function(name, expected, actual) {
-        if (assert23 === void 0)
-          assert23 = require_assert();
-        assert23(typeof name === "string", "'name' must be a string");
+        if (assert27 === void 0)
+          assert27 = require_assert();
+        assert27(typeof name === "string", "'name' must be a string");
         var determiner;
         if (typeof expected === "string" && startsWith(expected, "not ")) {
           determiner = "must not be";
@@ -77787,9 +77787,9 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
           args[_key] = arguments[_key];
         }
-        if (assert23 === void 0)
-          assert23 = require_assert();
-        assert23(args.length > 0, "At least one arg needs to be specified");
+        if (assert27 === void 0)
+          assert27 = require_assert();
+        assert27(args.length > 0, "At least one arg needs to be specified");
         var msg = "The ";
         var len = args.length;
         args = args.map(function(a) {
@@ -79298,7 +79298,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         isDeepStrictEqual = comparison.isDeepStrictEqual;
       }
       var warned = false;
-      var assert23 = module.exports = ok;
+      var assert27 = module.exports = ok;
       var NO_EXCEPTION_SENTINEL = {};
       function innerFail(obj) {
         if (obj.message instanceof Error)
@@ -79340,8 +79340,8 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
         throw err;
       }
-      assert23.fail = fail;
-      assert23.AssertionError = AssertionError;
+      assert27.fail = fail;
+      assert27.AssertionError = AssertionError;
       function innerOk(fn, argLen, value, message) {
         if (!value) {
           var generatedMessage = false;
@@ -79368,8 +79368,8 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
         innerOk.apply(void 0, [ok, args.length].concat(args));
       }
-      assert23.ok = ok;
-      assert23.equal = function equal(actual, expected, message) {
+      assert27.ok = ok;
+      assert27.equal = function equal(actual, expected, message) {
         if (arguments.length < 2) {
           throw new ERR_MISSING_ARGS("actual", "expected");
         }
@@ -79383,7 +79383,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           });
         }
       };
-      assert23.notEqual = function notEqual(actual, expected, message) {
+      assert27.notEqual = function notEqual(actual, expected, message) {
         if (arguments.length < 2) {
           throw new ERR_MISSING_ARGS("actual", "expected");
         }
@@ -79397,7 +79397,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           });
         }
       };
-      assert23.deepEqual = function deepEqual(actual, expected, message) {
+      assert27.deepEqual = function deepEqual(actual, expected, message) {
         if (arguments.length < 2) {
           throw new ERR_MISSING_ARGS("actual", "expected");
         }
@@ -79413,7 +79413,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           });
         }
       };
-      assert23.notDeepEqual = function notDeepEqual(actual, expected, message) {
+      assert27.notDeepEqual = function notDeepEqual(actual, expected, message) {
         if (arguments.length < 2) {
           throw new ERR_MISSING_ARGS("actual", "expected");
         }
@@ -79429,7 +79429,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           });
         }
       };
-      assert23.deepStrictEqual = function deepStrictEqual(actual, expected, message) {
+      assert27.deepStrictEqual = function deepStrictEqual(actual, expected, message) {
         if (arguments.length < 2) {
           throw new ERR_MISSING_ARGS("actual", "expected");
         }
@@ -79445,7 +79445,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           });
         }
       };
-      assert23.notDeepStrictEqual = notDeepStrictEqual;
+      assert27.notDeepStrictEqual = notDeepStrictEqual;
       function notDeepStrictEqual(actual, expected, message) {
         if (arguments.length < 2) {
           throw new ERR_MISSING_ARGS("actual", "expected");
@@ -79462,7 +79462,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           });
         }
       }
-      assert23.strictEqual = function strictEqual(actual, expected, message) {
+      assert27.strictEqual = function strictEqual(actual, expected, message) {
         if (arguments.length < 2) {
           throw new ERR_MISSING_ARGS("actual", "expected");
         }
@@ -79476,7 +79476,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           });
         }
       };
-      assert23.notStrictEqual = function notStrictEqual(actual, expected, message) {
+      assert27.notStrictEqual = function notStrictEqual(actual, expected, message) {
         if (arguments.length < 2) {
           throw new ERR_MISSING_ARGS("actual", "expected");
         }
@@ -79662,13 +79662,13 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
         throw actual;
       }
-      assert23.throws = function throws(promiseFn) {
+      assert27.throws = function throws(promiseFn) {
         for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
           args[_key2 - 1] = arguments[_key2];
         }
         expectsError.apply(void 0, [throws, getActual(promiseFn)].concat(args));
       };
-      assert23.rejects = function rejects(promiseFn) {
+      assert27.rejects = function rejects(promiseFn) {
         for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
           args[_key3 - 1] = arguments[_key3];
         }
@@ -79676,13 +79676,13 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           return expectsError.apply(void 0, [rejects, result].concat(args));
         });
       };
-      assert23.doesNotThrow = function doesNotThrow(fn) {
+      assert27.doesNotThrow = function doesNotThrow(fn) {
         for (var _len4 = arguments.length, args = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
           args[_key4 - 1] = arguments[_key4];
         }
         expectsNoError.apply(void 0, [doesNotThrow, getActual(fn)].concat(args));
       };
-      assert23.doesNotReject = function doesNotReject(fn) {
+      assert27.doesNotReject = function doesNotReject(fn) {
         for (var _len5 = arguments.length, args = new Array(_len5 > 1 ? _len5 - 1 : 0), _key5 = 1; _key5 < _len5; _key5++) {
           args[_key5 - 1] = arguments[_key5];
         }
@@ -79690,7 +79690,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
           return expectsNoError.apply(void 0, [doesNotReject, result].concat(args));
         });
       };
-      assert23.ifError = function ifError(err) {
+      assert27.ifError = function ifError(err) {
         if (err !== null && err !== void 0) {
           var message = "ifError got unwanted exception: ";
           if (_typeof(err) === "object" && typeof err.message === "string") {
@@ -79732,13 +79732,13 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
         innerOk.apply(void 0, [strict, args.length].concat(args));
       }
-      assert23.strict = objectAssign(strict, assert23, {
-        equal: assert23.strictEqual,
-        deepEqual: assert23.deepStrictEqual,
-        notEqual: assert23.notStrictEqual,
-        notDeepEqual: assert23.notDeepStrictEqual
+      assert27.strict = objectAssign(strict, assert27, {
+        equal: assert27.strictEqual,
+        deepEqual: assert27.deepStrictEqual,
+        notEqual: assert27.notStrictEqual,
+        notDeepEqual: assert27.notDeepStrictEqual
       });
-      assert23.strict.strict = assert23.strict;
+      assert27.strict.strict = assert27.strict;
     }
   });
 
@@ -89239,7 +89239,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
     "node_modules/console-browserify/index.js"(exports, module) {
       init_shim();
       var util = require_util2();
-      var assert23 = require_assert();
+      var assert27 = require_assert();
       function now() {
         return new Date().getTime();
       }
@@ -89312,7 +89312,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       function consoleAssert(expression) {
         if (!expression) {
           var arr = slice.call(arguments, 1);
-          assert23.ok(false, util.format.apply(null, arr));
+          assert27.ok(false, util.format.apply(null, arr));
         }
       }
     }
@@ -91101,7 +91101,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       var Glob = require_glob().Glob;
       var util = require_util2();
       var path = require_path_browserify();
-      var assert23 = require_assert();
+      var assert27 = require_assert();
       var isAbsolute = require_path_is_absolute();
       var common = require_common();
       var setopts = common.setopts;
@@ -91131,7 +91131,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         this._finish();
       }
       GlobSync.prototype._finish = function() {
-        assert23.ok(this instanceof GlobSync);
+        assert27.ok(this instanceof GlobSync);
         if (this.realpath) {
           var self2 = this;
           this.matches.forEach(function(matchset, index) {
@@ -91153,7 +91153,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         common.finish(this);
       };
       GlobSync.prototype._process = function(pattern, index, inGlobStar) {
-        assert23.ok(this instanceof GlobSync);
+        assert27.ok(this instanceof GlobSync);
         var n = 0;
         while (typeof pattern[n] === "string") {
           n++;
@@ -91579,7 +91579,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       var inherits = require_inherits_browser();
       var EE = require_events().EventEmitter;
       var path = require_path_browserify();
-      var assert23 = require_assert();
+      var assert27 = require_assert();
       var isAbsolute = require_path_is_absolute();
       var globSync = require_sync();
       var common = require_common();
@@ -91684,7 +91684,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
       }
       Glob.prototype._finish = function() {
-        assert23(this instanceof Glob);
+        assert27(this instanceof Glob);
         if (this.aborted)
           return;
         if (this.realpath && !this._didRealpath)
@@ -91773,8 +91773,8 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         }
       };
       Glob.prototype._process = function(pattern, index, inGlobStar, cb) {
-        assert23(this instanceof Glob);
-        assert23(typeof cb === "function");
+        assert27(this instanceof Glob);
+        assert27(typeof cb === "function");
         if (this.aborted)
           return;
         this._processing++;
@@ -92467,7 +92467,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
 
   // src/sboltools.ts
   init_shim();
-  var import_sboljs21 = __toESM(require_dist5());
+  var import_sboljs23 = __toESM(require_dist5());
 
   // src/output/print.ts
   init_shim();
@@ -92595,107 +92595,107 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
   // src/output/tostring.ts
   var colorizeJSON = require_lib3();
   var INDENT_SIZE = 4;
-  function tostring(indent22, node17) {
+  function tostring(indent22, node19) {
     let lastWasSpace = false;
     let out = [];
-    printNode(node17, indent22);
+    printNode(node19, indent22);
     out.push("");
     return out.join("\n");
-    function printNode(node18, depth) {
-      if (node18 instanceof OutputNodeGroup) {
-        printGroupNode(node18, depth);
+    function printNode(node20, depth) {
+      if (node20 instanceof OutputNodeGroup) {
+        printGroupNode(node20, depth);
         return;
-      } else if (node18 instanceof OutputNodeTree) {
-        printTreeNode(node18, depth, depth);
+      } else if (node20 instanceof OutputNodeTree) {
+        printTreeNode(node20, depth, depth);
         return;
-      } else if (node18 instanceof OutputNodeText) {
-        printTextNode(node18, depth);
+      } else if (node20 instanceof OutputNodeText) {
+        printTextNode(node20, depth);
         return;
-      } else if (node18 instanceof OutputNodeMultiline) {
-        printMultilineNode(node18, depth);
+      } else if (node20 instanceof OutputNodeMultiline) {
+        printMultilineNode(node20, depth);
         return;
-      } else if (node18 instanceof OutputNodeSpacer) {
-        printSpacerNode(node18, depth);
+      } else if (node20 instanceof OutputNodeSpacer) {
+        printSpacerNode(node20, depth);
         return;
-      } else if (node18 instanceof OutputNodeHeader) {
-        printHeaderNode(node18, depth);
+      } else if (node20 instanceof OutputNodeHeader) {
+        printHeaderNode(node20, depth);
         return;
-      } else if (node18 instanceof OutputNodeIndent) {
-        printIndentNode(node18, depth);
+      } else if (node20 instanceof OutputNodeIndent) {
+        printIndentNode(node20, depth);
         return;
-      } else if (node18 instanceof OutputNodeTabulated) {
-        printTabulatedNode(node18, depth);
+      } else if (node20 instanceof OutputNodeTabulated) {
+        printTabulatedNode(node20, depth);
         return;
-      } else if (node18 instanceof OutputNodeJSONTree) {
-        printJSONTreeNode(node18, depth);
+      } else if (node20 instanceof OutputNodeJSONTree) {
+        printJSONTreeNode(node20, depth);
         return;
       } else {
-        throw new Error("unknown node type >>" + JSON.stringify(node18) + "<<");
+        throw new Error("unknown node type >>" + JSON.stringify(node20) + "<<");
       }
     }
-    function printGroupNode(node18, depth) {
-      for (let child of node18.children) {
+    function printGroupNode(node20, depth) {
+      for (let child of node20.children) {
         printNode(child, depth);
       }
     }
-    function printTextNode(node18, depth) {
+    function printTextNode(node20, depth) {
       lastWasSpace = false;
       let indentstr = " ".repeat(depth * INDENT_SIZE);
-      out.push(indentstr + applyStyles(node18.text, node18.style));
-      for (let child of node18.children) {
+      out.push(indentstr + applyStyles(node20.text, node20.style));
+      for (let child of node20.children) {
         printNode(child, depth + 1);
       }
     }
-    function printMultilineNode(node18, depth) {
+    function printMultilineNode(node20, depth) {
       lastWasSpace = false;
       let indentstr = " ".repeat(depth * INDENT_SIZE);
-      for (let line of node18.text.split("\n")) {
-        out.push(indentstr + applyStyles(line, node18.style));
+      for (let line of node20.text.split("\n")) {
+        out.push(indentstr + applyStyles(line, node20.style));
       }
     }
-    function printTreeNode(node18, rootDepth, depth) {
+    function printTreeNode(node20, rootDepth, depth) {
       lastWasSpace = false;
       let indentstr = " ".repeat(depth * INDENT_SIZE);
       let branch = depth > rootDepth ? "\u2517 " : "";
-      out.push(indentstr + branch + node18.text);
-      for (let child of node18.children) {
+      out.push(indentstr + branch + node20.text);
+      for (let child of node20.children) {
         if (!(child instanceof OutputNodeTree)) {
           throw new Error("tree child not tree node");
         }
         printTreeNode(child, rootDepth, depth + 1);
       }
     }
-    function printSpacerNode(node18, depth) {
+    function printSpacerNode(node20, depth) {
       if (lastWasSpace)
         return;
       lastWasSpace = true;
       let indentstr = " ".repeat(depth * INDENT_SIZE);
       out.push(indentstr);
     }
-    function printHeaderNode(node18, depth) {
+    function printHeaderNode(node20, depth) {
       lastWasSpace = false;
       let indentstr = " ".repeat(depth * INDENT_SIZE);
-      out.push(indentstr + applyStyles(node18.title, node18.style));
-      for (let child of node18.children) {
+      out.push(indentstr + applyStyles(node20.title, node20.style));
+      for (let child of node20.children) {
         printNode(child, depth + 1);
       }
     }
-    function printIndentNode(node18, depth) {
-      for (let child of node18.children) {
+    function printIndentNode(node20, depth) {
+      for (let child of node20.children) {
         printNode(child, depth + 1);
       }
     }
-    function printTabulatedNode(node18, depth) {
+    function printTabulatedNode(node20, depth) {
       let indentstr = " ".repeat(depth * INDENT_SIZE);
       let cols = 0;
-      for (let row of node18.rows) {
+      for (let row of node20.rows) {
         cols = Math.max(cols, row.length);
       }
       let widths = [];
       for (let i = 0; i < cols; ++i) {
         widths.push(0);
       }
-      for (let row of node18.rows) {
+      for (let row of node20.rows) {
         for (let i = 0; i < cols; ++i) {
           widths[i] = Math.max(widths[i], row[i].length);
         }
@@ -92703,7 +92703,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
       for (let i = 0; i < cols; ++i) {
         widths[i] = widths[i] + 7;
       }
-      for (let row of node18.rows) {
+      for (let row of node20.rows) {
         let outRow = "";
         for (let c = 0; c < row.length; ++c) {
           let outCol = row[c];
@@ -92715,10 +92715,10 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
         out.push(indentstr + outRow);
       }
     }
-    function printJSONTreeNode(node18, depth) {
+    function printJSONTreeNode(node20, depth) {
       let indentstr = " ".repeat(depth * INDENT_SIZE);
       let replace = (k, v) => v === void 0 ? null : v;
-      let json = colorizeJSON(JSON.stringify(node18.obj, replace, 2));
+      let json = colorizeJSON(JSON.stringify(node20.obj, replace, 2));
       for (let line of json.split("\n")) {
         out.push(indentstr + line);
       }
@@ -92730,28 +92730,28 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
   var traceOn = false;
   var captureOutput = false;
   var captured = [];
-  function print(node17, prefix) {
+  function print(node19, prefix) {
     if (captureOutput) {
-      captured.push({ type: "print", node: node17 });
+      captured.push({ type: "print", node: node19 });
       return;
     }
     if (prefix) {
-      let out = tostring(0, node17);
+      let out = tostring(0, node19);
       out = out.trim().split("\n").map((line) => prefix + line).join("\n");
       out = out + "\n";
       printStderr(out + "\n");
     } else {
-      printStderr(tostring(0, node17));
+      printStderr(tostring(0, node19));
     }
   }
-  function trace(node17) {
+  function trace(node19) {
     if (!traceOn)
       return;
     if (captureOutput) {
-      captured.push({ type: "trace", node: node17 });
+      captured.push({ type: "trace", node: node19 });
       return;
     }
-    let out = tostring(0, node17);
+    let out = tostring(0, node19);
     out = out.trim().split("\n").map((line) => "[trace] " + line).join("\n");
     out = chalk2.dim(out) + "\n";
     printStderr(chalk2.dim(out));
@@ -92904,7 +92904,7 @@ Tried mapping ${key} to ${JSON.stringify(keyValue)}`, ErrorCoded_1.ERROR_CODES.I
   init_shim();
   var import_rdfoo = __toESM(require_dist());
   var import_sboljs = __toESM(require_dist5());
-  function importToGraph2(g, src, format) {
+  function importToGraph(g, src, format) {
     return __async(this, null, function* () {
       let ft = (0, import_rdfoo.identifyFiletype)(src, "");
       if (!format) {
@@ -92981,7 +92981,7 @@ for FASTA/GenBank imports defaults to SBOL3.
       trace(text("Import: positional opts " + JSON.stringify(positionalOpts)));
       let format = _as ? _as.getString(g) : void 0;
       let src = yield source.downloadToString();
-      yield importToGraph2(g, src, format);
+      yield importToGraph(g, src, format);
       return new ActionResult();
     });
   }
@@ -93437,6 +93437,7 @@ for FASTA/GenBank imports defaults to SBOL3.
       return new Identity("SBOL1" /* SBOL1 */, namespace3, displayId, void 0, "", joinURIFragments([namespace3, displayId]));
     }
     child_from_namespace_context_displayId(existence, g, namespace3, contextIdentity, displayId, version) {
+      trace(text(`SBOL1 child_from_namespace_context_displayId: existence ${existence}, namespace ${namespace3}, contextIdentity ${contextIdentity}, displayId ${displayId}, version ${version}`));
       if (version !== void 0) {
         throw sbol1VersionError();
       }
@@ -93449,7 +93450,18 @@ for FASTA/GenBank imports defaults to SBOL3.
         children = children.concat(parent.subComponents);
       }
       let match = children.filter((child) => child.getStringProperty(import_bioterms3.Predicates.SBOL1.displayId) === displayId)[0];
-      return this.from_namespace_and_identity(existence, g, namespace3, match.subject.value, version);
+      if (match) {
+        if (existence === "MustNotExist" /* MustNotExist */) {
+          throw actionResultAbort(text(`Child with displayId ${displayId} already exists in context ${contextIdentity}`));
+        }
+        return this.from_namespace_and_identity(existence, g, namespace3, match.subject.value, version);
+      } else {
+        if (existence === "MustExist" /* MustExist */) {
+          throw actionResultAbort(text(`No child found with displayId ${displayId} in context ${contextIdentity}`));
+        }
+        let childUri = joinURIFragments([parent.subject.value, displayId]);
+        return new Identity("SBOL1" /* SBOL1 */, context.namespace, displayId, version, context.uri, childUri);
+      }
     }
     child_from_context_displayId(existence, g, contextIdentity, displayId, version) {
       if (version !== void 0) {
@@ -93855,7 +93867,7 @@ for FASTA/GenBank imports defaults to SBOL3.
         if (existence === "MustExist" /* MustExist */) {
           throw actionResultAbort(text(`No object with displayId ${displayId} in context ${JSON.stringify(context)}`));
         }
-        let childUri = parent.subject.value + "/" + displayId;
+        let childUri = joinURIFragments([parent.subject.value, displayId]);
         return new Identity("SBOL3" /* SBOL3 */, context.namespace, displayId, version, parent.subject.value, childUri);
       } else {
         (0, import_assert5.strict)(matches.length === 1);
@@ -93946,27 +93958,27 @@ for FASTA/GenBank imports defaults to SBOL3.
       validateDisplayId(displayId);
     }
     static from_identity(existence, sbolVersion2, g, identity, version) {
-      trace(text(`from_identity: Constructing identity (existence = ${existence}) from identity ${identity}, version ${version}`));
+      trace(text(`Identity.from_identity: Constructing identity (existence = ${existence}) from identity ${identity}, version ${version}`));
       return factory2(sbolVersion2).from_identity(existence, g, identity, version);
     }
     static from_namespace_and_identity(existence, sbolVersion2, g, namespace3, identity, version) {
-      trace(text(`from_namespace_and_identity: Constructing identity (existence = ${existence}) from namespace ${namespace3}, identity ${identity}, version ${version}`));
+      trace(text(`Identity.from_namespace_and_identity: Constructing identity (existence = ${existence}) from namespace ${namespace3}, identity ${identity}, version ${version}`));
       return factory2(sbolVersion2).from_namespace_and_identity(existence, g, namespace3, identity, version);
     }
     static child_from_namespace_context_displayId(existence, sbolVersion2, g, namespace3, context, displayId, version) {
-      trace(text(`child_from_namespace_context_identity: Constructing identity (existence = ${existence}) from namespace ${namespace3}, context ${context}, displayId ${displayId}, version ${version}`));
+      trace(text(`Identity.child_from_namespace_context_identity: Constructing identity (existence = ${existence}) from namespace ${namespace3}, context ${context}, displayId ${displayId}, version ${version}`));
       return factory2(sbolVersion2).child_from_namespace_context_displayId(existence, g, namespace3, context, displayId, version);
     }
     static toplevel_from_namespace_displayId(existence, sbolVersion2, g, namespace3, displayId, version) {
-      trace(text(`toplevel_from_namespace_displayId: Constructing identity (existence = ${existence}) from namespace ${namespace3}, displayId ${displayId}`));
+      trace(text(`Identity.toplevel_from_namespace_displayId: Constructing identity (existence = ${existence}) from namespace ${namespace3}, displayId ${displayId}`));
       return factory2(sbolVersion2).toplevel_from_namespace_displayId(existence, g, namespace3, displayId, version);
     }
     static child_from_context_displayId(existence, sbolVersion2, g, context, displayId, version) {
-      trace(text(`child_from_namespace_displayId: Constructing identity (existence = ${existence}) from context ${context}, displayId ${displayId}, version ${version}`));
+      trace(text(`Identity.child_from_namespace_displayId: Constructing identity (existence = ${existence}) from context ${context}, displayId ${displayId}, version ${version}`));
       return factory2(sbolVersion2).child_from_context_displayId(existence, g, context, displayId, version);
     }
     static toplevel_from_displayId(existence, sbolVersion2, g, displayId, version) {
-      trace(text(`toplevel_from_displayId: Constructing identity (existence = ${existence}) from displayId ${displayId}, version ${version}`));
+      trace(text(`Identity.toplevel_from_displayId: Constructing identity (existence = ${existence}) from displayId ${displayId}, version ${version}`));
       return factory2(sbolVersion2).toplevel_from_displayId(existence, g, displayId, version);
     }
   };
@@ -94346,7 +94358,13 @@ for FASTA/GenBank imports defaults to SBOL3.
         type: OptTerm
       }
     ],
-    positionalOpts: [],
+    positionalOpts: [
+      {
+        name: "",
+        type: OptIdentity,
+        optional: true
+      }
+    ],
     run: createSequence,
     help: `
 If the sequence identity is not specified, a default identity will be created from the component identity with \`_seq\` appended to its displayId.
@@ -94360,14 +94378,16 @@ If such inference is not possible (e.g. no component is specified, or the specif
   function createSequence(ctx, namedOpts, positionalOpts) {
     return __async(this, null, function* () {
       let g = ctx.getCurrentGraph();
-      let [optIdentity2, optForComponentIdentity, optSource, optEncoding] = namedOpts;
-      (0, import_assert6.strict)(optIdentity2 instanceof OptIdentity);
+      let [optNamedIdentity, optForComponentIdentity, optSource, optEncoding] = namedOpts;
+      (0, import_assert6.strict)(optNamedIdentity instanceof OptIdentity);
       (0, import_assert6.strict)(optSource instanceof OptURL);
       (0, import_assert6.strict)(optForComponentIdentity instanceof OptIdentity);
       (0, import_assert6.strict)(optEncoding instanceof OptTerm);
-      let forComponentIdentity = optForComponentIdentity.getIdentity(ctx, "MustExist" /* MustExist */);
-      let identity = optIdentity2.getIdentity(ctx, "MustNotExist" /* MustNotExist */);
+      let [optPositionalIdentity] = positionalOpts;
+      (0, import_assert6.strict)(!optPositionalIdentity || optPositionalIdentity instanceof OptIdentity);
+      let identity = (optPositionalIdentity || optNamedIdentity).getIdentity(ctx, "MustNotExist" /* MustNotExist */);
       (0, import_assert6.strict)(identity !== void 0);
+      let forComponentIdentity = optForComponentIdentity.getIdentity(ctx, "MustExist" /* MustExist */);
       let source = yield optSource.downloadToString();
       let sourceG = new import_rdfoo7.Graph();
       yield importToGraph(sourceG, source, "sbol3");
@@ -94381,10 +94401,10 @@ If such inference is not possible (e.g. no component is specified, or the specif
         case "SBOL1" /* SBOL1 */:
           return createSequenceSBOL1(g, identity, forComponentIdentity, encoding2, elements);
         case "SBOL2" /* SBOL2 */:
-          var encoding2 = optEncoding.getTerm(TermType.SequenceEncodingSBOL2);
+          var encoding2 = optEncoding.getTerm("SequenceEncodingSBOL2" /* SequenceEncodingSBOL2 */);
           return createSequenceSBOL2(g, identity, forComponentIdentity, encoding2, elements);
         case "SBOL3" /* SBOL3 */:
-          var encoding2 = optEncoding.getTerm(TermType.SequenceEncodingSBOL3);
+          var encoding2 = optEncoding.getTerm("SequenceEncodingSBOL3" /* SequenceEncodingSBOL3 */);
           (0, import_assert6.strict)(encoding2);
           return createSequenceSBOL3(g, identity, forComponentIdentity, encoding2, elements);
         default:
@@ -94414,10 +94434,10 @@ If such inference is not possible (e.g. no component is specified, or the specif
     if (!encoding2) {
       if (forComponentIdentity !== void 0) {
         let component = gv.subjectToFacade(import_rdfoo7.node.createUriNode(forComponentIdentity.uri));
-        (0, import_assert6.strict)(component instanceof S2ComponentDefinition);
+        (0, import_assert6.strict)(component instanceof import_sboljs8.S2ComponentDefinition);
         trace(text("Attempting to infer seq encoding from component with types " + component.types.join(", ")));
-        trace(text(Specifiers.SBOL2.Type.DNA));
-        trace(text(Specifiers.SBOL2.SequenceEncoding.NucleicAcid));
+        trace(text(import_bioterms7.Specifiers.SBOL2.Type.DNA));
+        trace(text(import_bioterms7.Specifiers.SBOL2.SequenceEncoding.NucleicAcid));
         encoding2 = typesToEncoding(component.types);
       }
     }
@@ -94447,23 +94467,23 @@ If such inference is not possible (e.g. no component is specified, or the specif
   }
   function typesToEncoding(types) {
     if (types.indexOf("http://www.biopax.org/release/biopax-level3.owl#Dna") !== -1) {
-      return Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
+      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
     } else if (types.indexOf("http://www.biopax.org/release/biopax-level3.owl#DnaRegion") !== -1) {
-      return Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
+      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
     } else if (types.indexOf("http://www.biopax.org/release/biopax-level3.owl#Rna") !== -1) {
-      return Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
+      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
     } else if (types.indexOf("http://www.biopax.org/release/biopax-level3.owl#RnaRegion") !== -1) {
-      return Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
+      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
     } else if (types.indexOf("http://www.biopax.org/release/biopax-level3.owl#Protein") !== -1) {
-      return Specifiers.SBOL2.SequenceEncoding.AminoAcid;
+      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.AminoAcid;
     } else if (types.indexOf("http://www.biopax.org/release/biopax-level3.owl#Protein") !== -1) {
-      return Specifiers.SBOL2.SequenceEncoding.AminoAcid;
+      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.AminoAcid;
     } else if (types.indexOf("https://identifiers.org/SBO:0000251") !== -1) {
-      return Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
+      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
     } else if (types.indexOf("https://identifiers.org/SBO:0000251") !== -1) {
-      return Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
+      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.NucleicAcid;
     } else if (types.indexOf("https://identifiers.org/SBO:0000252") !== -1) {
-      return Specifiers.SBOL2.SequenceEncoding.AminoAcid;
+      return import_bioterms7.Specifiers.SBOL2.SequenceEncoding.AminoAcid;
     }
     (0, import_assert6.strict)(false);
   }
@@ -94684,7 +94704,13 @@ If such inference is not possible (e.g. no component is specified, or the specif
         optional: false
       }
     ],
-    positionalOpts: [],
+    positionalOpts: [
+      {
+        name: "",
+        type: OptIdentity,
+        optional: true
+      }
+    ],
     run: createConstraint
   };
   var create_constraint_default = createConstraintAction;
@@ -94699,11 +94725,8 @@ If such inference is not possible (e.g. no component is specified, or the specif
       (0, import_assert7.strict)(optObject instanceof OptIdentity);
       let [optPositionalIdentity] = positionalOpts;
       (0, import_assert7.strict)(!optPositionalIdentity || optPositionalIdentity instanceof OptIdentity);
-      let identity = optIdentity.getIdentity(ctx, "MustNotExist" /* MustNotExist */);
+      let identity = (optPositionalIdentity || optNamedIdentity).getIdentity(ctx, "MustNotExist" /* MustNotExist */);
       (0, import_assert7.strict)(identity !== void 0);
-      if (!identity.parentURI) {
-        throw new ActionResult(text("Constraint must be contained in a component"));
-      }
       let subjectIdentity = optSubject.getIdentity(ctx, "MustExist" /* MustExist */);
       if (!subjectIdentity) {
         throw new ActionResult(text("Constraint subject does not exist"));
@@ -94730,7 +94753,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
     });
   }
   function createConstraintSBOL2(g, identity, subject, optRestriction, object) {
-    let restriction = optRestriction.getTerm(TermType.RestrictionSBOL2);
+    let restriction = optRestriction.getTerm("RestrictionSBOL2" /* RestrictionSBOL2 */);
     (0, import_assert7.strict)(restriction);
     let gv = new import_sboljs11.SBOL2GraphView(g);
     g.insertProperties(import_rdfoo8.node.createUriNode(identity.uri), {
@@ -94750,7 +94773,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
     return new ActionResult();
   }
   function createConstraintSBOL3(g, identity, subject, optRestriction, object) {
-    let restriction = optRestriction.getTerm(TermType.RestrictionSBOL3);
+    let restriction = optRestriction.getTerm("RestrictionSBOL3" /* RestrictionSBOL3 */);
     (0, import_assert7.strict)(restriction);
     let gv = new import_sboljs11.SBOL3GraphView(g);
     let namespace3 = identity.namespace;
@@ -94813,12 +94836,13 @@ If such inference is not possible (e.g. no component is specified, or the specif
       (0, import_assert8.strict)(!optPositionalIdentity || optPositionalIdentity instanceof OptIdentity);
       let identity = (optPositionalIdentity || optNamedIdentity).getIdentity(ctx, "MustNotExist" /* MustNotExist */);
       (0, import_assert8.strict)(identity !== void 0);
+      trace(text("Create component: identity: " + JSON.stringify(identity)));
       let parentURI = "";
       if (identity.parentURI) {
         parentURI = identity.parentURI;
         identity = Identity.toplevel_from_namespace_displayId("MustNotExist" /* MustNotExist */, identity.sbolVersion, g, identity.namespace, identity.displayId, identity.version);
       }
-      trace(text("Create component: identity: " + identity.uri + ", parent identity: " + parentURI));
+      trace(text("Create component: component identity: " + JSON.stringify(identity) + ", parent identity: " + parentURI));
       switch (identity.sbolVersion) {
         case "SBOL1" /* SBOL1 */:
           return createComponentSBOL1(g, identity, optType, optRole, parentURI);
@@ -94840,7 +94864,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
     });
     if (parentURI) {
       if (!g.hasMatch(import_rdfoo9.node.createUriNode(parentURI), import_bioterms9.Predicates.a, import_rdfoo9.node.createUriNode(import_bioterms9.Types.SBOL1.DnaComponent))) {
-        throw new ActionResult(text(`Parent DnaComponent with URI ${identity.parentURI} not found`), 0 /* Abort */);
+        throw new ActionResult(text(`Parent DnaComponent with URI ${parentURI} not found`), 0 /* Abort */);
       }
       let annoURI = g.generateURI(parentURI + "_anno$n$");
       g.insertProperties(import_rdfoo9.node.createUriNode(parentURI), {
@@ -94929,14 +94953,15 @@ If such inference is not possible (e.g. no component is specified, or the specif
       {
         name: "",
         type: OptIdentity
-      },
+      }
+    ],
+    positionalOpts: [
       {
-        name: "within-module",
+        name: "",
         type: OptIdentity,
         optional: true
       }
     ],
-    positionalOpts: [],
     run: createModule
   };
   var create_module_default = createModuleAction;
@@ -94944,27 +94969,27 @@ If such inference is not possible (e.g. no component is specified, or the specif
     return __async(this, null, function* () {
       let g = ctx.getCurrentGraph();
       trace(text("createModule"));
-      let [optIdentity2, optWithinModuleIdentity] = namedOpts;
-      (0, import_assert9.strict)(optIdentity2 instanceof OptIdentity);
-      (0, import_assert9.strict)(optWithinModuleIdentity instanceof OptIdentity);
-      trace(text(`Getting withinModuleIdentity`));
-      let withinModuleIdentity = optWithinModuleIdentity.getIdentity(ctx, "MustExist" /* MustExist */);
-      trace(text(`Got withinModuleIdentity: ${withinModuleIdentity}`));
-      let identity = optIdentity2.getIdentity(ctx, "MustNotExist" /* MustNotExist */, withinModuleIdentity);
+      let [optNamedIdentity] = namedOpts;
+      (0, import_assert9.strict)(optNamedIdentity instanceof Opt);
+      let [optPositionalIdentity] = positionalOpts;
+      (0, import_assert9.strict)(!optPositionalIdentity || optPositionalIdentity instanceof OptIdentity);
+      let identity = (optPositionalIdentity || optNamedIdentity).getIdentity(ctx, "MustNotExist" /* MustNotExist */);
       (0, import_assert9.strict)(identity !== void 0);
+      let parentURI = "";
       if (identity.parentURI) {
-        throw new ActionResult(text("Modules cannot have parents, as they are designated top-level. To specify a module-submodule relationship, use the --within-module option."), 0 /* Abort */);
+        parentURI = identity.parentURI;
+        identity = Identity.toplevel_from_namespace_displayId("MustNotExist" /* MustNotExist */, identity.sbolVersion, g, identity.namespace, identity.displayId, identity.version);
       }
       switch (identity.sbolVersion) {
         case "SBOL2" /* SBOL2 */:
-          return createModuleSBOL2(g, identity, withinModuleIdentity);
+          return createModuleSBOL2(g, identity, parentURI);
         default:
           throw new ActionResult(text("Unsupported SBOL version for create-module"));
       }
       return new ActionResult();
     });
   }
-  function createModuleSBOL2(g, identity, withinModuleIdentity) {
+  function createModuleSBOL2(g, identity, parentURI) {
     let gv = new import_sboljs13.SBOL2GraphView(g);
     g.insertProperties(import_rdfoo10.node.createUriNode(identity.uri), {
       [import_bioterms10.Predicates.a]: import_rdfoo10.node.createUriNode(import_bioterms10.Types.SBOL2.ModuleDefinition),
@@ -94975,17 +95000,18 @@ If such inference is not possible (e.g. no component is specified, or the specif
         [import_bioterms10.Predicates.SBOL2.version]: import_rdfoo10.node.createStringNode(identity.version)
       });
     }
-    if (withinModuleIdentity !== void 0) {
-      if (!g.hasMatch(import_rdfoo10.node.createUriNode(withinModuleIdentity.uri), import_bioterms10.Predicates.a, import_rdfoo10.node.createUriNode(import_bioterms10.Types.SBOL2.ModuleDefinition))) {
-        throw new ActionResult(text(`ModuleDefinition with URI ${withinModuleIdentity.uri} not found for --within-Module`), 0 /* Abort */);
+    if (parentURI) {
+      if (!g.hasMatch(import_rdfoo10.node.createUriNode(parentURI), import_bioterms10.Predicates.a, import_rdfoo10.node.createUriNode(import_bioterms10.Types.SBOL2.ModuleDefinition))) {
+        throw new ActionResult(text(`Parent ModuleDefinition with URI ${parentURI} not found`), 0 /* Abort */);
       }
-      let scURI = g.generateURI(sbol2CompliantConcat(g, withinModuleIdentity.uri, "subModule$n$"));
-      g.insertProperties(import_rdfoo10.node.createUriNode(withinModuleIdentity.uri), {
+      let scURI = g.generateURI(sbol2CompliantConcat(g, parentURI, "subModule$n$"));
+      g.insertProperties(import_rdfoo10.node.createUriNode(parentURI), {
         [import_bioterms10.Predicates.SBOL2.module]: import_rdfoo10.node.createUriNode(scURI)
       });
       g.insertProperties(import_rdfoo10.node.createUriNode(scURI), {
         [import_bioterms10.Predicates.a]: import_rdfoo10.node.createUriNode(import_bioterms10.Types.SBOL2.Module),
-        [import_bioterms10.Predicates.SBOL2.definition]: import_rdfoo10.node.createUriNode(identity.uri)
+        [import_bioterms10.Predicates.SBOL2.definition]: import_rdfoo10.node.createUriNode(identity.uri),
+        [import_bioterms10.Predicates.SBOL2.displayId]: import_rdfoo10.node.createStringNode(identity.displayId)
       });
     }
     return new ActionResult();
@@ -95007,17 +95033,18 @@ If such inference is not possible (e.g. no component is specified, or the specif
         type: OptIdentity
       },
       {
-        name: "within-component",
-        type: OptIdentity,
-        optional: true
-      },
-      {
         name: "type",
         type: OptTerm,
         optional: false
       }
     ],
-    positionalOpts: [],
+    positionalOpts: [
+      {
+        name: "",
+        type: OptIdentity,
+        optional: true
+      }
+    ],
     run: createInteraction
   };
   var create_interaction_default = createInteractionAction;
@@ -95025,53 +95052,52 @@ If such inference is not possible (e.g. no component is specified, or the specif
     return __async(this, null, function* () {
       let g = ctx.getCurrentGraph();
       trace(text("createInteraction"));
-      let [optIdentity2, optWithinComponentIdentity, optRole] = namedOpts;
-      (0, import_assert10.strict)(optIdentity2 instanceof OptIdentity);
-      (0, import_assert10.strict)(optWithinComponentIdentity instanceof OptIdentity);
-      (0, import_assert10.strict)(optRole instanceof OptTerm);
-      let withinComponentIdentity = optWithinComponentIdentity.getIdentity(ctx, "MayExist" /* MayExist */);
-      let identity = optIdentity2.getIdentity(ctx, "MustNotExist" /* MustNotExist */, withinComponentIdentity);
+      let [optNamedIdentity, optType] = namedOpts;
+      (0, import_assert10.strict)(optNamedIdentity instanceof Opt);
+      (0, import_assert10.strict)(optType instanceof OptTerm);
+      let [optPositionalIdentity] = positionalOpts;
+      (0, import_assert10.strict)(!optPositionalIdentity || optPositionalIdentity instanceof OptIdentity);
+      let identity = (optPositionalIdentity || optNamedIdentity).getIdentity(ctx, "MustNotExist" /* MustNotExist */);
       (0, import_assert10.strict)(identity !== void 0);
-      if (!withinComponentIdentity) {
-        if (identity.parentURI) {
-          withinComponentIdentity = Identity.from_namespace_and_identity("MustExist" /* MustExist */, identity.sbolVersion, g, identity.namespace, identity.parentURI, identity.version);
-        }
+      let parentURI = "";
+      if (identity.parentURI) {
+        parentURI = identity.parentURI;
+        identity = Identity.toplevel_from_namespace_displayId("MustNotExist" /* MustNotExist */, identity.sbolVersion, g, identity.namespace, identity.displayId, identity.version);
       }
-      (0, import_assert10.strict)(withinComponentIdentity !== void 0);
-      if (!withinComponentIdentity) {
-        throw new ActionResult(text("Components cannot have parents, as they are designated top-level. To specify a component-subcomponent relationship, use the --within-component option."), 0 /* Abort */);
+      if (!parentURI) {
+        throw new ActionResult(text("Interaction must have a parent"));
       }
-      let role = optRole.getTerm(TermType.InteractionType);
-      (0, import_assert10.strict)(role);
+      let _type = optType.getTerm("InteractionType" /* InteractionType */);
+      (0, import_assert10.strict)(_type);
       switch (identity.sbolVersion) {
         case "SBOL2" /* SBOL2 */:
-          return createInteractionSBOL2(g, identity, withinComponentIdentity, role);
+          return createInteractionSBOL2(g, identity, parentURI, _type);
         case "SBOL3" /* SBOL3 */:
-          return createInteractionSBOL3(g, identity, withinComponentIdentity, role);
+          return createInteractionSBOL3(g, identity, parentURI, _type);
         default:
           throw new ActionResult(text("Unsupported SBOL version for create-component"));
       }
       return new ActionResult();
     });
   }
-  function createInteractionSBOL2(g, identity, withinComponentIdentity, type) {
+  function createInteractionSBOL2(g, identity, parentURI, _type) {
     let gv = new import_sboljs14.SBOL2GraphView(g);
     g.insertProperties(import_rdfoo11.node.createUriNode(identity.uri), {
       [import_bioterms11.Predicates.a]: import_rdfoo11.node.createUriNode(import_bioterms11.Types.SBOL2.Interaction),
       [import_bioterms11.Predicates.SBOL2.displayId]: import_rdfoo11.node.createStringNode(identity.displayId),
-      [import_bioterms11.Predicates.SBOL2.type]: import_rdfoo11.node.createUriNode(type)
+      [import_bioterms11.Predicates.SBOL2.type]: import_rdfoo11.node.createUriNode(_type)
     });
     if (identity.version !== void 0) {
       g.insertProperties(import_rdfoo11.node.createUriNode(identity.uri), {
         [import_bioterms11.Predicates.SBOL2.version]: import_rdfoo11.node.createStringNode(identity.version)
       });
     }
-    g.insertProperties(import_rdfoo11.node.createUriNode(withinComponentIdentity.uri), {
+    g.insertProperties(import_rdfoo11.node.createUriNode(parentURI), {
       [import_bioterms11.Predicates.SBOL2.interaction]: import_rdfoo11.node.createUriNode(identity.uri)
     });
     return new ActionResult();
   }
-  function createInteractionSBOL3(g, identity, withinComponentIdentity, type) {
+  function createInteractionSBOL3(g, identity, parentURI, _type) {
     let gv = new import_sboljs14.SBOL3GraphView(g);
     let namespace3 = identity.namespace;
     (0, import_assert10.strict)(namespace3);
@@ -95079,7 +95105,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
       [import_bioterms11.Predicates.a]: import_rdfoo11.node.createUriNode(import_bioterms11.Types.SBOL3.Interaction),
       [import_bioterms11.Predicates.SBOL3.displayId]: import_rdfoo11.node.createStringNode(identity.displayId)
     });
-    g.insertProperties(import_rdfoo11.node.createUriNode(withinComponentIdentity.uri), {
+    g.insertProperties(import_rdfoo11.node.createUriNode(parentURI), {
       [import_bioterms11.Predicates.SBOL3.hasInteraction]: import_rdfoo11.node.createUriNode(identity.uri)
     });
     return new ActionResult();
@@ -95101,11 +95127,6 @@ If such inference is not possible (e.g. no component is specified, or the specif
         type: OptIdentity
       },
       {
-        name: "within-interaction",
-        type: OptIdentity,
-        optional: true
-      },
-      {
         name: "participant",
         type: OptIdentity,
         optional: true
@@ -95116,7 +95137,13 @@ If such inference is not possible (e.g. no component is specified, or the specif
         optional: false
       }
     ],
-    positionalOpts: [],
+    positionalOpts: [
+      {
+        name: "",
+        type: OptIdentity,
+        optional: true
+      }
+    ],
     run: createParticipation
   };
   var create_participation_default = createParticipationAction;
@@ -95124,40 +95151,33 @@ If such inference is not possible (e.g. no component is specified, or the specif
     return __async(this, null, function* () {
       let g = ctx.getCurrentGraph();
       trace(text("createParticipation"));
-      let [optIdentity2, optWithinInteractionIdentity, optParticipant, optRole] = namedOpts;
-      (0, import_assert11.strict)(optIdentity2 instanceof OptIdentity);
-      (0, import_assert11.strict)(optWithinInteractionIdentity instanceof OptIdentity);
+      let [optNamedIdentity, optParticipant, optRole] = namedOpts;
+      (0, import_assert11.strict)(optNamedIdentity instanceof Opt);
       (0, import_assert11.strict)(optParticipant instanceof OptIdentity);
       (0, import_assert11.strict)(optRole instanceof OptTerm);
-      trace(text(`createParticipation participant ${JSON.stringify(optParticipant.optDef)}`));
-      let withinInteractionIdentity = optWithinInteractionIdentity.getIdentity(ctx, "MayExist" /* MayExist */);
-      let identity = optIdentity2.getIdentity(ctx, "MustNotExist" /* MustNotExist */, withinInteractionIdentity);
+      let [optPositionalIdentity] = positionalOpts;
+      (0, import_assert11.strict)(!optPositionalIdentity || optPositionalIdentity instanceof OptIdentity);
+      let identity = (optPositionalIdentity || optNamedIdentity).getIdentity(ctx, "MustNotExist" /* MustNotExist */);
       (0, import_assert11.strict)(identity !== void 0);
-      if (!withinInteractionIdentity) {
-        if (identity.parentURI) {
-          withinInteractionIdentity = Identity.from_namespace_and_identity("MustExist" /* MustExist */, identity.sbolVersion, g, identity.namespace, identity.parentURI, identity.version);
-        }
+      if (!identity.parentURI) {
+        throw new ActionResult(text("Participation must have a parent"));
       }
-      (0, import_assert11.strict)(withinInteractionIdentity !== void 0);
-      if (!withinInteractionIdentity) {
-        throw new ActionResult(text("Participation must be contained by an interaction"));
-      }
-      let participantIdentity = optParticipant.getIdentity(ctx, "MustExist" /* MustExist */, withinInteractionIdentity);
+      let participantIdentity = optParticipant.getIdentity(ctx, "MustExist" /* MustExist */);
       (0, import_assert11.strict)(participantIdentity);
-      let role = optRole.getTerm(TermType.ParticipationRole);
+      let role = optRole.getTerm("ParticipationRole" /* ParticipationRole */);
       (0, import_assert11.strict)(role);
       switch (identity.sbolVersion) {
         case "SBOL2" /* SBOL2 */:
-          return createParticipationSBOL2(g, identity, withinInteractionIdentity, participantIdentity, role);
+          return createParticipationSBOL2(g, identity, participantIdentity, role);
         case "SBOL3" /* SBOL3 */:
-          return createParticipationSBOL3(g, identity, withinInteractionIdentity, participantIdentity, role);
+          return createParticipationSBOL3(g, identity, participantIdentity, role);
         default:
           throw new ActionResult(text("Unsupported SBOL version for create-component"));
       }
       return new ActionResult();
     });
   }
-  function createParticipationSBOL2(g, identity, withinInteractionIdentity, participantIdentity, role) {
+  function createParticipationSBOL2(g, identity, participantIdentity, role) {
     let gv = new import_sboljs15.SBOL2GraphView(g);
     g.insertProperties(import_rdfoo12.node.createUriNode(identity.uri), {
       [import_bioterms12.Predicates.a]: import_rdfoo12.node.createUriNode(import_bioterms12.Types.SBOL2.Participation),
@@ -95169,7 +95189,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
         [import_bioterms12.Predicates.SBOL2.version]: import_rdfoo12.node.createStringNode(identity.version)
       });
     }
-    g.insertProperties(import_rdfoo12.node.createUriNode(withinInteractionIdentity.uri), {
+    g.insertProperties(import_rdfoo12.node.createUriNode(identity.parentURI), {
       [import_bioterms12.Predicates.SBOL2.participation]: import_rdfoo12.node.createUriNode(identity.uri)
     });
     if (participantIdentity) {
@@ -95179,7 +95199,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
     }
     return new ActionResult();
   }
-  function createParticipationSBOL3(g, identity, withinInteractionIdentity, participantIdentity, role) {
+  function createParticipationSBOL3(g, identity, participantIdentity, role) {
     let gv = new import_sboljs15.SBOL3GraphView(g);
     let namespace3 = identity.namespace;
     (0, import_assert11.strict)(namespace3);
@@ -95188,7 +95208,7 @@ If such inference is not possible (e.g. no component is specified, or the specif
       [import_bioterms12.Predicates.SBOL3.displayId]: import_rdfoo12.node.createStringNode(identity.displayId),
       [import_bioterms12.Predicates.SBOL3.role]: import_rdfoo12.node.createUriNode(role)
     });
-    g.insertProperties(import_rdfoo12.node.createUriNode(withinInteractionIdentity.uri), {
+    g.insertProperties(import_rdfoo12.node.createUriNode(identity.parentURI), {
       [import_bioterms12.Predicates.SBOL3.hasParticipation]: import_rdfoo12.node.createUriNode(identity.uri)
     });
     if (participantIdentity) {
@@ -95272,13 +95292,13 @@ If such inference is not possible (e.g. no component is specified, or the specif
   var annotate_range_default = annotateRangeAction;
   function annotateRange(ctx, namedOpts, positionalOpts) {
     return __async(this, null, function* () {
-      let [optIdentity2, optInComponentIdentity, optSource, optEncoding] = namedOpts;
+      let [optIdentity, optInComponentIdentity, optSource, optEncoding] = namedOpts;
       let g = ctx.getCurrentGraph();
-      (0, import_assert12.strict)(optIdentity2 instanceof OptIdentity);
+      (0, import_assert12.strict)(optIdentity instanceof OptIdentity);
       (0, import_assert12.strict)(optInComponentIdentity instanceof OptIdentity);
       (0, import_assert12.strict)(optSource instanceof OptURL);
       (0, import_assert12.strict)(optEncoding instanceof OptString);
-      let identity = optIdentity2.getIdentity(ctx, "MustExist" /* MustExist */);
+      let identity = optIdentity.getIdentity(ctx, "MustExist" /* MustExist */);
       (0, import_assert12.strict)(identity !== void 0);
       if (identity.sbolVersion === "SBOL1" /* SBOL1 */) {
         throw new ActionResult(text("SBOL1 does not support sequence annotations without subcomponents.  Instead, create and assign a subcomponent using the create-component and add-subcomponent actions."), 0 /* Abort */);
@@ -95348,12 +95368,12 @@ If such inference is not possible (e.g. no component is specified, or the specif
     return __async(this, null, function* () {
       let g = ctx.getCurrentGraph();
       trace(text("createParticipant"));
-      let [optIdentity2, optWithinInteractionIdentity, optRole] = namedOpts;
-      (0, import_assert13.strict)(optIdentity2 instanceof OptIdentity);
+      let [optIdentity, optWithinInteractionIdentity, optRole] = namedOpts;
+      (0, import_assert13.strict)(optIdentity instanceof OptIdentity);
       (0, import_assert13.strict)(optWithinInteractionIdentity instanceof OptIdentity);
       (0, import_assert13.strict)(optRole instanceof OptTerm);
       let withinInteractionIdentity = optWithinInteractionIdentity.getIdentity(ctx, "MayExist" /* MayExist */);
-      let identity = optIdentity2.getIdentity(ctx, "MustExist" /* MustExist */, withinInteractionIdentity);
+      let identity = optIdentity.getIdentity(ctx, "MustExist" /* MustExist */, withinInteractionIdentity);
       (0, import_assert13.strict)(identity !== void 0);
       if (!withinInteractionIdentity) {
         if (identity.parentURI) {
@@ -95805,14 +95825,300 @@ Sets the default SBOL version 1/2/3 for actions which create SBOL objects. This 
   // test/run-tests.ts
   init_shim();
 
+  // test/graph-ops/index.ts
+  init_shim();
+
+  // test/graph-ops/multigraph.ts
+  init_shim();
+  var import_rdfoo16 = __toESM(require_dist());
+  var import_assert16 = __toESM(require_assert());
+  var tests = [
+    {
+      id: "graphops-switch-graph-1",
+      name: "Switch from one graph to another (test 1)",
+      command: `
+            --trace
+            --output sbol
+
+            graph a
+                insert --subject "http://s" --predicate "http://p" --object "o"
+
+            graph b
+                insert --subject "http://s" --predicate "http://p" --object "o2"
+
+            graph a
+        `,
+      validate: (r) => __async(void 0, null, function* () {
+        if (r === void 0) {
+          throw new Error("no output");
+        }
+        let g = yield import_rdfoo16.Graph.loadString(r);
+        (0, import_assert16.strict)(g.hasMatch(import_rdfoo16.node.createUriNode("http://s"), "http://p", import_rdfoo16.node.createStringNode("o")));
+        (0, import_assert16.strict)(!g.hasMatch(import_rdfoo16.node.createUriNode("http://s"), "http://p", import_rdfoo16.node.createStringNode("o2")));
+        (0, import_assert16.strict)(g.toArray().length === 1);
+      })
+    },
+    {
+      id: "graphops-switch-graph-2",
+      name: "Switch from one graph to another (test 2)",
+      command: `
+            --trace
+            --output sbol
+
+            graph a
+                insert --subject "http://s" --predicate "http://p" --object "o"
+
+            graph b
+                insert --subject "http://s" --predicate "http://p" --object "o2"
+        `,
+      validate: (r) => __async(void 0, null, function* () {
+        if (r === void 0) {
+          throw new Error("no output");
+        }
+        let g = yield import_rdfoo16.Graph.loadString(r);
+        (0, import_assert16.strict)(g.hasMatch(import_rdfoo16.node.createUriNode("http://s"), "http://p", import_rdfoo16.node.createStringNode("o2")));
+        (0, import_assert16.strict)(!g.hasMatch(import_rdfoo16.node.createUriNode("http://s"), "http://p", import_rdfoo16.node.createStringNode("o")));
+        (0, import_assert16.strict)(g.toArray().length === 1);
+      })
+    }
+  ];
+  var multigraph_default = tests;
+
+  // test/graph-ops/merge.ts
+  init_shim();
+  var import_rdfoo17 = __toESM(require_dist());
+  var import_assert17 = __toESM(require_assert());
+  var tests2 = [
+    {
+      id: "graphops-merge",
+      name: "Merge one graph into another",
+      command: `
+            --trace
+            --output sbol
+
+            graph a
+                insert --subject "http://s" --predicate "http://p" --object "o"
+
+            graph b
+                merge --from a
+        `,
+      validate: (r) => __async(void 0, null, function* () {
+        if (r === void 0) {
+          throw new Error("no output");
+        }
+        let g = yield import_rdfoo17.Graph.loadString(r);
+        (0, import_assert17.strict)(g.hasMatch(import_rdfoo17.node.createUriNode("http://s"), "http://p", import_rdfoo17.node.createStringNode("o")));
+        (0, import_assert17.strict)(!g.hasMatch(import_rdfoo17.node.createUriNode("http://s"), "http://p", import_rdfoo17.node.createStringNode("o2")));
+        (0, import_assert17.strict)(g.toArray().length === 1);
+      })
+    }
+  ];
+  var merge_default2 = tests2;
+
+  // test/graph-ops/dump.ts
+  init_shim();
+  var tests3 = [
+    {
+      id: "graphops-dump",
+      name: "Dump the graph",
+      command: `
+            --trace
+
+            graph a
+                insert --subject "http://s" --predicate "http://p" --object "o"
+                graph-dump
+
+        `,
+      validate: (r) => __async(void 0, null, function* () {
+      })
+    },
+    {
+      id: "graphops-dump-with-title",
+      name: "Dump the graph with a title",
+      command: `
+            --trace
+
+            graph a
+                insert --subject "http://s" --predicate "http://p" --object "o"
+                graph-dump --title "Test title"
+
+        `,
+      validate: (r) => __async(void 0, null, function* () {
+      })
+    }
+  ];
+  var dump_default = tests3;
+
+  // test/graph-ops/index.ts
+  var graph_ops_default = [
+    ...dump_default,
+    ...merge_default2,
+    ...multigraph_default
+  ];
+
+  // test/sbol1/index.ts
+  init_shim();
+
+  // test/sbol1/create-component.ts
+  init_shim();
+  var import_rdfoo18 = __toESM(require_dist());
+  var import_sboljs18 = __toESM(require_dist5());
+  var import_assert18 = __toESM(require_assert());
+  var tests4 = [
+    {
+      id: "sbol1-create-component-001",
+      name: "Create SBOL1 component",
+      command: `
+            --trace
+            --output sbol
+            sbol-version 1
+            namespace "http://example.com/"
+            component lac_inverter
+        `,
+      validate: (r) => __async(void 0, null, function* () {
+        if (r === void 0) {
+          throw new Error("no output");
+        }
+        let g = yield import_rdfoo18.Graph.loadString(r);
+        let gv = new import_sboljs18.SBOL1GraphView(g);
+        let matches = gv.dnaComponents.filter((c) => {
+          return c.subject.value === "http://example.com/lac_inverter" && c.displayId === "lac_inverter";
+        });
+        (0, import_assert18.strict)(matches.length === 1);
+      })
+    },
+    {
+      id: "sbol1-create-component-002",
+      name: "Create SBOL1 component with a subcomponent",
+      command: `
+            --trace
+            --output sbol
+            sbol-version 1
+            namespace "http://example.com/"
+            component lac_inverter
+            graph-dump
+            component lac_inverter.pLac
+        `,
+      validate: (r) => __async(void 0, null, function* () {
+        if (r === void 0) {
+          throw new Error("no output");
+        }
+        let g = yield import_rdfoo18.Graph.loadString(r);
+        let gv = new import_sboljs18.SBOL1GraphView(g);
+        let matches = gv.dnaComponents.filter((c2) => {
+          return c2.subject.value === "http://example.com/lac_inverter" && c2.displayId === "lac_inverter";
+        });
+        if (matches.length !== 1) {
+          throw new Error("matching component not found: " + matches.length);
+        }
+        let c = matches[0];
+        (0, import_assert18.strict)(c.subComponents.length === 1);
+        (0, import_assert18.strict)(c.subComponents[0].displayId === "pLac");
+      })
+    }
+  ];
+  var create_component_default2 = tests4;
+
+  // test/sbol1/index.ts
+  var sbol1_default = [
+    ...create_component_default2
+  ];
+
+  // test/sbol2/index.ts
+  init_shim();
+
+  // test/sbol2/crispr.ts
+  init_shim();
+  var import_rdfoo19 = __toESM(require_dist());
+  var import_sboljs19 = __toESM(require_dist5());
+  var import_assert19 = __toESM(require_assert());
+  var tests5 = [
+    {
+      id: "sbol2-crispr-001",
+      name: "CRISPR example",
+      command: `
+            --trace
+            --output sbol
+            namespace "http://example.com/"
+            sbol-version 2
+            component cas9_generic --type Protein
+            component gRNA_generic --type RNA --role SO:0001998
+            component cas9_gRNA_complex --type Complex
+            component target_gene --type DNA --role Promoter
+            component target --type Protein
+            module CRISPR_Template
+                interaction CRISPR_Template.cas9_complex_formation --type NonCovalentBinding
+                    participation CRISPR_Template.cas9_complex_formation.cas9_generic --participant cas9_generic --role Reactant
+                    participation CRISPR_Template.cas9_complex_formation.gRNA_generic --participant gRNA_generic --role Reactant
+                    participation CRISPR_Template.cas9_complex_formation.cas9_gRNA_complex --participant cas9_gRNA_complex --role Product
+                interaction CRISPR_Template.target_production --type GeneticProduction
+                    participation CRISPR_Template.target_production.participant_target_gene --participant target_gene --role Promoter
+                    participation CRISPR_Template.target_production.participant_target --participant target --role Product
+                interaction CRISPR_Template.target_gene_inhibition --type Inhibition
+                    participation CRISPR_Template.target_gene_inhibition.participant_cas9_gRNA_complex --participant cas9_gRNA_complex --role Inhibitor
+                    participation CRISPR_Template.target_gene_inhibition.participant_target_gene --participant target_gene --role Promoter
+            component EYFP_gene --type DNA 
+            component EYFP_gene.CRP_b --type DNA --role Promoter
+            sequence CRP_b_seq --for-component CRP_b --source ./test/data/CRP_b.fasta
+            component EYFP_gene.EYFP_cds --type DNA --role CDS
+            graph-dump
+            constraint EYFP_gene.EYFP_gene_constraint --subject EYFP_gene.CRP_b --restriction Precedes --object EYFP_gene.EYFP_cds
+        `,
+      validate: (r) => __async(void 0, null, function* () {
+        if (r === void 0) {
+          throw new Error("no output");
+        }
+        let g = yield import_rdfoo19.Graph.loadString(r);
+        let gv = new import_sboljs19.SBOL2GraphView(g);
+        checkCrisprExample(g, gv);
+      })
+    }
+  ];
+  var crispr_default = tests5;
+  function checkCrisprExample(g, gv) {
+    var _a, _b, _c;
+    (0, import_assert19.strict)(gv.componentDefinitions.filter((c) => c.displayId === "cas9_generic").length === 1);
+    (0, import_assert19.strict)(gv.componentDefinitions.filter((c) => c.displayId === "gRNA_generic").length === 1);
+    (0, import_assert19.strict)(gv.componentDefinitions.filter((c) => c.displayId === "cas9_gRNA_complex").length === 1);
+    (0, import_assert19.strict)(gv.componentDefinitions.filter((c) => c.displayId === "target_gene").length === 1);
+    (0, import_assert19.strict)(gv.componentDefinitions.filter((c) => c.displayId === "target").length === 1);
+    (0, import_assert19.strict)(gv.moduleDefinitions.filter((c) => c.displayId === "CRISPR_Template").length === 1);
+    let CRISPR_Template = gv.moduleDefinitions.filter((c) => c.displayId === "CRISPR_Template")[0];
+    let cas9_complex_formation = CRISPR_Template.interactions.filter((i) => i.displayId === "cas9_complex_formation")[0];
+    (0, import_assert19.strict)(cas9_complex_formation);
+    (0, import_assert19.strict)(cas9_complex_formation.types.length === 1);
+    (0, import_assert19.strict)(cas9_complex_formation.hasType("http://identifiers.org/biomodels.sbo/SBO:0000177"));
+    (0, import_assert19.strict)(cas9_complex_formation.participations.length === 3);
+    (0, import_assert19.strict)(cas9_complex_formation.participations.filter((p) => p.displayId === "cas9_generic").length === 1);
+    (0, import_assert19.strict)(cas9_complex_formation.participations.filter((p) => p.displayId === "cas9_generic")[0].hasRole("http://identifiers.org/biomodels.sbo/SBO:0000010"));
+    (0, import_assert19.strict)(((_a = cas9_complex_formation.participations.filter((p) => p.displayId === "cas9_generic")[0].participant) == null ? void 0 : _a.displayId) === "cas9_generic");
+    (0, import_assert19.strict)(cas9_complex_formation.participations.filter((p) => p.displayId === "gRNA_generic").length === 1);
+    (0, import_assert19.strict)(cas9_complex_formation.participations.filter((p) => p.displayId === "gRNA_generic")[0].hasRole("http://identifiers.org/biomodels.sbo/SBO:0000010"));
+    (0, import_assert19.strict)(((_b = cas9_complex_formation.participations.filter((p) => p.displayId === "gRNA_generic")[0].participant) == null ? void 0 : _b.displayId) === "gRNA_generic");
+    (0, import_assert19.strict)(cas9_complex_formation.participations.filter((p) => p.displayId === "cas9_gRNA_complex").length === 1);
+    (0, import_assert19.strict)(cas9_complex_formation.participations.filter((p) => p.displayId === "cas9_gRNA_complex")[0].hasRole("http://identifiers.org/biomodels.sbo/SBO:0000011"));
+    (0, import_assert19.strict)(((_c = cas9_complex_formation.participations.filter((p) => p.displayId === "cas9_gRNA_complex")[0].participant) == null ? void 0 : _c.displayId) === "cas9_gRNA_complex");
+    let CRP_b_seq = gv.sequences.filter((seq) => seq.displayId === "CRP_b_seq")[0];
+    (0, import_assert19.strict)(CRP_b_seq);
+    (0, import_assert19.strict)(CRP_b_seq.elements);
+    (0, import_assert19.strict)(gv.componentDefinitions.filter((c) => c.displayId === "CRP_b").length === 1);
+    (0, import_assert19.strict)(gv.componentDefinitions.filter((c) => c.displayId === "CRP_b")[0].sequences.length === 1);
+    (0, import_assert19.strict)(gv.componentDefinitions.filter((c) => c.displayId === "CRP_b")[0].sequences[0].displayId === "CRP_b_seq");
+  }
+
+  // test/sbol2/index.ts
+  var sbol2_default = [
+    ...crispr_default
+  ];
+
   // test/sbol3/index.ts
   init_shim();
 
   // test/sbol3/sbol2-to-sbol3.ts
   init_shim();
-  var import_rdfoo16 = __toESM(require_dist());
-  var import_sboljs18 = __toESM(require_dist5());
-  var tests = [
+  var import_rdfoo20 = __toESM(require_dist());
+  var import_sboljs20 = __toESM(require_dist5());
+  var tests6 = [
     {
       id: "sbol3-2to3conversion-001",
       name: "Convert SBOL2 to SBOL3",
@@ -95824,7 +96130,7 @@ Sets the default SBOL version 1/2/3 for actions which create SBOL objects. This 
       ],
       command: (filename) => `
             --trace
-            --output sbol3
+            --output sbol
 
             graph orig
                 import ${filename}
@@ -95847,12 +96153,12 @@ Sets the default SBOL version 1/2/3 for actions which create SBOL objects. This 
         if (r === void 0) {
           throw new Error("no output");
         }
-        let g = yield import_rdfoo16.Graph.loadString(r);
-        let gv = new import_sboljs18.SBOL2GraphView(g);
+        let g = yield import_rdfoo20.Graph.loadString(r);
+        let gv = new import_sboljs20.SBOL2GraphView(g);
       })
     }
   ];
-  var sbol2_to_sbol3_default = tests;
+  var sbol2_to_sbol3_default = tests6;
 
   // test/sbol3/index.ts
   var sbol3_default = [
@@ -95863,14 +96169,19 @@ Sets the default SBOL version 1/2/3 for actions which create SBOL objects. This 
   var import_string_argv = __toESM(require_string_argv());
   var chalk3 = require_source();
   var glob = require_lib4();
-  var tests2 = [
+  var tests7 = [
+    ...graph_ops_default,
+    ...sbol1_default,
+    ...sbol2_default,
     ...sbol3_default
   ];
   function runTests() {
     return __async(this, null, function* () {
       let passes = [];
       let fails = [];
-      for (let test of tests2) {
+      var n = 0;
+      for (let test of tests7) {
+        ++n;
         let pass = true;
         if (test.glob) {
           let files = [];
@@ -95887,12 +96198,12 @@ Sets the default SBOL version 1/2/3 for actions which create SBOL objects. This 
           print(text(files.length + " file(s)"));
           for (let file of files) {
             let c = test.command(file);
-            print(text("===== TEST: " + test.id + ": " + test.name + " " + file, "white bold"));
+            print(text(`===== TEST [${n}/${tests7.length}]: ` + test.id + ": " + test.name + " " + file, "white bold"));
             print(text("      command: " + c, "white bold"));
             yield run(test, test.id + "#" + file.split("/").pop(), c);
           }
         } else {
-          print(text("===== TEST: " + test.id + ": " + test.name, "white bold"));
+          print(text(`===== TEST [${n}/${tests7.length}]: ` + test.id + ": " + test.name, "white bold"));
           print(text("      command: " + test.command, "white bold"));
           yield run(test, test.id, test.command);
         }
@@ -95922,14 +96233,14 @@ Sets the default SBOL version 1/2/3 for actions which create SBOL objects. This 
             pass = false;
           }
           let captured2 = endCaptureOutput();
-          print(indent(captured2.map((node17) => {
-            if (node17.type === "trace") {
-              let t = tostring(0, node17.node);
+          print(indent(captured2.map((node19) => {
+            if (node19.type === "trace") {
+              let t = tostring(0, node19.node);
               t = t.trim().split("\n").map((line) => "[trace] " + line).join("\n");
               t = chalk3.dim(t);
               return multiline(t);
             } else {
-              let t = tostring(0, node17.node);
+              let t = tostring(0, node19.node);
               return multiline(t);
             }
           })));
@@ -95945,12 +96256,12 @@ Sets the default SBOL version 1/2/3 for actions which create SBOL objects. This 
           }
           if (pass) {
             print(spacer());
-            print(text("\u2705 Passed: " + id, "green bold"));
+            print(text(`\u2705 Passed [${n}/${tests7.length}]: ` + id, "green bold"));
             print(spacer());
             passes.push(id);
           } else {
             print(spacer());
-            print(text("\u274C Failed: " + id, "red bold"));
+            print(text(`\u274C Failed [${n}/${tests7.length}]: ` + id, "red bold"));
             print(spacer());
             fails.push(id);
           }
@@ -96053,25 +96364,22 @@ Sets the default SBOL version 1/2/3 for actions which create SBOL objects. This 
       let def = actions_default.filter((a) => a.name === name)[0];
       let namedOpts = [];
       let positionalOpts = [];
-      let nPositionalRemaining = def == null ? void 0 : def.positionalOpts.length;
       while (args.length > 0) {
         let { name: name2, type } = parseToken(args[0]);
-        if (type !== 0 /* Option */) {
-          if (nPositionalRemaining > 0) {
-            --nPositionalRemaining;
-            positionalOpts.push(args[0]);
-            args.shift();
-            continue;
-          } else {
-            break;
+        if (type === 1 /* Action */) {
+          break;
+        }
+        if (type === 0 /* Option */) {
+          let option = { name: name2 };
+          args.shift();
+          if (parseToken(args[0]).type !== 1 /* Action */) {
+            option.value = args.shift();
           }
+          namedOpts.push(option);
+          continue;
         }
+        positionalOpts.push(args[0]);
         args.shift();
-        let option = { name: name2 };
-        if (parseToken(args[0]).type !== 1 /* Action */) {
-          option.value = args.shift();
-        }
-        namedOpts.push(option);
       }
       return new ArgvAction(name, new ArgvOptionSet(namedOpts), positionalOpts);
     }
@@ -96321,7 +96629,7 @@ For comprehensive documentation, check out http://sboltools.github.io
 
   // src/summarize.ts
   init_shim();
-  var import_sboljs19 = __toESM(require_dist5());
+  var import_sboljs21 = __toESM(require_dist5());
 
   // src/sbol2/mdTree.ts
   init_shim();
@@ -96343,8 +96651,8 @@ For comprehensive documentation, check out http://sboltools.github.io
       }
     }
     function fcToNode(fc) {
-      let node17 = new OutputNodeTree(fc.definition.displayName || "??fc", {}, []);
-      return node17;
+      let node19 = new OutputNodeTree(fc.definition.displayName || "??fc", {}, []);
+      return node19;
     }
   }
 
@@ -96365,7 +96673,7 @@ For comprehensive documentation, check out http://sboltools.github.io
           summariseProv(g)
         ]),
         spacer(),
-        conditional(new import_sboljs19.SBOL1GraphView(g).topLevels.length > 0, [
+        conditional(new import_sboljs21.SBOL1GraphView(g).topLevels.length > 0, [
           header("SBOL 1.x Overview", "bold underline caps"),
           spacer(),
           indent([
@@ -96373,12 +96681,12 @@ For comprehensive documentation, check out http://sboltools.github.io
               header("DnaComponent(s)"),
               spacer(),
               indent([
-                dnaComponentTree(new import_sboljs19.SBOL1GraphView(g))
+                dnaComponentTree(new import_sboljs21.SBOL1GraphView(g))
               ])
             ])
           ])
         ]),
-        conditional(new import_sboljs19.SBOL2GraphView(g).topLevels.length > 0, [
+        conditional(new import_sboljs21.SBOL2GraphView(g).topLevels.length > 0, [
           header("SBOL 2.x Overview", "bold underline caps"),
           spacer(),
           indent([
@@ -96386,18 +96694,18 @@ For comprehensive documentation, check out http://sboltools.github.io
               header("ModuleDefinition(s)"),
               spacer(),
               indent([
-                mdTree(new import_sboljs19.SBOL2GraphView(g))
+                mdTree(new import_sboljs21.SBOL2GraphView(g))
               ]),
               spacer(),
               header("ComponentDefinition(s)"),
               spacer(),
               indent([
-                cdTree(new import_sboljs19.SBOL2GraphView(g))
+                cdTree(new import_sboljs21.SBOL2GraphView(g))
               ])
             ])
           ])
         ]),
-        conditional(new import_sboljs19.SBOL3GraphView(g).topLevels.length > 0, [
+        conditional(new import_sboljs21.SBOL3GraphView(g).topLevels.length > 0, [
           header("SBOL 3.x Overview", "bold underline caps"),
           spacer(),
           indent([
@@ -96405,7 +96713,7 @@ For comprehensive documentation, check out http://sboltools.github.io
               header("Component(s)"),
               spacer(),
               indent([
-                componentTree(new import_sboljs19.SBOL3GraphView(g))
+                componentTree(new import_sboljs21.SBOL3GraphView(g))
               ])
             ])
           ])
@@ -96415,7 +96723,7 @@ For comprehensive documentation, check out http://sboltools.github.io
     });
   }
   function summariseSBOL1(g) {
-    let v = new import_sboljs19.SBOL1GraphView(g);
+    let v = new import_sboljs21.SBOL1GraphView(g);
     let any = v.topLevels.length > 0;
     if (!any) {
       return group([
@@ -96434,7 +96742,7 @@ For comprehensive documentation, check out http://sboltools.github.io
     ]);
   }
   function summariseSBOL2(g) {
-    let v = new import_sboljs19.SBOL2GraphView(g);
+    let v = new import_sboljs21.SBOL2GraphView(g);
     let any = v.topLevels.length > 0;
     if (!any) {
       return group([
@@ -96453,7 +96761,7 @@ For comprehensive documentation, check out http://sboltools.github.io
     ]);
   }
   function summariseSBOL3(g) {
-    let v = new import_sboljs19.SBOL3GraphView(g);
+    let v = new import_sboljs21.SBOL3GraphView(g);
     let any = v.topLevels.length > 0;
     if (!any) {
       return group([
@@ -96481,11 +96789,11 @@ For comprehensive documentation, check out http://sboltools.github.io
 
   // src/Context.ts
   init_shim();
-  var import_rdfoo17 = __toESM(require_dist());
+  var import_rdfoo21 = __toESM(require_dist());
   var Context = class {
     constructor() {
       this.graphs = /* @__PURE__ */ new Map();
-      this.currentGraph = new import_rdfoo17.Graph();
+      this.currentGraph = new import_rdfoo21.Graph();
       this.graphs.set("default", this.currentGraph);
       this.currentNamespace = "";
       this.sbolVersion = "Empty" /* Empty */;
@@ -96496,7 +96804,7 @@ For comprehensive documentation, check out http://sboltools.github.io
     setCurrentGraph(name) {
       let g = this.graphs.get(name.toLowerCase());
       if (!g) {
-        g = new import_rdfoo17.Graph();
+        g = new import_rdfoo21.Graph();
         this.graphs.set(name.toLowerCase(), g);
       }
       this.currentGraph = g;
@@ -96509,7 +96817,7 @@ For comprehensive documentation, check out http://sboltools.github.io
 
   // src/graphToSboltoolsCmd.ts
   init_shim();
-  var import_sboljs20 = __toESM(require_dist5());
+  var import_sboljs22 = __toESM(require_dist5());
   var fs13 = require_main();
   function graphToSboltoolsCmd(g) {
     let out = [];
@@ -96517,7 +96825,7 @@ For comprehensive documentation, check out http://sboltools.github.io
       text("sbol-version 3")
     ]));
     let curNamespace = "";
-    for (let rootC of (0, import_sboljs20.sbol3)(g).rootComponents) {
+    for (let rootC of (0, import_sboljs22.sbol3)(g).rootComponents) {
       if (curNamespace !== rootC.namespace) {
         out.push(indent([
           text("namespace " + rootC.namespace)
@@ -96599,7 +96907,7 @@ For comprehensive documentation, check out http://sboltools.github.io
           if (action9.positionalOpts[i]) {
             return new optDef.type(actDef, optDef, new ArgvOptionSet([
               new ArgvNamedOption(optDef.name, action9.positionalOpts[i])
-            ], void 0));
+            ]));
           } else {
             return void 0;
           }
@@ -96641,12 +96949,25 @@ For comprehensive documentation, check out http://sboltools.github.io
           case "summary":
             summarize(ctx.getCurrentGraph());
             break;
+          case "sbol":
+            let detectedVersion = getSBOLVersionFromGraph(ctx.getCurrentGraph());
+            switch (detectedVersion) {
+              case "SBOL1" /* SBOL1 */:
+                return new import_sboljs23.SBOL1GraphView(ctx.getCurrentGraph()).serializeXML();
+              case "SBOL2" /* SBOL2 */:
+                return new import_sboljs23.SBOL2GraphView(ctx.getCurrentGraph()).serializeXML();
+              case "SBOL3" /* SBOL3 */:
+                return new import_sboljs23.SBOL3GraphView(ctx.getCurrentGraph()).serializeXML();
+              case "Mixed" /* Mixed */:
+              default:
+                return new import_sboljs23.SBOL3GraphView(ctx.getCurrentGraph()).serializeXML();
+            }
           case "sbol1":
-            return new import_sboljs21.SBOL1GraphView(ctx.getCurrentGraph()).serializeXML();
+            return new import_sboljs23.SBOL1GraphView(ctx.getCurrentGraph()).serializeXML();
           case "sbol2":
-            return new import_sboljs21.SBOL2GraphView(ctx.getCurrentGraph()).serializeXML();
+            return new import_sboljs23.SBOL2GraphView(ctx.getCurrentGraph()).serializeXML();
           case "sbol3":
-            return new import_sboljs21.SBOL3GraphView(ctx.getCurrentGraph()).serializeXML();
+            return new import_sboljs23.SBOL3GraphView(ctx.getCurrentGraph()).serializeXML();
           case "fasta":
             print(text(chalk4.red("FASTA output not yet supported")));
             break;
